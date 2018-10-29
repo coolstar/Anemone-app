@@ -106,7 +106,6 @@
             NSData *separator = [@"\n\n" dataUsingEncoding:NSUTF8StringEncoding];
             
             NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionary];
-            BOOL isStatusFile = [packagesFile hasSuffix:@"status"];
             
             while (index < normalizedData.length){
                 NSRange range = [normalizedData rangeOfData:separator options:0 range:NSMakeRange(index, normalizedData.length - index)];

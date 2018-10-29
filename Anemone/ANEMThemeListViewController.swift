@@ -173,6 +173,16 @@ extension ANEMThemeListViewController : LNZTreeViewDataSource {
             } else {
                 cell.enableButton?.setImage(UIImage(named: "enable"), for: UIControl.State.normal)
             }
+            cell.enableButton?.block_setAction(block: { (enableButton) in
+                let categoryNode : ThemeCategoryNode = node as! ThemeCategoryNode
+                let enableState : Bool = !node.isEnabled;
+                categoryNode.themes.forEach({ (themeNode) in
+                    themeNode.enabled = enableState
+                    treeView.reload(node: themeNode, inSection: indexPath.section)
+                })
+                treeView.reload(node: node, inSection: indexPath.section)
+                self.writeSettings()
+            }, for: UIControl.Event.touchUpInside)
         }
         cell.themeLabel?.text = node.humanReadable
         return cell
@@ -186,6 +196,10 @@ extension ANEMThemeListViewController : LNZTreeViewDelegate {
     
     func treeView(_ treeView: LNZTreeView, editingStyleForNodeAt indexPath: IndexPath, forParentNode parentNode: TreeNodeProtocol?) -> UITableViewCell.EditingStyle {
         return .none
+    }
+    
+    func treeView(_ treeView: LNZTreeView, shouldIndentWhileEditingRowAt indexPath: IndexPath, forParentNode parentNode: TreeNodeProtocol?) -> Bool {
+        return false
     }
     
     func treeView(_ treeView: LNZTreeView, canMoveRowAt indexPath: IndexPath, forParentNode parentNode: TreeNodeProtocol?) -> Bool {

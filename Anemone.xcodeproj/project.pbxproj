@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DEB68EDE80D436E83408EBE /* Pods_Anemone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */; };
+		F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693278218792B70017DF91 /* ActionBlockButton.swift */; };
 		F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5393321864B5000CDF1CC /* AppDelegate.swift */; };
 		F1C5393921864B5000CDF1CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393A21864B5100CDF1CC /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		352B8FACAEC20AC6883D7C05 /* Pods-Anemone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anemone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Anemone/Pods-Anemone.release.xcconfig"; sourceTree = "<group>"; };
 		4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anemone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED2D52DB09124B46B7CB5E /* Pods-Anemone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anemone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Anemone/Pods-Anemone.debug.xcconfig"; sourceTree = "<group>"; };
+		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
 		F1C5393021864B5000CDF1CC /* Anemone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anemone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C5393321864B5000CDF1CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1C5393821864B5000CDF1CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				F1C5399121866B2700CDF1CC /* Nodes */,
 				F1C5399021866B2000CDF1CC /* Category Cell */,
 				F1C5399221866BAD00CDF1CC /* Theme Cell */,
+				F1693278218792B70017DF91 /* ActionBlockButton.swift */,
 				F1C5396121864C5800CDF1CC /* ANEMThemeListViewController.swift */,
 				F1C5396221864C5800CDF1CC /* ANEMThemeListViewController.xib */,
 			);
@@ -460,6 +463,7 @@
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
 				F1C5397D2186542400CDF1CC /* Package.m in Sources */,
 				F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */,
+				F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */,
 				F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */,
 				F1C539852186557400CDF1CC /* NSString-TrimLeadingWhitespace.m in Sources */,
 				F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */,
