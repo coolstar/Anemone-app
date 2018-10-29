@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2DEB68EDE80D436E83408EBE /* Pods_Anemone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */; };
 		F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693278218792B70017DF91 /* ActionBlockButton.swift */; };
+		F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */; };
+		F169327D2187CF050017DF91 /* Test Themes in Resources */ = {isa = PBXBuildFile; fileRef = F169327C2187CF050017DF91 /* Test Themes */; };
 		F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5393321864B5000CDF1CC /* AppDelegate.swift */; };
 		F1C5393921864B5000CDF1CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393A21864B5100CDF1CC /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anemone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED2D52DB09124B46B7CB5E /* Pods-Anemone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anemone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Anemone/Pods-Anemone.debug.xcconfig"; sourceTree = "<group>"; };
 		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
+		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
+		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
 		F1C5393021864B5000CDF1CC /* Anemone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anemone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C5393321864B5000CDF1CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1C5393821864B5000CDF1CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,10 +151,12 @@
 		F1C5393221864B5000CDF1CC /* Anemone */ = {
 			isa = PBXGroup;
 			children = (
+				F169327C2187CF050017DF91 /* Test Themes */,
 				F1C5396F2186533A00CDF1CC /* Test Data */,
 				F1C539792186541000CDF1CC /* Sileo Backend */,
 				F1C5393321864B5000CDF1CC /* AppDelegate.swift */,
 				F1C5398F21866B1900CDF1CC /* Theme List View Controller */,
+				F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */,
 				F1C5393721864B5000CDF1CC /* Main.storyboard */,
 				F1C5393A21864B5100CDF1CC /* Assets.xcassets */,
 				F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */,
@@ -391,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */,
+				F169327D2187CF050017DF91 /* Test Themes in Resources */,
 				F1C5393E21864B5100CDF1CC /* LaunchScreen.storyboard in Resources */,
 				F1C5398A21866AAB00CDF1CC /* ANEMThemeListViewController.xib in Resources */,
 				F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */,
@@ -463,6 +470,7 @@
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
 				F1C5397D2186542400CDF1CC /* Package.m in Sources */,
 				F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */,
+				F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */,
 				F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */,
 				F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */,
 				F1C539852186557400CDF1CC /* NSString-TrimLeadingWhitespace.m in Sources */,
@@ -577,7 +585,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -633,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

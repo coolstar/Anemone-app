@@ -171,6 +171,14 @@
     return packagesList;
 }
 
+- (NSString *)prefixDir {
+#if TARGET_SANDBOX
+    return [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Test Themes"];
+#else
+    return @"/Library/Themes";
+#endif
+}
+
 - (NSMutableDictionary<NSString *, NSArray *> *)scanForThemes {
     NSArray *themesDirContents = @[@"Amury Alt Apple Icons.theme", @"Amury Alt Icons.theme",
                                     @"Amury Apple Music Icon.theme", @"Amury Control Center.theme",

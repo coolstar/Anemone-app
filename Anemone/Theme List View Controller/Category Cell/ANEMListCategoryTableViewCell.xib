@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,18 +33,28 @@
                         </constraints>
                         <state key="normal" image="enable"/>
                     </button>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmn-Mi-gn2">
+                        <rect key="frame" x="28" y="48" width="276" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="BVa-NH-k71"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="sNN-3u-UwM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Fbw-cp-RlU"/>
                     <constraint firstItem="8vf-lT-1wi" firstAttribute="centerY" secondItem="sNN-3u-UwM" secondAttribute="centerY" id="GVq-6I-xBq"/>
+                    <constraint firstItem="Zmn-Mi-gn2" firstAttribute="top" secondItem="sNN-3u-UwM" secondAttribute="bottom" constant="8" id="Jw2-zR-p58"/>
                     <constraint firstAttribute="trailing" secondItem="8vf-lT-1wi" secondAttribute="trailing" constant="16" id="Rud-yT-csK"/>
                     <constraint firstItem="sNN-3u-UwM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="esr-LW-OAG"/>
+                    <constraint firstItem="Zmn-Mi-gn2" firstAttribute="trailing" secondItem="8vf-lT-1wi" secondAttribute="trailing" id="ppV-sq-iTB"/>
+                    <constraint firstItem="Zmn-Mi-gn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="qLc-vd-Rt3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="enableButton" destination="8vf-lT-1wi" id="iWm-ip-cSJ"/>
-                <outlet property="themeLabel" destination="sNN-3u-UwM" id="1hS-hd-B0T"/>
+                <outlet property="scrollPreviews" destination="Zmn-Mi-gn2" id="Y3B-H8-HVG"/>
+                <outlet property="themeLabel" destination="sNN-3u-UwM" id="JOU-f4-j8L"/>
             </connections>
             <point key="canvasLocation" x="41.600000000000001" y="69.715142428785612"/>
         </tableViewCell>

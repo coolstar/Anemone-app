@@ -16,8 +16,6 @@ class ANEMThemeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Anemone"
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
         
         treeView?.register(UINib.init(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
@@ -188,6 +186,9 @@ extension ANEMThemeListViewController : LNZTreeViewDataSource {
                 treeView.reload(node: node, inSection: indexPath.section)
                 self.writeSettings()
             }, for: UIControl.Event.touchUpInside)
+            let categoryCell : ANEMListCategoryTableViewCell = cell as! ANEMListCategoryTableViewCell
+            categoryCell.themeCategoryNode = node as? ThemeCategoryNode
+            categoryCell.reloadTheme()
         }
         cell.themeLabel?.text = node.humanReadable
         return cell
