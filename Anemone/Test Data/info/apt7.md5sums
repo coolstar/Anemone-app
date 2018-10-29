@@ -1,0 +1,9 @@
+92c0855b6d3162a550d618319f08c2eb  usr/bin/apt
+60e0d1f6972e87d91a8ac4588e7f7d75  usr/bin/apt-cache
+4982807a509b508ecb5b898f2716b35d  usr/bin/apt-cdrom
+ee39e52c5c2febde2df8a6ec160b93eb  usr/bin/apt-config
+bade36b11fbcfd7b679d23b8a78c63bf  usr/bin/apt-extracttemplates
+dba1eabbc94e845dbb234bcbdf1cbcdf  usr/bin/apt-ftparchive
+30a74f38e6a93e328cde9567d2c458aa  usr/bin/apt-get
+efdafa23a9812ca9195c825b188da55f  usr/bin/apt-mark
+a8566937f674f6469d878db093b225cb  usr/bin/apt-sortpkgs

@@ -1,0 +1,20 @@
+/.
+/Library
+/Library/Application Support
+/Library/Application Support/FloatingDock
+/Library/Application Support/FloatingDock/icon.png
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/FloatingDock.dylib
+/Library/MobileSubstrate/DynamicLibraries/FloatingDock.plist
+/Library/PreferenceBundles
+/Library/PreferenceBundles/FloatingDock.bundle
+/Library/PreferenceBundles/FloatingDock.bundle/FloatingDock
+/Library/PreferenceBundles/FloatingDock.bundle/FloatingDock.plist
+/Library/PreferenceBundles/FloatingDock.bundle/Info.plist
+/Library/PreferenceBundles/FloatingDock.bundle/icon@2x.png
+/Library/PreferenceBundles/FloatingDock.bundle/paypal@2x.png
+/Library/PreferenceBundles/FloatingDock.bundle/twitter@2x.png
+/Library/PreferenceLoader
+/Library/PreferenceLoader/Preferences
+/Library/PreferenceLoader/Preferences/FloatingDock.plist

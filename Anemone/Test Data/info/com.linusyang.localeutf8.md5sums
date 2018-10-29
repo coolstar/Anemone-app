@@ -1,0 +1,13 @@
+d8e0572912e30fb65ca73e41eb6e417c  etc/profile.d/localeutf8.sh
+7b008442fbaf5dfe7a10fb3d82a634ab  usr/share/locale/en_US.UTF-8/LC_COLLATE
+a946b71e974b04271b562fb7c524bd44  usr/share/locale/en_US.UTF-8/LC_CTYPE
+998fc9b353ac31106bcee08d4ff0d218  usr/share/locale/en_US.UTF-8/LC_MESSAGES/LC_MESSAGES
+61e5b24b54627a1108c32153caf653d4  usr/share/locale/en_US.UTF-8/LC_MONETARY
+076dead4133661efc533eeb158fa2a1b  usr/share/locale/en_US.UTF-8/LC_NUMERIC
+008344d71b712547304eb061fca4ac2e  usr/share/locale/en_US.UTF-8/LC_TIME
+7b008442fbaf5dfe7a10fb3d82a634ab  usr/share/locale/zh_CN.UTF-8/LC_COLLATE
+a946b71e974b04271b562fb7c524bd44  usr/share/locale/zh_CN.UTF-8/LC_CTYPE
+bf82e70c18ad6393a03734b9570a51a2  usr/share/locale/zh_CN.UTF-8/LC_MESSAGES/LC_MESSAGES
+57ac2fb9b0d3c8a80e100871aa9be574  usr/share/locale/zh_CN.UTF-8/LC_MONETARY
+076dead4133661efc533eeb158fa2a1b  usr/share/locale/zh_CN.UTF-8/LC_NUMERIC
+2de7c5b7f67623e80cfb810ed91c845a  usr/share/locale/zh_CN.UTF-8/LC_TIME

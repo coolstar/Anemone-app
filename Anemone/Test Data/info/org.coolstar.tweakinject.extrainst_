@@ -1,0 +1,33 @@
+#!/bin/bash
+
+## Acceptable parameters for finish
+# return - normal behaviour (return to cydia)
+# reopen - exit cydia
+# restart - reload springboard
+# reload - reload springboard
+# reboot - reboot device
+##
+# Historically, 'restart' restarted springboard but did not reload the launchdaemon.
+# (reload was used for this purpose.) Now, restart and reload are equivalent.
+function finish() {
+	f="${1}"
+
+	# No control fd: bail out
+	[[ -z "${f}" || -z "${CYDIA}" ]] && return
+	cydia=(${CYDIA})
+
+	# Cydia control fd version != 1: bail out
+	[[ ${cydia[1]} -eq 1 ]] || return
+
+	echo "finish:${f}" >&${cydia[0]}
+}
+
+if [[ `basename $0` == "extrainst_" ]]; then
+	case "$1" in
+	upgrade )
+		finish reboot
+		;;
+	esac
+fi
+
+exit 0

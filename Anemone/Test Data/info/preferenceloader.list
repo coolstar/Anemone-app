@@ -1,0 +1,15 @@
+/.
+/Library
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/PreferenceLoader.dylib
+/Library/MobileSubstrate/DynamicLibraries/PreferenceLoader.plist
+/Library/PreferenceBundles
+/Library/PreferenceLoader
+/Library/PreferenceLoader/Preferences
+/usr
+/usr/include
+/usr/include/libprefs
+/usr/include/libprefs/prefs.h
+/usr/lib
+/usr/lib/libprefs.dylib

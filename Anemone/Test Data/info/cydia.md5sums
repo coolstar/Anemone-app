@@ -1,0 +1,10 @@
+f84c3312b1225bbe0bda094718b2ce0c  Library/LaunchDaemons/com.saurik.Cydia.Startup.plist
+eea207ed8ee2010889842732f3d35867  usr/libexec/cydia/cfversion
+07ffda22047e9a5ceceb4441d0830640  usr/libexec/cydia/cydo
+bfe9cf18e24dc1629a153bc2e8e42aab  usr/libexec/cydia/du
+1f24f2b846465939999498279c28a21f  usr/libexec/cydia/finish.sh
+c8dce7d0fa8a548e1ff2635cc081762f  usr/libexec/cydia/firmware.sh
+6426578ec87ed70a09aec6e8f330ed45  usr/libexec/cydia/free.sh
+4d547d87f9619e06eab1c59acb82b121  usr/libexec/cydia/move.sh
+03739faf96be4611d3c087af72f36ddc  usr/libexec/cydia/setnsfpn
+fccf178c6ea647e3617e0a8da4b67972  usr/libexec/cydia/startup

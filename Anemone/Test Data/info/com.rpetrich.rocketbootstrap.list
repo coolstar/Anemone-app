@@ -1,0 +1,17 @@
+/.
+/Library
+/Library/LaunchDaemons
+/Library/LaunchDaemons/com.rpetrich.rocketbootstrapd.plist
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/RocketBootstrap.plist
+/usr
+/usr/include
+/usr/include/rocketbootstrap.h
+/usr/include/rocketbootstrap_dynamic.h
+/usr/lib
+/usr/lib/librocketbootstrap.dylib
+/usr/libexec
+/usr/libexec/_rocketd_reenable
+/usr/libexec/rocketd
+/Library/MobileSubstrate/DynamicLibraries/RocketBootstrap.dylib

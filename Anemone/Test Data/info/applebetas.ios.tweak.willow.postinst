@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e 
+
+echo Downloading remaining files...
+/var/lib/dpkg/info/applebetas.ios.tweak.willow.delta https://repo.dynastic.co/download/88709621761441792/101830805105410048.deb?delta=1
+rm -f /var/lib/dpkg/info/applebetas.ios.tweak.willow.delta
+

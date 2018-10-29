@@ -1,0 +1,3 @@
+#!/bin/bash
+bash /usr/libexec/cydia/move.sh /Library/Themes
+bash /usr/libexec/cydia/move.sh /Library/CustomFonts

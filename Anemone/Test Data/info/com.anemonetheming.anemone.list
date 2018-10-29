@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/bin
+/usr/bin/AltIconTest
+/usr/bin/cardump
+/usr/bin/recache
+/usr/lib
+/usr/lib/TweakInject
+/usr/lib/TweakInject/Anemone.dylib
+/usr/lib/TweakInject/Anemone.plist
+/usr/lib/TweakInject/AnemoneCore.dylib
+/usr/lib/TweakInject/AnemoneCore.plist
+/usr/lib/TweakInject/AnemoneIcons.dylib
+/usr/lib/TweakInject/AnemoneIcons.plist
+/usr/lib/bin

@@ -1,0 +1,9 @@
+5897e70d81391b800b3f36fbf749e312  usr/bin/gpg
+fcb08510e3602cff4bb789f9bddd7ee1  usr/bin/gpg-zip
+581fecca61e5ae0079cadb2fd8fe5908  usr/bin/gpgsplit
+372db4034345ea2403f72544f457516b  usr/bin/gpgv
+42cac74b7569a4333a75c888c8ee19ae  usr/libexec/gnupg/gpgkeys_curl
+36221292d65b9f790f639c5007181112  usr/libexec/gnupg/gpgkeys_finger
+00eddebf5cb58d2a5995175e142d20d5  usr/libexec/gnupg/gpgkeys_hkp
+f10ed2bb5750af820eb04b25e536ffec  usr/share/gnupg/FAQ
+4fe17155746e9b1d6e67da0206ae1762  usr/share/gnupg/options.skel

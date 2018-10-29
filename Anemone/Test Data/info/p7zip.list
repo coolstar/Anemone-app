@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/bin
+/usr/lib
+/usr/lib/p7zip
+/usr/lib/p7zip/7z
+/usr/lib/p7zip/7z.so
+/usr/lib/p7zip/7zCon.sfx
+/usr/lib/p7zip/7za
+/usr/lib/p7zip/Codecs
+/usr/lib/p7zip/Codecs/Rar.so
+/usr/bin/7z
+/usr/bin/7za

@@ -1,0 +1,24 @@
+#!/bin/bash
+touch /etc/apt/sources.list.d/sileo.list
+
+if ! [ -s /etc/apt/sources.list.d/sileo.list ]; then
+	echo -e "\n" > /etc/apt/sources.list.d/sileo.list
+fi
+
+if ! grep -Fxq "deb https://repounclutter.coolstar.org/ ./" /etc/apt/sources.list.d/sileo.list ;
+then
+	echo "Installed BigBoss+ Repo"
+	sed -i '1s;^;deb https://repounclutter.coolstar.org/ ./\n;' /etc/apt/sources.list.d/sileo.list
+fi
+
+if ! grep -Fxq "deb https://repo.chariz.io/ ./" /etc/apt/sources.list.d/sileo.list ;
+then
+	echo "Installed Chariz Repo"
+	sed -i '1s;^;deb https://repo.chariz.io/ ./\n;' /etc/apt/sources.list.d/sileo.list
+fi
+
+if ! grep -Fxq "deb https://repo.dynastic.co/ ./" /etc/apt/sources.list.d/sileo.list ;
+then
+	echo "Installed Dynastic Repo"
+	sed -i '1s;^;deb https://repo.dynastic.co/ ./\n;' /etc/apt/sources.list.d/sileo.list
+fi

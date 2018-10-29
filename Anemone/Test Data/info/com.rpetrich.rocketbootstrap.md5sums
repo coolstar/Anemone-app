@@ -1,0 +1,7 @@
+3cc2e37bb4c545d07a29cd9f683fd11a  Library/LaunchDaemons/com.rpetrich.rocketbootstrapd.plist
+eaf79b437853b1c2e352efb1e781071d  Library/MobileSubstrate/DynamicLibraries/RocketBootstrap.plist
+4da1dda00a2694b5ea977fec048f9760  usr/include/rocketbootstrap.h
+0feccd5d4b7c047332a36dcff581e39a  usr/include/rocketbootstrap_dynamic.h
+8fbc89e8042fec0ad3114269615e8ba9  usr/lib/librocketbootstrap.dylib
+c4b07a7183f47253da325b01e0a27993  usr/libexec/_rocketd_reenable
+3ef5cc3eac3fee2b8521f598d63ef2fb  usr/libexec/rocketd

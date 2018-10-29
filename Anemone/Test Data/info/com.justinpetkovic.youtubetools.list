@@ -1,0 +1,17 @@
+/.
+/Library
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/youtubetools.plist
+/Library/MobileSubstrate/DynamicLibraries/youtubetools.dylib
+/Library/PreferenceLoader
+/Library/PreferenceLoader/Preferences
+/Library/PreferenceLoader/Preferences/youtubetools.plist
+/Library/PreferenceBundles
+/Library/PreferenceBundles/youtubetools.bundle
+/Library/PreferenceBundles/youtubetools.bundle/Info.plist
+/Library/PreferenceBundles/youtubetools.bundle/youtubetools.plist
+/Library/PreferenceBundles/youtubetools.bundle/twitter@2x.png
+/Library/PreferenceBundles/youtubetools.bundle/Icon-App-29x29@2x.png
+/Library/PreferenceBundles/youtubetools.bundle/youtubetools
+/Library/PreferenceBundles/youtubetools.bundle/paypal@2x.png

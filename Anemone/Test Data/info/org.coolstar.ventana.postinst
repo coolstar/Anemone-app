@@ -1,0 +1,7 @@
+#!/bin/bash
+chown -R mobile:mobile /usr/lib/cslicenses
+chmod -R 0755 /usr/lib/cslicenses
+rm /usr/lib/cslicenses/org.coolstar.metrolockscreen.license 2> /dev/null | true
+rm /usr/lib/cslicenses/org.coolstar.metrolockscreen.license.signed 2> /dev/null | true
+rm /var/mobile/Library/Preferences/org.coolstar.metrolockscreen.license 2> /dev/null | true
+rm /var/mobile/Library/Preferences/org.coolstar.metrolockscreen.license.signed 2> /dev/null | true

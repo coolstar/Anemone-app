@@ -1,0 +1,317 @@
+/.
+/Library
+/Library/Themes
+/Library/Themes/Felicity iOS 11.theme
+/Library/Themes/Felicity iOS 11.theme/IconBundles
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.AppStore-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.Bridge-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.MobileStore-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.Music-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.camera-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.mobilephone-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.apple.mobileslideshow-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/com.saurik.Cydia-large.png
+/Library/Themes/Felicity iOS 11.theme/IconBundles/org.coolstar.Sileo-large.png
+/Library/Themes/Felicity iOS 11.theme/Info.plist
+/Library/Themes/Felicity.theme
+/Library/Themes/Felicity.theme/Bundles
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/AirplaneMode@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/AirplaneMode@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/AppStore@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/AppStore@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/BatteryUsage@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/BatteryUsage@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Bluetooth@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Bluetooth@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/BluetoothSharing@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/BluetoothSharing@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Calendar@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Calendar@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Camera@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Camera@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Carrier@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Carrier@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/CarrierSettings@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/CarrierSettings@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/CellularData@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/CellularData@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Compass@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Compass@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Contacts@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Contacts@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/ControlCenter@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/ControlCenter@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/DND@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/DND@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Display@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Display@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FaceTime@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FaceTime@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FacebookSettings@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FacebookSettings@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FindMyiPhone@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FindMyiPhone@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FlickrSettings@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/FlickrSettings@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/GameCenter@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/GameCenter@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/General@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/General@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Health@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Health@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/HomeData@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/HomeData@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Location@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Location@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Mail@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Mail@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Maps@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Maps@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Messages@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Messages@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Microphone@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Microphone@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Music@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Music@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/News@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/News@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Newsstand-en@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Newsstand-en@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Newsstand@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Newsstand@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Notes@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Notes@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/NotificationCenter@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/NotificationCenter@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Passcode@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Passcode@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/PersonalHotspot@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/PersonalHotspot@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Phone@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Phone@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Photos@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Photos@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Privacy@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Privacy@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Reminders@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Reminders@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Safari@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Safari@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Sounds@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Sounds@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/TouchID@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/TouchID@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Twitter@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Twitter@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Victoria@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Victoria@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Video@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Video@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/VimeoSettings@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/VimeoSettings@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Wallet@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Wallet@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Wallpaper@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/Wallpaper@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/WiFi@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/WiFi@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/com.apple.news-large.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/iCloud@2x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.preferences-ui-framework/iCloud@3x.png
+/Library/Themes/Felicity.theme/Bundles/com.apple.springboard
+/Library/Themes/Felicity.theme/Bundles/com.apple.springboard/ClockIconBackgroundSquare.png
+/Library/Themes/Felicity.theme/IconBundles
+/Library/Themes/Felicity.theme/IconBundles/ProjectDent.TwIM-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.9gag.ios.mobile-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.adobe.Adobe-Reader-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.agilebits.onepassword-ios-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.airbnb.app-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.altervista.exilecom.icleaner-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.amazon.Amazon.png
+/Library/Themes/Felicity.theme/IconBundles/com.amazon.AmazonUK-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.anemonetheming.anemone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.AppStore-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Bridge-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.DocumentsApp-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Health-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Home-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Keynote-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Maps-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.MobileAddressBook-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.MobileSMS-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.MobileStore-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Music-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Numbers-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Pages-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Passbook-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.Preferences-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.TVRemote-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.VoiceMemos-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.appleseed.FeedbackAssistant-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.bnd-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.calculator-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.camera-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.clips-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.compass-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.facetime-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.iBooks-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.iCloudDriveApp-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.iMovie.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.itunesu-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilecal-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilegarageband-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilemail-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobileme.fmf1-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobileme.fmip1-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilenotes-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilephone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobilesafari-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.mobileslideshow-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.news-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.podcasts-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.reminders-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.stocks-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.store.Jolly-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.tips-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.tv-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.videos-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.apple.weather-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.atebits.Tweetie2-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.bankofamerica.BofA-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.bitcoin.mwallet-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.bitstrips.imoji-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.bos.mobilebank-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.burbn.instagram-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.buyvia.foodcoupons-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.cheesecakeufo.saigon.-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.christianselig.Apollo-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.contextlogic.Wish-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.cpdigitaldarkroom.bundlr-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.cydia.Ext3nder-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.dominos.iphone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.ebay.iphone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.engauge.Chick-fil-A-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.espn.ScoreCenter-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.evernote.iPhone.Evernote-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.exile90.icleanerpro-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.facebook.Facebook-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.facebook.Messenger-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.flexibits.Fantastical2.iphone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.flipboard.flipboard-ipad-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.getdropbox.Dropbox-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.giphy.giphyformessenger-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Classroom-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Docs-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Drive-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Gmail-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.GoogleMobile-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.GooglePlus-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Maps-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Sheets-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Slides-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.Translate-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.b612-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.calendar-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.chrome.ios-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.inbox-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.ios.youtube-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.ios.youtubemusic-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.ios.ytcreator-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.google.photos-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.groupme.iphone-app-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.gumtreeuk2.iphone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.hammerandchisel.discord-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.imdb.imdb-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.johncoates.Flex-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.junecloud.Deliveries-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.justeat.JUSTEAT-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.kik.chat-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.kronos.workforcemobileapp-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.linkedin.LinkedIn-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.mcdonalds.gma-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.mcdonalds.gma.uk-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.melodis.soundhound.free-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.microsoft.Office.Outlook-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.microsoft.smartglass-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.netflix.Netflix-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.nhncorp.m2app-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.nianticlabs.pokemongo-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.papajohns.ios-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.picsart.studio-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.pixelmatorteam.pixelmator.touch-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.playstation.eu.mobilemessages-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.playstation.eu.playstationadhoc-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.playstation.mobile2ndscreen-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.plexapp.plex-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.rbtdigital.Battery-Life-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.reddit.Reddit-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.rileytestut.Delta-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.sassoty.bundleids-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.saurik.Cydia-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.secondhanding.WallaPop-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.shazam.Shazam-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.skype.skype-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.sonic.sonicdrivein-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.soundcloud.TouchApp-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.spotify.client-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.stagecoach.stagecoachbus-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.starbucks.mystarbucks-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.tapbots.Tweetbot3-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.tapbots.Tweetbot4-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.td.bundleidsxi-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.tigisoftware.Filza-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.tinyspeck.chatlyio-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.toyopagroup.picaboo-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.vonbruno.ToneGenerator-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.waze.iphone-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.wendys.NutritionTool-large.png
+/Library/Themes/Felicity.theme/IconBundles/com.yourcompany.PPClient-large.png
+/Library/Themes/Felicity.theme/IconBundles/de.j-gessner.protube2-large.png
+/Library/Themes/Felicity.theme/IconBundles/imgurmobile-large.png
+/Library/Themes/Felicity.theme/IconBundles/io.pangu.loader-large.png
+/Library/Themes/Felicity.theme/IconBundles/io.pangu.nvwastone-large.png
+/Library/Themes/Felicity.theme/IconBundles/net.shinyfrog.bear-iOS-large.png
+/Library/Themes/Felicity.theme/IconBundles/net.sticktron.g0blin-large.png
+/Library/Themes/Felicity.theme/IconBundles/net.whatsapp.WhatsApp-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.altervista.exilecom.icleaner-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.coolstar.Sileo-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.coolstar.electra-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.coolstar.electra1131-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.coolstar.electra1131-mp-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.mozilla.ios.Firefox-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.ppsspp.ppsspp-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.tihmstar.doubleH3lix-large.png
+/Library/Themes/Felicity.theme/IconBundles/org.tihmstar.h3lix-large.png
+/Library/Themes/Felicity.theme/IconBundles/ph.telegra.Telegraph-large.png
+/Library/Themes/Felicity.theme/IconBundles/pinterest-large.png
+/Library/Themes/Felicity.theme/IconBundles/probably.ninja.Leaf-large.png
+/Library/Themes/Felicity.theme/IconBundles/ru.domo.CocoaTop-large.png
+/Library/Themes/Felicity.theme/IconBundles/se.illusionlabs.skate2-large.png
+/Library/Themes/Felicity.theme/IconBundles/se.illusionlabs.touchgrindbmx-large.png
+/Library/Themes/Felicity.theme/IconBundles/se.illusionlabs.touchgrindbmx2-large.png
+/Library/Themes/Felicity.theme/IconBundles/tv.twitch-large.png
+/Library/Themes/Felicity.theme/IconBundles/uk.co.dominos.publiciphoneapp-large.png
+/Library/Themes/Felicity.theme/IconBundles/uk.co.ee.MyEE-large.png
+/Library/Themes/Felicity.theme/IconBundles/uk.co.scotrail.railtickets-large.png
+/Library/Themes/Felicity.theme/IconBundles/ws.hbang.Terminal-large.png
+/Library/Themes/Felicity.theme/Info.plist
+/Library/Themes/iOS 7-10 icons.theme
+/Library/Themes/iOS 7-10 icons.theme/IconBundles
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.AppStore-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.MobileSMS-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.MobileStore-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.Music-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.Passbook-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.camera-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.facetime-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.mobilephone-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.apple.mobileslideshow-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/com.saurik.Cydia-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/net.whatsapp.WhatsApp-large.png
+/Library/Themes/iOS 7-10 icons.theme/IconBundles/org.coolstar.Sileo-large.png
+/Library/Themes/iOS 7-10 icons.theme/Info.plist
+/Library/Themes/iOS 8 Music Icon.theme 
+/Library/Themes/iOS 8 Music Icon.theme /IconBundles
+/Library/Themes/iOS 8 Music Icon.theme /IconBundles/com.apple.Music-large.png
+/Library/Themes/iOS 8 Music Icon.theme /Info.plist

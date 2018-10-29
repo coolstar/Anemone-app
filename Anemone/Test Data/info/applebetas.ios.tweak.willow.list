@@ -1,0 +1,51 @@
+/.
+/Library
+/Library/PreferenceLoader
+/Library/PreferenceLoader/Preferences
+/Library/PreferenceLoader/Preferences/Ultrasound.plist
+/Library/PreferenceBundles
+/Library/PreferenceBundles/UltrasoundSettings.bundle
+/Library/PreferenceBundles/UltrasoundSettings.bundle/icon@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/icon@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/icon.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/UltrasoundSettings
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Ultrasound.plist
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-YouTube@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-YouTube@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-YouTube.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Website@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Website@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Website.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Twitter@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Twitter@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Twitter.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Reddit@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Reddit@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Reddit.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-PayPal@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-PayPal@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-PayPal.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Instagram@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Instagram@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Instagram.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GooglePlus@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GooglePlus@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GooglePlus.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GitHub@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GitHub@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-GitHub.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Email@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Email@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Service-Email.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/NavLogo@3x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/NavLogo@2x.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/NavLogo.png
+/Library/PreferenceBundles/UltrasoundSettings.bundle/Info.plist
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/Ultrasound.plist
+/Library/MobileSubstrate/DynamicLibraries/Ultrasound.dylib
+/Library/Application Support
+/Library/Application Support/AppleBetas
+/Library/Application Support/AppleBetas/Willow
+/Library/Application Support/AppleBetas/Willow/icon.png

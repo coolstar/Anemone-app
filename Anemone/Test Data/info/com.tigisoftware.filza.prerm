@@ -1,0 +1,2 @@
+#!/bin/bash
+launchctl unload /Library/LaunchDaemons/com.tigisoftware.filza.helper.plist

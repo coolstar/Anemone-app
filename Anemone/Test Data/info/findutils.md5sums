@@ -1,0 +1,7 @@
+ba219c2d8cb8c452c9bc2ae20ccb9b58  usr/bin/find
+b499d42324d92c75952ed6334241defd  usr/bin/locate
+f944e558a22d1bff3f08dd2435ddefff  usr/bin/updatedb
+e31f48ef9179bbfb2f9b3b4391de49a3  usr/bin/xargs
+2a0ae783441beffd64af36da7081b917  usr/libexec/bigram
+c451f5e1e7a51febe543aaaccaf98205  usr/libexec/code
+de3d41eaa70cf788fcd62bd125e69dc9  usr/libexec/frcode

@@ -1,0 +1,3 @@
+#!/bin/bash
+chown -R mobile:mobile /usr/lib/cslicenses
+chmod -R 0755 /usr/lib/cslicenses

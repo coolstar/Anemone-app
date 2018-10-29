@@ -1,0 +1,153 @@
+/.
+/Library
+/Library/Application Support
+/Library/Application Support/MetroLockScreen.bundle
+/Library/Application Support/MetroLockScreen.bundle/Info.plist
+/Library/Application Support/MetroLockScreen.bundle/airplane.png
+/Library/Application Support/MetroLockScreen.bundle/airplane@2x.png
+/Library/Application Support/MetroLockScreen.bundle/airplane@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook messenger.png
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook messenger@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook messenger@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook.png
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/facebook@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/gmail.png
+/Library/Application Support/MetroLockScreen.bundle/apps/gmail@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/gmail@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google inbox.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google inbox@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google inbox@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google plus.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google plus@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/google plus@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/instagram.png
+/Library/Application Support/MetroLockScreen.bundle/apps/instagram@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/instagram@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/periscope.png
+/Library/Application Support/MetroLockScreen.bundle/apps/periscope@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/periscope@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/reddit.png
+/Library/Application Support/MetroLockScreen.bundle/apps/reddit@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/reddit@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/skype.png
+/Library/Application Support/MetroLockScreen.bundle/apps/skype@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/skype@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/slack.png
+/Library/Application Support/MetroLockScreen.bundle/apps/slack@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/slack@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/snapchat.png
+/Library/Application Support/MetroLockScreen.bundle/apps/snapchat@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/snapchat@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/spotify.png
+/Library/Application Support/MetroLockScreen.bundle/apps/spotify@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/spotify@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/tumblr.png
+/Library/Application Support/MetroLockScreen.bundle/apps/tumblr@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/tumblr@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/twitter.png
+/Library/Application Support/MetroLockScreen.bundle/apps/twitter@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/twitter@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/uber.png
+/Library/Application Support/MetroLockScreen.bundle/apps/uber@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/uber@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/viber.png
+/Library/Application Support/MetroLockScreen.bundle/apps/viber@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/viber@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/vine.png
+/Library/Application Support/MetroLockScreen.bundle/apps/vine@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/vine@3x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/whatsapp.png
+/Library/Application Support/MetroLockScreen.bundle/apps/whatsapp@2x.png
+/Library/Application Support/MetroLockScreen.bundle/apps/whatsapp@3x.png
+/Library/Application Support/MetroLockScreen.bundle/arrow.png
+/Library/Application Support/MetroLockScreen.bundle/arrow@2x.png
+/Library/Application Support/MetroLockScreen.bundle/arrow@3x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside@2x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside@3x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside_charging.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside_charging@2x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_inside_charging@3x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside@2x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside@3x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside_charging.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside_charging@2x.png
+/Library/Application Support/MetroLockScreen.bundle/battery_outside_charging@3x.png
+/Library/Application Support/MetroLockScreen.bundle/camera.png
+/Library/Application Support/MetroLockScreen.bundle/camera@2x.png
+/Library/Application Support/MetroLockScreen.bundle/camera@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_0.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_0@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_0@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_1.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_1@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_1@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_2.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_2@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_2@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_3.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_3@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_3@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_4.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_4@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_4@3x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_5.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_5@2x.png
+/Library/Application Support/MetroLockScreen.bundle/cellular_5@3x.png
+/Library/Application Support/MetroLockScreen.bundle/media_forward@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_forward_dark@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_pause@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_pause_dark@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_play@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_play_dark@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_previous@2x.png
+/Library/Application Support/MetroLockScreen.bundle/media_previous_dark@2x.png
+/Library/Application Support/MetroLockScreen.bundle/siri.png
+/Library/Application Support/MetroLockScreen.bundle/siri@2x.png
+/Library/Application Support/MetroLockScreen.bundle/siri@3x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_0.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_0@2x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_0@3x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_1.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_1@2x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_1@3x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_2.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_2@2x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_2@3x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_3.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_3@2x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_3@3x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_4.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_4@2x.png
+/Library/Application Support/MetroLockScreen.bundle/wifi_4@3x.png
+/Library/MobileSubstrate
+/Library/MobileSubstrate/DynamicLibraries
+/Library/MobileSubstrate/DynamicLibraries/SiriDump.dylib
+/Library/MobileSubstrate/DynamicLibraries/SiriDump.plist
+/Library/MobileSubstrate/DynamicLibraries/Ventana.dylib
+/Library/MobileSubstrate/DynamicLibraries/Ventana.plist
+/Library/PreferenceBundles
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/Advanced.plist
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/Info.plist
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/MetroLockScreenSettings
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/MetroLockScreenSettings.plist
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/Twitter.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/Twitter@2x.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/banner.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/banner@2x.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/heart.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/heart@2x.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/heart@3x.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/icon-29.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/icon-29@2x.png
+/Library/PreferenceBundles/MetroLockScreenSettings.bundle/icon-29@3x.png
+/Library/PreferenceLoader
+/Library/PreferenceLoader/Preferences
+/Library/PreferenceLoader/Preferences/MetroLockScreenSettings.plist
+/usr
+/usr/lib
+/usr/lib/cslicenses

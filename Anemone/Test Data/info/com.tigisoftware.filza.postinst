@@ -1,0 +1,51 @@
+#!/bin/bash
+chown -R root:admin /Applications/Filza.app
+
+chown root /Library/LaunchDaemons/com.tigisoftware.filza.helper.plist
+launchctl load -w /Library/LaunchDaemons/com.tigisoftware.filza.helper.plist
+
+chown root /usr/libexec/filza/Filza
+chmod ug+s /usr/libexec/filza/Filza
+rm -rf /usr/bin/Filza
+ln -s /usr/libexec/filza/Filza /usr/bin/Filza
+
+if [ -d /var/mobile/Library/Filza/.Trash ]
+then
+	chown mobile:mobile /var/mobile/Library/Filza/.Trash
+fi
+
+if [ -d /var/mobile/Library/Filza/.Trash.metadata ]
+then
+	chown mobile:mobile /var/mobile/Library/Filza/.Trash.metadata
+fi
+
+rm -rf /var/mobile/Library/Caches/ImageTables
+if [ -f /var/root/Library/Filza/extensions.plist ]
+then
+	rm -rf /var/mobile/Library/Filza/extensions.plist
+        mv /var/root/Library/Filza/extensions.plist /var/mobile/Library/Filza/extensions.plist
+	chown -R mobile:mobile /var/mobile/Library/Filza/extensions.plist
+fi
+
+if [ -f /var/root/Library/Filza/links.plist ]
+then
+        rm -rf /var/mobile/Library/Filza/links.plist
+        mv /var/root/Library/Filza/links.plist /var/mobile/Library/Filza/links.plist
+        chown -R mobile:mobile /var/mobile/Library/Filza/links.plist
+fi
+
+if [ -f /var/root/Library/Filza/filza.db ]
+then
+        rm -rf /var/mobile/Library/Filza/filza.db
+        mv /var/root/Library/Filza/filza.db /var/mobile/Library/Filza/filza.db
+        chown -R mobile:mobile /var/mobile/Library/Filza/filza.db
+fi
+
+if [ -f /var/root/Library/Preferences/com.tigisoftware.Filza.plist ]
+then
+	rm -rf /var/mobile/Library/Preferences/com.tigisoftware.Filza.plist
+        mv /var/root/Library/Preferences/com.tigisoftware.Filza.plist /var/mobile/Library/Preferences/com.tigisoftware.Filza.plist
+        chown -R mobile:mobile /var/mobile/Library/Preferences/com.tigisoftware.Filza.plist
+fi
+
+/usr/bin/Filza uicache

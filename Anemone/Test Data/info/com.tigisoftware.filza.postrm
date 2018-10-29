@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -rf /usr/bin/Filza
+
+if [ -f /Library/LaunchDaemons/com.tigisoftware.filza.webdavserver.plist ]
+then
+	launchctl unload /Library/LaunchDaemons/com.tigisoftware.filza.webdavserver.plist
+	rm -rf /Library/LaunchDaemons/com.tigisoftware.filza.webdavserver.plist
+fi
+

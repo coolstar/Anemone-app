@@ -1,0 +1,10 @@
+/.
+/Library
+/Library/Frameworks
+/Library/Frameworks/CydiaSubstrate.framework
+/Library/MobileSubstrate
+/usr
+/usr/lib
+/usr/lib/libsubstrate.dylib
+/Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate
+/Library/MobileSubstrate/DynamicLibraries
