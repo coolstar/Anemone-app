@@ -38,7 +38,7 @@ class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
             view.removeFromSuperview()
         })
         
-        let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather"]
+        let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather", "com.apple.Maps", "com.apple.videos", "com.apple.mobilenotes", "com.apple.reminders", "com.apple.stocks", "com.apple.news", "com.apple.MobileStore", "com.apple.AppStore", "com.apple.iBooks", "com.apple.Health", "com.apple.Passbook", "com.apple.Preferences"]
         var x = 0
         for bundle in bundleIds {
             let icon : String? = getThemedIconForBundle(bundle: bundle)
@@ -54,6 +54,7 @@ class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
             
             x+=40
         }
+        scrollPreviews?.contentSize = CGSize(width: x, height: 40)
     }
     
     override func awakeFromNib() {
