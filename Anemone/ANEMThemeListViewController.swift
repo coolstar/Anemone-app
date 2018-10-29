@@ -209,4 +209,15 @@ extension ANEMThemeListViewController : LNZTreeViewDelegate {
         }
         return 44
     }
+    
+    func treeView(_ treeView: LNZTreeView, didSelectNodeAt indexPath: IndexPath, forParentNode parentNode: TreeNodeProtocol?) {
+        let node: ThemeNode
+        if let parent = parentNode as? ThemeCategoryNode {
+            node = parent.themes[indexPath.row]
+            node.enabled = !node.enabled
+            treeView.reload(node: node, inSection: indexPath.section)
+            treeView.reload(node: parent, inSection: indexPath.section)
+            writeSettings()
+        }
+    }
 }
