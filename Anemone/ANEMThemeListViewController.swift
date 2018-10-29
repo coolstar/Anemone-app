@@ -101,6 +101,11 @@ class ANEMThemeListViewController: UIViewController {
 
     @objc func toggleEditing(){
         treeView?.setEditing(!(treeView?.isEditing)!, animated: true)
+        if ((treeView?.isEditing)!){
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
+        }
     }
     
     func writeSettings(){
