@@ -14,6 +14,7 @@
 		F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */; };
 		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
+		F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */; };
 		F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */; };
 		F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */; };
 		F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5393321864B5000CDF1CC /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
 		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
+		F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePreviewProvider.swift; sourceTree = "<group>"; };
 		F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANEMThemeListViewController.swift; sourceTree = "<group>"; };
 		F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANEMThemeListViewController.xib; sourceTree = "<group>"; };
 		F1C5393021864B5000CDF1CC /* Anemone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anemone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,14 @@
 				F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */,
 			);
 			path = LNZTreeView;
+			sourceTree = "<group>";
+		};
+		F1C12E4E218838CB005582D4 /* Inline Preview Provider */ = {
+			isa = PBXGroup;
+			children = (
+				F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */,
+			);
+			path = "Inline Preview Provider";
 			sourceTree = "<group>";
 		};
 		F1C5392721864B5000CDF1CC = {
@@ -262,6 +272,7 @@
 		F1C5398F21866B1900CDF1CC /* Theme List View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F1C12E4E218838CB005582D4 /* Inline Preview Provider */,
 				F1C5399121866B2700CDF1CC /* Nodes */,
 				F1C5399021866B2000CDF1CC /* Category Cell */,
 				F1C5399221866BAD00CDF1CC /* Theme Cell */,
@@ -462,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */,
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
 				F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */,
 				F1C5397D2186542400CDF1CC /* Package.m in Sources */,

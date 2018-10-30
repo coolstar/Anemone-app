@@ -9,52 +9,16 @@
 import UIKit
 
 class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
-    @IBOutlet var scrollPreviews : UIScrollView?
+    @IBOutlet var scrollPreviews : UIView?
     var themeCategoryNode : ThemeCategoryNode?
     
-    func getThemedIconForBundle(bundle: String) -> String? {
-        let themesDir : String = PackageListManager.sharedInstance().prefixDir()
-        
-        for themeNode in (themeCategoryNode?.themes)! {
-            let identifier : String = themeNode.identifier
-            
-            let ibLargeThemePath : String = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundle)
-            var icon : UIImage? = UIImage(contentsOfFile: ibLargeThemePath)
-            if (icon != nil) {
-                return ibLargeThemePath
-            }
-            
-            let ibThemePath : String = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundle)
-            icon  = UIImage(contentsOfFile: ibThemePath)
-            if (icon != nil) {
-                return ibThemePath
-            }
-        }
-        return nil
-    }
-    
     func reloadTheme(){
-        scrollPreviews?.subviews.forEach({ (view) in
-            view.removeFromSuperview()
-        })
+        let scrollPreview : UIScrollView = InlinePreviewProvider.shared.previewViewForTheme(themeCategoryNode: themeCategoryNode)
+        scrollPreview.removeFromSuperview()
         
-        let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather", "com.apple.Maps", "com.apple.videos", "com.apple.mobilenotes", "com.apple.reminders", "com.apple.stocks", "com.apple.news", "com.apple.MobileStore", "com.apple.AppStore", "com.apple.iBooks", "com.apple.Health", "com.apple.Passbook", "com.apple.Preferences"]
-        var x = 0
-        for bundle in bundleIds {
-            let icon : String? = getThemedIconForBundle(bundle: bundle)
-            if (icon == nil){
-                continue
-            }
-            
-            let iconView : UIImageView = UIImageView(frame: CGRect(x: x, y: 0, width: 32, height: 32))
-            iconView.image = UIImage(contentsOfFile: icon!)
-            iconView.clipsToBounds = true
-            iconView.layer.cornerRadius = 5
-            scrollPreviews?.addSubview(iconView)
-            
-            x+=40
-        }
-        scrollPreviews?.contentSize = CGSize(width: x, height: 40)
+        scrollPreview.autoresizingMask = AutoresizingMask(rawValue:AutoresizingMask.flexibleWidth.rawValue | AutoresizingMask.flexibleHeight.rawValue)
+        scrollPreview.frame = (scrollPreviews?.bounds)!
+        scrollPreviews?.addSubview(scrollPreview)
     }
     
     override func awakeFromNib() {
