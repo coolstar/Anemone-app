@@ -180,12 +180,16 @@
 }
 
 - (NSMutableDictionary<NSString *, NSArray *> *)scanForThemes {
+#if TARGET_SANDBOX
     NSArray *themesDirContents = @[@"Amury Alt Apple Icons.theme", @"Amury Alt Icons.theme",
                                     @"Amury Apple Music Icon.theme", @"Amury Control Center.theme",
                                     @"Amury Icons.theme", @"Amury Interface.theme",
                                     @"Amury Keyboard Sounds.theme", @"Amury Legacy Icons.theme",
                                     @"Amury Messages.theme", @"Felicity iOS 11.theme",
                                     @"Felicity.theme", @"iOS 7-10 icons.theme", @"iOS 8 Music Icon.theme "];
+#else
+    NSArray *themesDirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self prefixDir] error:nil];
+#endif
     NSMutableArray *themesFolders = [NSMutableArray array];
     NSString *prefixDir = @"/Library/Themes/";
     for (NSString *folder in themesDirContents){

@@ -15,12 +15,13 @@ endif
 
 $(THEOS_OBJ_DIR)/Anemone.app/Anemone:
 	set -o pipefail; \
-		xcodebuild -workspace 'Anemone.xcworkspace' -scheme 'Anemone' -configuration $(BUILD_CONFIG) -arch arm64 -sdk iphoneos \
+		xcodebuild -project 'Anemone.xcodeproj' -scheme 'Anemone' -configuration $(BUILD_CONFIG) -arch arm64 -sdk iphoneos \
 		CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="org.coolstar.Anemone" \
 		CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR) OBJROOT=$(THEOS_OBJ_DIR) SYMROOT=$(THEOS_OBJ_DIR) \
 		DSTROOT=$(THEOS_OBJ_DIR) $(XCPRETTY)
 	$(TARGET_STRIP) $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 	$(TARGET_CODESIGN) -Sent.plist $(THEOS_OBJ_DIR)/Anemone.app/Anemone
+	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*.dylib
 
 all:: $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 
