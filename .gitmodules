@@ -1,0 +1,3 @@
+[submodule "Deps/LNZTreeView"]
+	path = Deps/LNZTreeView
+	url = https://github.com/AnemoneTeam/LNZTreeView
