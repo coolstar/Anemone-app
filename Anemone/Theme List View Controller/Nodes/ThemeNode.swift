@@ -6,8 +6,6 @@
 //  Copyright © 2018 CoolStar. All rights reserved.
 //
 
-import LNZTreeView
-
 class ThemeNode: NSObject, TreeNodeProtocol {
     var identifier: String = ""
     var humanReadable : String = ""

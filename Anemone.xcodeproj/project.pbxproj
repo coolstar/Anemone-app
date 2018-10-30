@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DEB68EDE80D436E83408EBE /* Pods_Anemone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */; };
+		F11174452187DD4600260E89 /* LNZTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111741E2187DD4600260E89 /* LNZTreeView.swift */; };
+		F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111741F2187DD4600260E89 /* LNZTreeViewDataSource.swift */; };
+		F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */; };
 		F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693278218792B70017DF91 /* ActionBlockButton.swift */; };
 		F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */; };
 		F169327D2187CF050017DF91 /* Test Themes in Resources */ = {isa = PBXBuildFile; fileRef = F169327C2187CF050017DF91 /* Test Themes */; };
+		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
+		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
+		F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */; };
+		F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */; };
 		F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5393321864B5000CDF1CC /* AppDelegate.swift */; };
-		F1C5393921864B5000CDF1CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393A21864B5100CDF1CC /* Assets.xcassets */; };
-		F1C5393E21864B5100CDF1CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
 		F1C5394921864B5100CDF1CC /* AnemoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5394821864B5100CDF1CC /* AnemoneTests.swift */; };
 		F1C5395421864B5100CDF1CC /* AnemoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5395321864B5100CDF1CC /* AnemoneUITests.swift */; };
-		F1C5396321864C5800CDF1CC /* ANEMThemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396121864C5800CDF1CC /* ANEMThemeListViewController.swift */; };
 		F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396421864F9E00CDF1CC /* ThemeCategoryNode.swift */; };
 		F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396621864FFD00CDF1CC /* ThemeNode.swift */; };
 		F1C539702186533B00CDF1CC /* Test Data in Resources */ = {isa = PBXBuildFile; fileRef = F1C5396F2186533A00CDF1CC /* Test Data */; };
@@ -26,7 +29,6 @@
 		F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539802186554100CDF1CC /* ControlFileParser.m */; };
 		F1C539852186557400CDF1CC /* NSString-TrimLeadingWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539832186557400CDF1CC /* NSString-TrimLeadingWhitespace.m */; };
 		F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539882186560700CDF1CC /* DpkgWrapper.m */; };
-		F1C5398A21866AAB00CDF1CC /* ANEMThemeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5396221864C5800CDF1CC /* ANEMThemeListViewController.xib */; };
 		F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5398B21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift */; };
 		F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */; };
 		F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */; };
@@ -51,12 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		352B8FACAEC20AC6883D7C05 /* Pods-Anemone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anemone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Anemone/Pods-Anemone.release.xcconfig"; sourceTree = "<group>"; };
-		4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anemone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1ED2D52DB09124B46B7CB5E /* Pods-Anemone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anemone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Anemone/Pods-Anemone.debug.xcconfig"; sourceTree = "<group>"; };
+		F111741E2187DD4600260E89 /* LNZTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNZTreeView.swift; sourceTree = "<group>"; };
+		F111741F2187DD4600260E89 /* LNZTreeViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNZTreeViewDataSource.swift; sourceTree = "<group>"; };
+		F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNZTreeViewDelegate.swift; sourceTree = "<group>"; };
+		F11174362187DD4600260E89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
 		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
+		F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANEMThemeListViewController.swift; sourceTree = "<group>"; };
+		F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANEMThemeListViewController.xib; sourceTree = "<group>"; };
 		F1C5393021864B5000CDF1CC /* Anemone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anemone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C5393321864B5000CDF1CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1C5393821864B5000CDF1CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,8 +74,6 @@
 		F1C5394F21864B5100CDF1CC /* AnemoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnemoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C5395321864B5100CDF1CC /* AnemoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnemoneUITests.swift; sourceTree = "<group>"; };
 		F1C5395521864B5100CDF1CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1C5396121864C5800CDF1CC /* ANEMThemeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ANEMThemeListViewController.swift; path = /Users/coolstar/Documents/XCode/Anemone/Anemone/ANEMThemeListViewController.swift; sourceTree = "<absolute>"; };
-		F1C5396221864C5800CDF1CC /* ANEMThemeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ANEMThemeListViewController.xib; path = /Users/coolstar/Documents/XCode/Anemone/Anemone/ANEMThemeListViewController.xib; sourceTree = "<absolute>"; };
 		F1C5396421864F9E00CDF1CC /* ThemeCategoryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCategoryNode.swift; sourceTree = "<group>"; };
 		F1C5396621864FFD00CDF1CC /* ThemeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNode.swift; sourceTree = "<group>"; };
 		F1C5396F2186533A00CDF1CC /* Test Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Data"; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DEB68EDE80D436E83408EBE /* Pods_Anemone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,13 +119,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FDD9B7F35B22177A75DE99B /* Pods */ = {
+		F11174152187DD4600260E89 /* Deps */ = {
 			isa = PBXGroup;
 			children = (
-				E1ED2D52DB09124B46B7CB5E /* Pods-Anemone.debug.xcconfig */,
-				352B8FACAEC20AC6883D7C05 /* Pods-Anemone.release.xcconfig */,
+				F11174162187DD4600260E89 /* LNZTreeView */,
 			);
-			name = Pods;
+			path = Deps;
+			sourceTree = SOURCE_ROOT;
+		};
+		F11174162187DD4600260E89 /* LNZTreeView */ = {
+			isa = PBXGroup;
+			children = (
+				F111741B2187DD4600260E89 /* LNZTreeView */,
+				F11174362187DD4600260E89 /* README.md */,
+			);
+			path = LNZTreeView;
+			sourceTree = "<group>";
+		};
+		F111741B2187DD4600260E89 /* LNZTreeView */ = {
+			isa = PBXGroup;
+			children = (
+				F111741E2187DD4600260E89 /* LNZTreeView.swift */,
+				F111741F2187DD4600260E89 /* LNZTreeViewDataSource.swift */,
+				F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */,
+			);
+			path = LNZTreeView;
 			sourceTree = "<group>";
 		};
 		F1C5392721864B5000CDF1CC = {
@@ -133,7 +153,6 @@
 				F1C5394721864B5100CDF1CC /* AnemoneTests */,
 				F1C5395221864B5100CDF1CC /* AnemoneUITests */,
 				F1C5393121864B5000CDF1CC /* Products */,
-				8FDD9B7F35B22177A75DE99B /* Pods */,
 				FAF93B9363F70B8AEB246082 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +170,7 @@
 		F1C5393221864B5000CDF1CC /* Anemone */ = {
 			isa = PBXGroup;
 			children = (
+				F11174152187DD4600260E89 /* Deps */,
 				F169327C2187CF050017DF91 /* Test Themes */,
 				F1C5396F2186533A00CDF1CC /* Test Data */,
 				F1C539792186541000CDF1CC /* Sileo Backend */,
@@ -248,8 +268,8 @@
 				F1C5399021866B2000CDF1CC /* Category Cell */,
 				F1C5399221866BAD00CDF1CC /* Theme Cell */,
 				F1693278218792B70017DF91 /* ActionBlockButton.swift */,
-				F1C5396121864C5800CDF1CC /* ANEMThemeListViewController.swift */,
-				F1C5396221864C5800CDF1CC /* ANEMThemeListViewController.xib */,
+				F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */,
+				F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */,
 			);
 			path = "Theme List View Controller";
 			sourceTree = "<group>";
@@ -284,7 +304,6 @@
 		FAF93B9363F70B8AEB246082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EA46B23FB7F5A2BDFA1B615 /* Pods_Anemone.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,11 +315,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1C5395821864B5100CDF1CC /* Build configuration list for PBXNativeTarget "Anemone" */;
 			buildPhases = (
-				F14B69013808FC849EFEFD6E /* [CP] Check Pods Manifest.lock */,
 				F1C5392C21864B5000CDF1CC /* Sources */,
 				F1C5392D21864B5000CDF1CC /* Frameworks */,
 				F1C5392E21864B5000CDF1CC /* Resources */,
-				137D7CF118ADA982B33E3CFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,14 +413,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */,
+				F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */,
 				F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */,
 				F169327D2187CF050017DF91 /* Test Themes in Resources */,
-				F1C5393E21864B5100CDF1CC /* LaunchScreen.storyboard in Resources */,
-				F1C5398A21866AAB00CDF1CC /* ANEMThemeListViewController.xib in Resources */,
 				F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */,
-				F1C5393921864B5000CDF1CC /* Main.storyboard in Resources */,
 				F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */,
 				F1C539702186533B00CDF1CC /* Test Data in Resources */,
+				F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,53 +440,17 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		137D7CF118ADA982B33E3CFA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Anemone/Pods-Anemone-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/LNZTreeView/LNZTreeView.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNZTreeView.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Anemone/Pods-Anemone-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F14B69013808FC849EFEFD6E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Anemone-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		F1C5392C21864B5000CDF1CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
+				F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */,
 				F1C5397D2186542400CDF1CC /* Package.m in Sources */,
+				F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */,
 				F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */,
+				F11174452187DD4600260E89 /* LNZTreeView.swift in Sources */,
 				F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */,
 				F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */,
 				F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */,
@@ -478,7 +459,7 @@
 				F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */,
 				F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */,
 				F1C539762186539E00CDF1CC /* PackageListManager.m in Sources */,
-				F1C5396321864C5800CDF1CC /* ANEMThemeListViewController.swift in Sources */,
+				F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */,
 				F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,41 +635,41 @@
 		};
 		F1C5395921864B5100CDF1CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1ED2D52DB09124B46B7CB5E /* Pods-Anemone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U38NX4H29K;
 				INFOPLIST_FILE = Anemone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.Anemone;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.laughingquoll.Anemone-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Anemone/Anemone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		F1C5395A21864B5100CDF1CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 352B8FACAEC20AC6883D7C05 /* Pods-Anemone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U38NX4H29K;
 				INFOPLIST_FILE = Anemone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.Anemone;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.laughingquoll.Anemone-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Anemone/Anemone-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

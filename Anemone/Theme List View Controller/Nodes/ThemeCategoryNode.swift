@@ -6,8 +6,6 @@
 //  Copyright © 2018 CoolStar. All rights reserved.
 //
 
-import LNZTreeView
-
 class ThemeCategoryNode: ThemeNode {
     override var isExpandable: Bool {
         return true
