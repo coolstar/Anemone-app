@@ -15,6 +15,8 @@
 		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
 		F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */; };
+		F1C12E592188455B005582D4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C12E582188455B005582D4 /* MobileCoreServices.framework */; };
+		F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C12E5A218847DF005582D4 /* LaunchServices.m */; };
 		F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */; };
 		F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */; };
 		F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5393321864B5000CDF1CC /* AppDelegate.swift */; };
@@ -60,6 +62,10 @@
 		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
 		F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePreviewProvider.swift; sourceTree = "<group>"; };
+		F1C12E562188402B005582D4 /* NSTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
+		F1C12E572188451C005582D4 /* LaunchServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchServices.h; sourceTree = "<group>"; };
+		F1C12E582188455B005582D4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F1C12E5A218847DF005582D4 /* LaunchServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchServices.m; sourceTree = "<group>"; };
 		F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANEMThemeListViewController.swift; sourceTree = "<group>"; };
 		F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANEMThemeListViewController.xib; sourceTree = "<group>"; };
 		F1C5393021864B5000CDF1CC /* Anemone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anemone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C12E592188455B005582D4 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +197,9 @@
 				F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */,
 				F1C5393F21864B5100CDF1CC /* Info.plist */,
 				F1C539732186539D00CDF1CC /* Anemone-Bridging-Header.h */,
+				F1C12E562188402B005582D4 /* NSTask.h */,
+				F1C12E572188451C005582D4 /* LaunchServices.h */,
+				F1C12E5A218847DF005582D4 /* LaunchServices.m */,
 			);
 			path = Anemone;
 			sourceTree = "<group>";
@@ -313,6 +323,7 @@
 		FAF93B9363F70B8AEB246082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1C12E582188455B005582D4 /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -487,6 +498,7 @@
 				F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */,
 				F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */,
 				F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */,
+				F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */,
 				F1C539762186539E00CDF1CC /* PackageListManager.m in Sources */,
 				F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */,
 				F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */,
@@ -667,15 +679,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U38NX4H29K;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Anemone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.laughingquoll.Anemone-test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anemoneteam.anemone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Anemone/Anemone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -687,15 +701,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U38NX4H29K;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Anemone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.laughingquoll.Anemone-test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anemoneteam.anemone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Anemone/Anemone-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

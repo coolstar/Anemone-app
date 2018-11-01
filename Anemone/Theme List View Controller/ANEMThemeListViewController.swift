@@ -15,7 +15,11 @@ class ANEMThemeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserDefaults.standard.set(UIDevice.current.userInterfaceIdiom.rawValue, forKey: "userInterfaceIdiom");
+        UserDefaults.standard.set(UIScreen.main.scale, forKey: "displayScale");
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
         
         treeView?.register(UINib.init(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
         treeView?.register(UINib.init(nibName: "ANEMListThemeTableViewCell", bundle: nil), forCellReuseIdentifier: "themeRows")
@@ -122,8 +126,58 @@ class ANEMThemeListViewController: UIViewController {
             settings.append(themePackage)
         }
         UserDefaults.standard.set(settings, forKey: "packages")
+        
+        var settingsPacked : Array<String> = []
+        settings.forEach { (themePackage) in
+            let themes : Array<Dictionary<String, Any>> = themePackage["themes"] as! Array<Dictionary<String, Any>>
+            themes.forEach({ (theme) in
+                if ((theme["enabled"] as! Bool) == true){
+                    settingsPacked.append(theme["name"] as! String)
+                }
+            })
+        }
+        UserDefaults.standard.set(settingsPacked, forKey: "settingsPacked")
+        
+        UserDefaults.standard.synchronize()
     }
     
+    func applyAltIconName(altIconName : String?){
+        let workspace : LSApplicationWorkspace = LSApplicationWorkspace.default()
+        let allApps : Array<LSApplicationProxy> = workspace.allInstalledApplications()
+        
+        let sem = DispatchSemaphore(value: allApps.count)
+        
+        allApps.forEach { (app) in
+            let bundleIdentifier = app._boundApplicationIdentifier()
+            
+            clearCacheForItem(bundleIdentifier)
+            
+            app.setAlternateIconName(altIconName, withResult: { (success) in
+                sem.signal()
+            })
+        }
+        sem.wait(timeout: DispatchTime.distantFuture)
+    }
+    
+    @objc func applyThemes(){
+        
+        var alertController : UIAlertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
+        self.present(alertController, animated: true) {
+            let recache : NSTask = NSTask()
+            recache.launchPath = "/usr/bin/recache"
+            recache.arguments = ["--no-respring"]
+            recache.launch()
+            recache.waitUntilExit()
+            
+            self.applyAltIconName(altIconName: nil)
+            
+            self.applyAltIconName(altIconName: "__ANEM__AltIcon")
+            
+            alertController.dismiss(animated: true) {
+                UIApplication.shared.suspend()
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

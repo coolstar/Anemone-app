@@ -3,3 +3,10 @@
 //
 
 #import "PackageListManager.h"
+#import "NSTask.h"
+#import "LaunchServices.h"
+#import <UIKit/UIKit.h>
+
+@interface UIApplication(Private)
+- (void)suspend;
+@end
