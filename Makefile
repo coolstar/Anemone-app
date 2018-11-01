@@ -14,14 +14,24 @@ else
 endif
 
 $(THEOS_OBJ_DIR)/Anemone.app/Anemone:
+	rm -rf $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*
+	rm -f $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
+
 	set -o pipefail; \
 		xcodebuild -project 'Anemone.xcodeproj' -scheme 'Anemone' -configuration $(BUILD_CONFIG) -arch arm64 -sdk iphoneos \
-		CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="org.coolstar.Anemone" \
+		CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="com.anemoneteam.anemone" \
 		CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR) OBJROOT=$(THEOS_OBJ_DIR) SYMROOT=$(THEOS_OBJ_DIR) \
 		DSTROOT=$(THEOS_OBJ_DIR) $(XCPRETTY)
+	for x in $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*; do\
+		$(TARGET_LIPO) -remove armv7 $$x -o $$x; \
+		$(TARGET_LIPO) -remove armv7s $$x -o $$x; \
+	done
+	$(TARGET_LIPO) -remove armv7 $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
+	$(TARGET_LIPO) -remove armv7s $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
 	$(TARGET_STRIP) $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 	$(TARGET_CODESIGN) -Sent.plist $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*.dylib
+	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
 
 all:: $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 
