@@ -156,12 +156,12 @@ class ANEMThemeListViewController: UIViewController {
                 sem.signal()
             })
         }
-        sem.wait(timeout: DispatchTime.distantFuture)
+        let _ : DispatchTimeoutResult = sem.wait(timeout: DispatchTime.distantFuture)
     }
     
     @objc func applyThemes(){
         
-        var alertController : UIAlertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
+        let alertController : UIAlertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
         self.present(alertController, animated: true) {
             let recache : NSTask = NSTask()
             recache.launchPath = "/usr/bin/recache"
