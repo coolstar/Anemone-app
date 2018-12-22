@@ -48,8 +48,10 @@ class ANEMThemeListViewController: UIViewController {
             var hashedThemes : Dictionary<String, Bool> = [:]
             rawThemes?.forEach({ (rawTheme) in
                 if (((rawTheme["name"] as? String) != nil) && ((rawTheme["enabled"] as? Bool) != nil)){
-                    orderedThemes.append((rawTheme["name"] as? String)!)
-                    hashedThemes[rawTheme["name"] as! String] = (rawTheme["enabled"] as! Bool)
+                    if (themeFolders.contains(rawTheme["name"] as! String)){
+                        orderedThemes.append((rawTheme["name"] as? String)!)
+                        hashedThemes[rawTheme["name"] as! String] = (rawTheme["enabled"] as! Bool)
+                    }
                 }
             })
             
