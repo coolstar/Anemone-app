@@ -25,9 +25,11 @@ $(THEOS_OBJ_DIR)/Anemone.app/Anemone:
 	for x in $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*; do\
 		$(TARGET_LIPO) -remove armv7 $$x -o $$x; \
 		$(TARGET_LIPO) -remove armv7s $$x -o $$x; \
+		$(TARGET_LIPO) -remove arm64e $$x -o $$x; \
 	done
 	$(TARGET_LIPO) -remove armv7 $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
 	$(TARGET_LIPO) -remove armv7s $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
+	$(TARGET_LIPO) -remove arm64e $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
 	$(TARGET_STRIP) $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 	$(TARGET_CODESIGN) -Sent.plist $(THEOS_OBJ_DIR)/Anemone.app/Anemone
 	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*.dylib
