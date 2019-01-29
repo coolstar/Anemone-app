@@ -11,15 +11,18 @@ class ANEMThemeListViewController: UIViewController {
     
     @IBOutlet var treeView : LNZTreeView?
     var themeSections : Array<ThemeCategoryNode> = []
+    var previewIsStale : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        previewIsStale = false
         
         UserDefaults.standard.set(UIDevice.current.userInterfaceIdiom.rawValue, forKey: "userInterfaceIdiom");
         UserDefaults.standard.set(UIScreen.main.scale, forKey: "displayScale");
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
         
         treeView?.register(UINib.init(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
         treeView?.register(UINib.init(nibName: "ANEMListThemeTableViewCell", bundle: nil), forCellReuseIdentifier: "themeRows")
@@ -141,42 +144,38 @@ class ANEMThemeListViewController: UIViewController {
         UserDefaults.standard.set(settingsPacked, forKey: "settingsPacked")
         
         UserDefaults.standard.synchronize()
+        previewIsStale = true
+        self.viewDidLayoutSubviews()
     }
     
-    func applyAltIconName(altIconName : String?){
-        let workspace : LSApplicationWorkspace = LSApplicationWorkspace.default()
-        let allApps : Array<LSApplicationProxy> = workspace.allInstalledApplications()
-        
-        let sem = DispatchSemaphore(value: allApps.count)
-        
-        allApps.forEach { (app) in
-            let bundleIdentifier = app._boundApplicationIdentifier()
-            
-            clearCacheForItem(bundleIdentifier)
-            
-            app.setAlternateIconName(altIconName, withResult: { (success) in
-                sem.signal()
-            })
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if ((self.splitViewController?.isCollapsed)!){
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+        } else {
+            if (previewIsStale){
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Refresh Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+            }
         }
-        let _ : DispatchTimeoutResult = sem.wait(timeout: DispatchTime.distantFuture)
     }
     
     @objc func applyThemes(){
-        
-        let alertController : UIAlertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
-        self.present(alertController, animated: true) {
-            let recache : NSTask = NSTask()
-            recache.launchPath = "/usr/bin/recache"
-            recache.arguments = ["--no-respring"]
-            recache.launch()
-            recache.waitUntilExit()
-            
-            self.applyAltIconName(altIconName: nil)
-            
-            self.applyAltIconName(altIconName: "__ANEM__AltIcon")
-            
-            alertController.dismiss(animated: true) {
-                UIApplication.shared.suspend()
+        if ((self.splitViewController?.isCollapsed)!){
+            let previewController : ANEMPreviewController = ANEMPreviewController()
+            let navController = UINavigationController(rootViewController: previewController)
+            self.present(navController, animated: true){
+                
+            }
+        } else {
+            let previewController : ANEMPreviewController = self.splitViewController?.viewControllers[1] as! ANEMPreviewController
+            if (previewIsStale){
+                previewController.refreshTheme()
+                previewIsStale = false
+                self.viewDidLayoutSubviews()
+            } else {
+                previewController.applyThemes()
             }
         }
     }
