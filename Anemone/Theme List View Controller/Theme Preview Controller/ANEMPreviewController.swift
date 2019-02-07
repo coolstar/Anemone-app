@@ -485,11 +485,11 @@ class ANEMPreviewController : UIViewController {
         }
         
         var options : Int32 = 0
-        if (app.iconIsPrerendered()){
+        /*if (app.iconIsPrerendered()){
             options |= 0x10
-        }
+        }*/
         
-        return getIconForBundle(bundle, iconsDictionary as! [AnyHashable : Any], variant, options, 2.0, getThemed)
+        return getIconForBundle(bundle, iconsDictionary as? [AnyHashable : Any], variant, options, 2.0, getThemed)
     }
     
     func miniIconViewFromIdentifier(bundleIdentifier : Any?) -> UIView? {
@@ -519,6 +519,7 @@ class ANEMPreviewController : UIViewController {
         
         let iconView : UIImageView = UIImageView.init(frame: iconViewFrame)
         iconView.image = icon
+        iconView.layer.minificationFilter = CALayerContentsFilter.trilinear
         
         return iconView
     }
@@ -668,6 +669,7 @@ class ANEMPreviewController : UIViewController {
         let iconView : UIView = UIView.init(frame: iconViewFrame)
         let iconImageView : UIImageView = UIImageView.init(frame: iconImageViewFrame)
         iconImageView.image = icon
+        iconImageView.layer.minificationFilter = CALayerContentsFilter.trilinear
         iconView.addSubview(iconImageView)
         
         if (hasLabel){
@@ -704,6 +706,10 @@ class ANEMPreviewController : UIViewController {
         
         if (bundleIdentifier == "com.anemoneteam.anemone"){
             bundleIdentifier = "com.anemonetheming.anemone"
+        }
+
+        if (bundleIdentifier == "org.coolstar.electra1141"){
+            bundleIdentifier = "org.coolstar.electra1131"
         }
         
         for identifier in themes! {

@@ -44,6 +44,7 @@ CFArrayRef (*anem_CPBitmapCreateImagesFromData)(CFDataRef cpbitmap, void*, int, 
 + (UIImage *) imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 + (UIImage *)kitImageNamed:(NSString *)imageName;
 + (UIImage *)_iconForResourceProxy:(LSApplicationProxy *)arg1 variant:(int)arg2 variantsScale:(CGFloat)arg3;
++ (int)_iconVariantForUIApplicationIconFormat:(int)arg1 idiom:(UIUserInterfaceIdiom)arg2 scale:(CGFloat*)arg3;
 @end
 
 @interface _UIAssetManager : NSObject

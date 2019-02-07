@@ -13,6 +13,6 @@
 #ifndef MobileIcons_h
 #define MobileIcons_h
 
-UIImage *getIconForBundle(NSBundle *bundle, NSDictionary *iconsDictionary, int variant, int options, CGFloat scale, BOOL getThemedIcon);
+UIImage *getIconForBundle(NSBundle *bundle, NSDictionary *__nullable iconsDictionary, int variant, int options, CGFloat scale, BOOL getThemedIcon);
 
 #endif /* MobileIcons_h */
