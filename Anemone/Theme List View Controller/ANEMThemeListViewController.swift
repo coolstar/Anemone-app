@@ -64,6 +64,9 @@ class ANEMThemeListViewController: UIViewController {
             
             node.identifier = themeIdentifier
             node.humanReadable = package?.name ?? themeIdentifier
+            if (themeIdentifier == "com.anemonetheming.unknown"){
+                node.humanReadable = NSLocalizedString("Miscellaneous", comment: "")
+            }
             
             var hashedNodeThemes : Dictionary<String, ThemeNode> = [:]
             
