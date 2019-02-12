@@ -515,7 +515,10 @@ class ANEMPreviewController : UIViewController {
         }
         icon = icon?._applicationIconImage(forFormat: 2, precomposed: (infoPlist.object(forKey: "UIPrerenderedIcon") as? NSNumber)?.boolValue ?? false, scale: scale)
         
-        var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 12, height: 12)
+        var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 13, height: 13)
+        if (_deviceType == DeviceType.iPad){
+            iconViewFrame = CGRect(x: 0, y: 0, width: 11, height: 11)
+        }
         
         let iconView : UIImageView = UIImageView.init(frame: iconViewFrame)
         iconView.image = icon
@@ -566,14 +569,18 @@ class ANEMPreviewController : UIViewController {
         iconImageView.addSubview(folderOverlayView)
         
         var i : Int32 = 1
-        var x : CGFloat = 11
-        var y : CGFloat = 11
+        var x : CGFloat = 9
+        var minx : CGFloat = 8
+        var y : CGFloat = 9
         var maxX : Int32 = 3
         var maxItems : Int32 = 9
         
-        var folderSeparator : CGFloat = 14
+        var folderSeparator : CGFloat = 16
         if (_deviceType == DeviceType.iPad){
-            folderSeparator = 15
+            x = 11
+            minx = 11
+            y = 11
+            folderSeparator = 14
             maxX = 4
             maxItems = 16
         }
@@ -592,7 +599,7 @@ class ANEMPreviewController : UIViewController {
             iconImageView.addSubview(miniIcon!)
             x += folderSeparator
             if (i%maxX == 0){
-                x = 11
+                x = minx
                 y += folderSeparator
             }
             if (i >= maxItems){
