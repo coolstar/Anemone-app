@@ -785,8 +785,16 @@ class ANEMPreviewController : UIViewController {
             
             self.applyAltIconName(altIconName: "__ANEM__AltIcon")
             
-            alertController.dismiss(animated: true) {
-                UIApplication.shared.suspend()
+            if (AnemoneExtensionParameters.respringRequired()){
+                let killall : NSTask = NSTask()
+                killall.launchPath = "/usr/bin/killall"
+                killall.arguments = ["backboardd"]
+                killall.launch()
+                killall.waitUntilExit()
+            } else {
+                alertController.dismiss(animated: true) {
+                    UIApplication.shared.suspend()
+                }
             }
         }
     }

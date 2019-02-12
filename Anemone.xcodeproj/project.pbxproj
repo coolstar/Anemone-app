@@ -39,6 +39,7 @@
 		F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */; };
 		F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */; };
 		F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5399421866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib */; };
+		F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ANEMListCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMListThemeTableViewCell.swift; sourceTree = "<group>"; };
 		F1C5399421866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ANEMListThemeTableViewCell.xib; sourceTree = "<group>"; };
+		F1DCAC462213908B007379D9 /* AnemoneExtensionParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnemoneExtensionParameters.h; sourceTree = "<group>"; };
+		F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnemoneExtensionParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		F1AE69E421FA63A200D4E7EA /* Theme Preview Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F1DCAC452213906E007379D9 /* Extension Parameters */,
 				F1C51DCD2200005F0081AFC6 /* Calendar App Icon */,
 				F1AE69E521FA63D500D4E7EA /* ANEMPreviewController.swift */,
 			);
@@ -359,6 +363,15 @@
 			path = "Theme Cell";
 			sourceTree = "<group>";
 		};
+		F1DCAC452213906E007379D9 /* Extension Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				F1DCAC462213908B007379D9 /* AnemoneExtensionParameters.h */,
+				F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */,
+			);
+			path = "Extension Parameters";
+			sourceTree = "<group>";
+		};
 		FAF93B9363F70B8AEB246082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +555,7 @@
 				F102246721FE55B0006A1B78 /* MobileIcons.m in Sources */,
 				F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */,
 				F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */,
+				F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */,
 				F1C539762186539E00CDF1CC /* PackageListManager.m in Sources */,
 				F102246221FE5526006A1B78 /* AppSupport.m in Sources */,
 				F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */,

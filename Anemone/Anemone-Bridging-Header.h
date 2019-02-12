@@ -10,6 +10,7 @@
 #import "MobileIcons.h"
 #import "AnemoneTweakBridge.h"
 #import "SBCalendarApplicationIcon.h"
+#import "AnemoneExtensionParameters.h"
 
 CFArrayRef (*anem_CPBitmapCreateImagesFromData)(CFDataRef cpbitmap, void*, int, void*);
 
