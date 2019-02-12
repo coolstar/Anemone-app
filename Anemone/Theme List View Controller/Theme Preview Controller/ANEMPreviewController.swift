@@ -777,6 +777,10 @@ class ANEMPreviewController : UIViewController {
             recache.launch()
             recache.waitUntilExit()
             
+            let notificationName : CFString = "com.anemoneteam.anemone/reload" as CFString
+            
+            CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFNotificationName(notificationName), nil, nil, true);
+            
             self.applyAltIconName(altIconName: nil)
             
             self.applyAltIconName(altIconName: "__ANEM__AltIcon")
