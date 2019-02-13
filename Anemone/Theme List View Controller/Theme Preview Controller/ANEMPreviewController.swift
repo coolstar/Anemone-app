@@ -107,8 +107,6 @@ class ANEMPreviewController : UIViewController {
     
     func refreshTheme(){
         enableThemes()
-        var themes : Array<String>? = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String>
-        
         _backgroundView?.removeFromSuperview()
         
         var backgroundViewFrame : CGRect = CGRect(x: 50, y: 80, width: 260, height: 530)
@@ -196,16 +194,12 @@ class ANEMPreviewController : UIViewController {
         _backgroundView?.isUserInteractionEnabled = false
         self.view.addSubview(_backgroundView!)
         
-        var heightMargin : CGFloat = 0.0
-        
         if (_deviceType == DeviceType.iPhone && _phoneType == PhoneType.iPhoneX){
             let overlayView : UIImageView? = UIImageView.init(frame: (_backgroundView?.bounds)!)
             overlayView?.image = UIImage(named: "iPhone X-overlay")
             overlayView?.isUserInteractionEnabled = false
             overlayView?.layer.zPosition = 5000
             _backgroundView?.addSubview(overlayView!)
-            
-            heightMargin = 10.0
         }
         
         self.viewDidLayoutSubviews()
@@ -484,10 +478,7 @@ class ANEMPreviewController : UIViewController {
             }
         }
         
-        var options : Int32 = 0
-        /*if (app.iconIsPrerendered()){
-            options |= 0x10
-        }*/
+        let options : Int32 = 0
         
         return getIconForBundle(bundle, iconsDictionary as? [AnyHashable : Any], variant, options, 2.0, getThemed)
     }
@@ -716,7 +707,7 @@ class ANEMPreviewController : UIViewController {
         var bundleIdentifier = bundle
         let themesDir : String = PackageListManager.sharedInstance().prefixDir()
         
-        var themes : Array<String>? = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String>
+        let themes : Array<String>? = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String>
         
         if (bundleIdentifier == "com.anemoneteam.anemone"){
             bundleIdentifier = "com.anemonetheming.anemone"
