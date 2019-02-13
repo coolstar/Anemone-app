@@ -279,7 +279,7 @@ class ANEMPreviewController : UIViewController {
             floatyDockBackgroundView.addSubview(floatyDockContentsView)
             
             buttonBar?.forEach({ (rawIdentifier) in
-                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false)
+                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false, inDock: true)
                 if (iconView == nil){
                     return
                 }
@@ -351,7 +351,7 @@ class ANEMPreviewController : UIViewController {
             var x : CGFloat = dockXBase - (dockPosDiff * buttonBarCount)
             
             buttonBar?.forEach({ (rawIdentifier) in
-                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false)
+                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false, inDock: true)
                 if (iconView == nil){
                     return
                 }
@@ -414,7 +414,7 @@ class ANEMPreviewController : UIViewController {
         }
         let initialX : CGFloat = x
         iconList?.forEach({ (rawIdentifier) in
-            let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: true)
+            let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: true, inDock: false)
             if (iconView == nil){
                 return
             }
@@ -442,8 +442,8 @@ class ANEMPreviewController : UIViewController {
         })
         
         let pageDots : UIView = UIView(frame: CGRect(x: 0, y: screenHeight - (effectiveDockHeight + 37), width: screenWidth, height: 37))
-        let pageDot : UIImage = UIImage.kitImageNamed("UIPageIndicator")
-        let pageDotCurrent : UIImage = UIImage.kitImageNamed("UIPageIndicatorCurrent")
+        let pageDot : UIImage = AnemoneExtensionParameters.kitImageNamed("UIPageIndicator")
+        let pageDotCurrent : UIImage = AnemoneExtensionParameters.kitImageNamed("UIPageIndicatorCurrent")
         let pageDotSize = pageDotCurrent.size
         
         var pageCount : Int = ((iconState?.object(forKey: "iconLists") as? NSArray)?.count)!
@@ -527,7 +527,7 @@ class ANEMPreviewController : UIViewController {
         return iconView
     }
     
-    func folderIconViewFromIdentifier(folderDictionary : NSDictionary?, hasLabel : Bool) -> UIView? {
+    func folderIconViewFromIdentifier(folderDictionary : NSDictionary?, hasLabel : Bool, inDock: Bool) -> UIView? {
         var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 76, height: 93)
         var iconImageViewFrame : CGRect = CGRect(x: -1, y: -1, width: 78, height: 78)
         var labelFrame : CGRect = CGRect(x: -10, y: 83, width: 96, height: 16)
@@ -629,9 +629,9 @@ class ANEMPreviewController : UIViewController {
         return iconView
     }
     
-    func iconViewFromIdentifier(bundleIdentifier : Any?, hasLabel : Bool) -> UIView? {
+    func iconViewFromIdentifier(bundleIdentifier : Any?, hasLabel : Bool, inDock: Bool) -> UIView? {
         if ((bundleIdentifier as? NSString) == nil){
-            return folderIconViewFromIdentifier(folderDictionary: (bundleIdentifier as? NSDictionary), hasLabel: hasLabel)
+            return folderIconViewFromIdentifier(folderDictionary: (bundleIdentifier as? NSDictionary), hasLabel: hasLabel, inDock:inDock)
         }
         
         let scale : CGFloat = UIScreen.main.scale
@@ -639,7 +639,7 @@ class ANEMPreviewController : UIViewController {
         let app : LSApplicationProxy? = LSApplicationProxy(forIdentifier: (bundleIdentifier as! String))
         let bundlePath : NSString? = app!.bundleURL()?.path as NSString?
         if ((app == nil || bundlePath == nil) && ((bundleIdentifier as? String) == "com.apple.videos")){
-            return iconViewFromIdentifier(bundleIdentifier: "com.apple.tv", hasLabel:hasLabel)
+            return iconViewFromIdentifier(bundleIdentifier: "com.apple.tv", hasLabel:hasLabel, inDock: inDock)
         }
         if (app == nil || bundlePath == nil){
             return nil
@@ -654,7 +654,7 @@ class ANEMPreviewController : UIViewController {
         
         if (icon != nil){
             if ((infoPlist.object(forKey: "SBIconClass") as? String) == "SBCalendarApplicationIcon"){
-                var calendarIconObj = SBCalendarApplicationIcon()
+                let calendarIconObj = SBCalendarApplicationIcon()
                 if (calendarIconObj.responds(to: #selector(SBCalendarApplicationIcon.drawTextIntoCurrentContext(withImageSize:iconBase:)))){
                     UIGraphicsBeginImageContextWithOptions(icon!.size, false, 0.0)
                     calendarIconObj.drawTextIntoCurrentContext(withImageSize: icon!.size, iconBase: icon!)
@@ -673,11 +673,14 @@ class ANEMPreviewController : UIViewController {
             labelFrame = CGRect(x: -18, y: 63, width: 96, height: 16)
         }
         
-        let iconView : UIView = UIView.init(frame: iconViewFrame)
+        let iconView : AnemoneIconView = AnemoneIconView.init(frame: iconViewFrame)
         let iconImageView : UIImageView = UIImageView.init(frame: iconImageViewFrame)
         iconImageView.image = icon
         iconImageView.layer.minificationFilter = CALayerContentsFilter.trilinear
         iconView.addSubview(iconImageView)
+        
+        iconView.imageView = iconImageView
+        iconView.inDock = inDock
         
         if (hasLabel){
             let iconLabel : UILabel = UILabel(frame: labelFrame)
@@ -696,7 +699,11 @@ class ANEMPreviewController : UIViewController {
                 iconLabelText = infoPlist.object(forKey: "CFBundleExecutable") as? String
             }
             iconLabel.text = iconLabelText
+            
+            iconView.iconLabel = iconLabel
         }
+        
+        iconView.configureForDisplay()
         
         return iconView
     }

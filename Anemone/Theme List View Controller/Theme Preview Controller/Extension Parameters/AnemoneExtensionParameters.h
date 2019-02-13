@@ -7,11 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface AnemoneIconView : UIView
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *iconLabel;
+@property (nonatomic, assign) BOOL inDock;
+
+- (void)configureForDisplay;
+@end
+
 @interface AnemoneExtensionParameters : NSObject
 + (BOOL)respringRequired;
++ (UIImage *)kitImageNamed:(NSString *)name;
 @end
 
 NS_ASSUME_NONNULL_END
