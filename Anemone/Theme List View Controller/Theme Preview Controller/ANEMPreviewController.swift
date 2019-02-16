@@ -529,7 +529,7 @@ class ANEMPreviewController : UIViewController {
             labelFrame = CGRect(x: -18, y: 63, width: 96, height: 16)
         }
         
-        let iconView : UIView = UIView.init(frame: iconViewFrame)
+        let iconView : AnemoneFolderIconView = AnemoneFolderIconView.init(frame: iconViewFrame)
         let iconImageView : UIImageView = UIImageView.init(frame: iconImageViewFrame)
         iconImageView.contentMode = UIView.ContentMode.center
         
@@ -559,6 +559,9 @@ class ANEMPreviewController : UIViewController {
         folderOverlayView.clipsToBounds = true
         iconImageView.addSubview(folderOverlayView)
         
+        let gridView : UIView = UIView.init(frame: iconImageView.bounds)
+        iconImageView.addSubview(gridView)
+        
         var i : Int32 = 1
         var x : CGFloat = 9
         var minx : CGFloat = 8
@@ -587,7 +590,7 @@ class ANEMPreviewController : UIViewController {
             frame.origin.x = x
             frame.origin.y = y
             miniIcon?.frame = frame
-            iconImageView.addSubview(miniIcon!)
+            gridView.addSubview(miniIcon!)
             x += folderSeparator
             if (i%maxX == 0){
                 x = minx
@@ -600,6 +603,12 @@ class ANEMPreviewController : UIViewController {
         })
         
         iconView.addSubview(iconImageView)
+        
+        iconView.iconView = iconImageView
+        iconView.backdropView = folderBackgroundView
+        iconView.backdropOverlayView = folderOverlayView
+        iconView.gridView = gridView
+        iconView.inDock = inDock
         
         if (hasLabel){
             let iconLabel : UILabel = UILabel(frame: labelFrame)
@@ -615,7 +624,11 @@ class ANEMPreviewController : UIViewController {
             
             let iconLabelText : String? = folderDictionary?.object(forKey: "displayName") as? String
             iconLabel.text = iconLabelText
+            
+            iconView.iconLabel = iconLabel
         }
+        
+        iconView.configureForDisplay()
         
         return iconView
     }

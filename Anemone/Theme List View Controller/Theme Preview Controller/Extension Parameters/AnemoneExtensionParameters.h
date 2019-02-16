@@ -19,6 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)configureForDisplay;
 @end
 
+@interface AnemoneFolderIconView : UIView
+@property (nonatomic, strong) UIImageView *iconView;
+@property (nonatomic, strong) UIView *backdropView;
+@property (nonatomic, strong) UIView *backdropOverlayView;
+@property (nonatomic, strong) UIView *gridView;
+@property (nonatomic, strong) UILabel *iconLabel;
+@property (nonatomic, assign) BOOL inDock;
+
+- (void)configureForDisplay;
+@end
+
 @interface AnemoneExtensionParameters : NSObject
 + (BOOL)respringRequired;
 + (UIImage *)kitImageNamed:(NSString *)name;

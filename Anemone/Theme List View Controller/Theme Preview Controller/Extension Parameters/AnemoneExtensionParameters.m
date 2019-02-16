@@ -15,7 +15,11 @@
 
 @implementation AnemoneIconView
 - (void)configureForDisplay {
-    
+}
+@end
+
+@implementation AnemoneFolderIconView
+- (void)configureForDisplay {
 }
 @end
 
