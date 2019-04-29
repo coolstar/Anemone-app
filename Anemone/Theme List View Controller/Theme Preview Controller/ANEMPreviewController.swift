@@ -47,8 +47,9 @@ class ANEMPreviewController : UIViewController {
             _phoneType = PhoneType.iPhone5S
             let screenHeight = UIScreen.main.nativeBounds.size.height
             let screenWidth = UIScreen.main.nativeBounds.size.width
-            
-            if (screenHeight == 2436){
+			
+			//XXX: 1792 is XR, 2688 is XS Max
+            if (screenHeight == 1792 || screenHeight == 2436 || screenHeight == 2688){
                 _phoneType = PhoneType.iPhoneX
             } else if (screenWidth > 400){
                 _phoneType = PhoneType.iPhone6Plus
