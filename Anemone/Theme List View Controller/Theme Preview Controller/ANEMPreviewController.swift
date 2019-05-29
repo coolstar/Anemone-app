@@ -143,7 +143,7 @@ class ANEMPreviewController : UIViewController {
                 homeScreenCornerRadius = 0
                 statusBarHeight = 20
                 transform = 0.60
-                dockHeight = 92
+                dockHeight = 96
                 screenWidth = 320
                 screenHeight = 568
             } else if (_phoneType == PhoneType.iPhone6){
@@ -152,7 +152,7 @@ class ANEMPreviewController : UIViewController {
                 homeScreenCornerRadius = 0
                 statusBarHeight = 20
                 transform = 0.64
-                dockHeight = 92
+                dockHeight = 96
                 screenWidth = 375
                 screenHeight = 667
             } else if (_phoneType == PhoneType.iPhone6Plus){
@@ -161,7 +161,7 @@ class ANEMPreviewController : UIViewController {
                 homeScreenCornerRadius = 0
                 statusBarHeight = 20
                 transform = 0.59
-                dockHeight = 92
+                dockHeight = 96
                 screenWidth = 414
                 screenHeight = 736
             } else if (_phoneType == PhoneType.iPhoneX){
