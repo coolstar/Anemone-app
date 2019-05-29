@@ -118,6 +118,8 @@ class ANEMPreviewController : UIViewController {
         var dockHeight : CGFloat = 94
         var screenWidth : CGFloat = 375
         var screenHeight : CGFloat = 812
+		var dockMargins : CGFloat = 0
+		
         var useFloatyDock : Bool = true
         var floatyDockMargins : CGFloat = 20
         var floatyDockYMargin : CGFloat = 20
@@ -134,6 +136,7 @@ class ANEMPreviewController : UIViewController {
             floatyDockMargins = 80
             floatyDockYMargin = 34
         } else {
+			useFloatyDock = false
             if (_phoneType == PhoneType.iPhone5S){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 226, height: 475)
                 homeScreenFrame = CGRect(x: 18, y: 69, width: 192, height: 340)
@@ -143,7 +146,6 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 92
                 screenWidth = 320
                 screenHeight = 568
-                useFloatyDock = false
             } else if (_phoneType == PhoneType.iPhone6){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
                 homeScreenFrame = CGRect(x: 19, y: 69, width: 240, height: 427)
@@ -153,7 +155,6 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 92
                 screenWidth = 375
                 screenHeight = 667
-                useFloatyDock = false
             } else if (_phoneType == PhoneType.iPhone6Plus){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
                 homeScreenFrame = CGRect(x: 19, y: 68, width: 245, height: 437)
@@ -163,16 +164,16 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 92
                 screenWidth = 414
                 screenHeight = 736
-                useFloatyDock = false
             } else if (_phoneType == PhoneType.iPhoneX){
                 backgroundViewFrame = CGRect(x: 50, y: 80, width: 260, height: 530)
                 homeScreenFrame = CGRect(x: 11, y: 10, width: 236, height: 510)
                 homeScreenCornerRadius = 35
                 statusBarHeight = 44
                 transform = 0.63
-                dockHeight = 94
+                dockHeight = 93.33
                 screenWidth = 375
                 screenHeight = 812
+				dockMargins = 11;
             }
         }
         
@@ -251,7 +252,7 @@ class ANEMPreviewController : UIViewController {
         
         let dockContentsView : UIView = UIView(frame: CGRect.zero)
         dockContentsView.transform = CGAffineTransform(scaleX: transform, y: transform)
-        dockContentsView.frame = CGRect(x: 0, y: homeScreenFrame.size.height - transformedDockHeight, width: homeScreenFrame.size.width, height: transformedDockHeight)
+        dockContentsView.frame = CGRect(x: 0, y: homeScreenFrame.size.height - transformedDockHeight - (dockMargins * transform), width: homeScreenFrame.size.width, height: transformedDockHeight)
         homeScreenView.addSubview(dockContentsView)
         
         let iconState : NSDictionary? = getIconState()
@@ -261,7 +262,7 @@ class ANEMPreviewController : UIViewController {
         let dockSettings : _UIBackdropViewSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
         dockSettings.blurRadius = 25
         
-        var effectiveDockHeight : CGFloat = dockHeight
+        var effectiveDockHeight : CGFloat = dockHeight + dockMargins
         
         if (useFloatyDock){
             var x : CGFloat = 21
@@ -316,11 +317,15 @@ class ANEMPreviewController : UIViewController {
             dockRootView.frame = CGRect(x: 0, y: 0, width: homeScreenFrame.size.width, height: transformedDockHeight)
             dockContentsView.addSubview(dockRootView)
             
-            let dockView : _UIBackdropView = _UIBackdropView.init(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight), autosizesToFitSuperview: false, settings: dockSettings)
+            let dockView : _UIBackdropView = _UIBackdropView.init(frame: CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight), autosizesToFitSuperview: false, settings: dockSettings)
+			dockView.clipsToBounds = true
+			dockView.layer.cornerRadius = (dockMargins * 2)
             dockRootView.addSubview(dockView)
             
-            let dockOverlayView : UIView = UIView.init(frame:CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+            let dockOverlayView : UIView = UIView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
             dockOverlayView.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
+			dockOverlayView.clipsToBounds = true
+			dockOverlayView.layer.cornerRadius = (dockMargins * 2)
             dockRootView.addSubview(dockOverlayView)
             
             var dockXBase : CGFloat = 168.0
@@ -336,7 +341,11 @@ class ANEMPreviewController : UIViewController {
                 dockXBase = 223.0
                 dockPosDiff = 47.0
                 dockXSeparation = 94.0
-            }
+			} else if (_phoneType == PhoneType.iPhoneX){
+				dockXBase = 199.0
+				dockPosDiff = 43.0
+				dockXSeparation = 87.0
+			}
             
             var buttonBarCount : CGFloat = CGFloat(buttonBar!.count)
             if (buttonBarCount > 4.0){
@@ -468,7 +477,7 @@ class ANEMPreviewController : UIViewController {
     
     func getHomeScreenIconForApp(app : LSApplicationProxy, isiPad : Bool, getThemed: Bool) -> UIImage? {
         let iconsDictionary : NSDictionary? = app.iconsDictionary() as NSDictionary?
-        let bundle : Bundle? = Bundle(url: app.bundleURL())
+		let bundle : Bundle? = Bundle(url: app.bundleURL()!)
         
         var variant : Int32 = 15
         if (_deviceType == DeviceType.iPad){
@@ -763,7 +772,7 @@ class ANEMPreviewController : UIViewController {
             if (altIconName == "__ANEM__AltIcon"){
                 shouldApplyIcon = false
                 
-                let icon = checkThemedIconForBundle(bundle: app._boundApplicationIdentifier())
+				let icon = checkThemedIconForBundle(bundle: app._boundApplicationIdentifier()!)
                 
                 if (icon != nil){
                     shouldApplyIcon = true

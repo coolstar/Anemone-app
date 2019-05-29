@@ -12,6 +12,6 @@
 @interface PackageListManager : NSObject
 + (nonnull instancetype)sharedInstance;
 - (nonnull NSDictionary<NSString *,Package *> *)packagesList;
-- (NSString *)prefixDir;
+- (nonnull NSString *)prefixDir;
 - (nonnull NSMutableDictionary<NSString *, NSArray *> *)scanForThemes;
 @end
