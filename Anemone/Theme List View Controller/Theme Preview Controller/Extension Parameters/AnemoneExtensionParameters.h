@@ -30,6 +30,36 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)configureForDisplay;
 @end
 
+@interface _UIBackdropViewSettings : NSObject
++ (_UIBackdropViewSettings *)settingsForStyle:(int)style;
++ (_UIBackdropViewSettings *)settingsForStyle:(int)style graphicsQuality:(int)graphicsQuality;
+
+@property (nonatomic, retain) UIImage *filterMaskImage;
+@property (nonatomic, retain) UIImage *colorTintMaskImage;
+@property (nonatomic, retain) UIImage *grayscaleTintMaskImage;
+@property (nonatomic, retain) UIImage *darkeningTintMaskImage;
+@property (nonatomic, assign) CGFloat blurRadius;
+@property (nonatomic, copy) NSString *blurQuality;
+@property (nonatomic, assign) NSInteger graphicsQuality;
+@property (nonatomic, assign) BOOL explicitlySetGraphicsQuality;
+@end
+
+@interface _UIBackdropView : UIView
+- (id)initWithFrame:(CGRect)frame autosizesToFitSuperview:(BOOL)autosizesToFitSuperview settings:(_UIBackdropViewSettings *)settings;
+@end
+
+@interface AnemoneFloatyDockBackgroundView : _UIBackdropView
+- (void)configureForDisplay;
+@end
+
+@interface AnemoneDockBackgroundView : _UIBackdropView
+- (void)configureForDisplay;
+@end
+
+@interface AnemoneDockOverlayView : UIView
+- (void)configureForDisplay;
+@end
+
 @interface AnemoneExtensionParameters : NSObject
 + (BOOL)respringRequired;
 + (UIImage *)kitImageNamed:(NSString *)name;

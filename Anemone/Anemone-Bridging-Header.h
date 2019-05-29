@@ -22,24 +22,6 @@ CFArrayRef (*anem_CPBitmapCreateImagesFromData)(CFDataRef cpbitmap, void*, int, 
 - (void)requestStyle:(UIStatusBarStyle)style;
 @end
 
-@interface _UIBackdropViewSettings : NSObject
-+ (_UIBackdropViewSettings *)settingsForStyle:(int)style;
-+ (_UIBackdropViewSettings *)settingsForStyle:(int)style graphicsQuality:(int)graphicsQuality;
-
-@property (nonatomic, retain) UIImage *filterMaskImage;
-@property (nonatomic, retain) UIImage *colorTintMaskImage;
-@property (nonatomic, retain) UIImage *grayscaleTintMaskImage;
-@property (nonatomic, retain) UIImage *darkeningTintMaskImage;
-@property (nonatomic, assign) CGFloat blurRadius;
-@property (nonatomic, copy) NSString *blurQuality;
-@property (nonatomic, assign) NSInteger graphicsQuality;
-@property (nonatomic, assign) BOOL explicitlySetGraphicsQuality;
-@end
-
-@interface _UIBackdropView : UIView
-- (id)initWithFrame:(CGRect)frame autosizesToFitSuperview:(BOOL)autosizesToFitSuperview settings:(_UIBackdropViewSettings *)settings;
-@end
-
 @interface UIImage (Private)
 - (UIImage *)_applicationIconImageForFormat:(int)arg1 precomposed:(BOOL)arg2 scale:(CGFloat)arg3;
 + (nullable UIImage *) imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;

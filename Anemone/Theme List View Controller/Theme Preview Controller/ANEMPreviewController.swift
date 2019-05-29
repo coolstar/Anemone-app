@@ -267,9 +267,10 @@ class ANEMPreviewController : UIViewController {
         if (useFloatyDock){
             var x : CGFloat = 21
             
-            let floatyDockBackgroundView : _UIBackdropView = _UIBackdropView.init(frame: CGRect.zero, autosizesToFitSuperview: false, settings: dockSettings)
+            let floatyDockBackgroundView : AnemoneFloatyDockBackgroundView = AnemoneFloatyDockBackgroundView.init(frame: CGRect.zero, autosizesToFitSuperview: false, settings: dockSettings)
             floatyDockBackgroundView.layer.cornerRadius = 31
             floatyDockBackgroundView.clipsToBounds = true
+			floatyDockBackgroundView.configureForDisplay()
             
             let floatyDockContentsView : UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 1024, height: dockHeight))
             floatyDockBackgroundView.addSubview(floatyDockContentsView)
@@ -317,12 +318,13 @@ class ANEMPreviewController : UIViewController {
             dockRootView.frame = CGRect(x: 0, y: 0, width: homeScreenFrame.size.width, height: transformedDockHeight)
             dockContentsView.addSubview(dockRootView)
             
-            let dockView : _UIBackdropView = _UIBackdropView.init(frame: CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight), autosizesToFitSuperview: false, settings: dockSettings)
+            let dockView : AnemoneDockBackgroundView = AnemoneDockBackgroundView.init(frame: CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight), autosizesToFitSuperview: false, settings: dockSettings)
 			dockView.clipsToBounds = true
 			dockView.layer.cornerRadius = (dockMargins * 2)
+			dockView.configureForDisplay()
             dockRootView.addSubview(dockView)
             
-            let dockOverlayView : UIView = UIView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
+            let dockOverlayView : UIView = AnemoneDockOverlayView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
             dockOverlayView.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
 			dockOverlayView.clipsToBounds = true
 			dockOverlayView.layer.cornerRadius = (dockMargins * 2)

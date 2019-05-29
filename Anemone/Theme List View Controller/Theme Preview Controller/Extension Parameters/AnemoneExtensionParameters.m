@@ -23,6 +23,21 @@
 }
 @end
 
+@implementation AnemoneFloatyDockBackgroundView
+- (void)configureForDisplay {
+}
+@end
+
+@implementation AnemoneDockBackgroundView
+- (void)configureForDisplay {
+}
+@end
+
+@implementation AnemoneDockOverlayView
+- (void)configureForDisplay {
+}
+@end
+
 @implementation AnemoneExtensionParameters
 + (UIImage *)kitImageNamed:(NSString *)name {
     return [UIImage kitImageNamed:name];
