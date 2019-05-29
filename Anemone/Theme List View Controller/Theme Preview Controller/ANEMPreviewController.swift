@@ -324,10 +324,11 @@ class ANEMPreviewController : UIViewController {
 			dockView.configureForDisplay()
             dockRootView.addSubview(dockView)
             
-            let dockOverlayView : UIView = AnemoneDockOverlayView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
+            let dockOverlayView : AnemoneDockOverlayView = AnemoneDockOverlayView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
             dockOverlayView.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
 			dockOverlayView.clipsToBounds = true
 			dockOverlayView.layer.cornerRadius = (dockMargins * 2)
+			dockOverlayView.configureForDisplay()
             dockRootView.addSubview(dockOverlayView)
             
             var dockXBase : CGFloat = 168.0
