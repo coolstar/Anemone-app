@@ -19,7 +19,7 @@ $(THEOS_OBJ_DIR)/Anemone.app/Anemone:
 
 	set -o pipefail; \
 		xcodebuild -project 'Anemone.xcodeproj' -scheme 'Anemone' -configuration $(BUILD_CONFIG) -arch arm64 -sdk iphoneos \
-		CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="com.anemoneteam.anemone" \
+		CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="com.anemoneteam.anemone" \
 		CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR) OBJROOT=$(THEOS_OBJ_DIR) SYMROOT=$(THEOS_OBJ_DIR) \
 		DSTROOT=$(THEOS_OBJ_DIR) $(XCPRETTY)
 	for x in $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*; do\
