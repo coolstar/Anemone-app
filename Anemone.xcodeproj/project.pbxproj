@@ -745,6 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					/usr/lib/libswift/stable,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.anemoneteam.anemone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -768,6 +769,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					/usr/lib/libswift/stable,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.anemoneteam.anemone;
 				PRODUCT_NAME = "$(TARGET_NAME)";

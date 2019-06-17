@@ -13,35 +13,24 @@ else
 	BUILD_CONFIG := Release
 endif
 
-$(THEOS_OBJ_DIR)/Anemone.app/Anemone:
-	rm -rf $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*
-	rm -f $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
+ANEMONE_APP_DIR = $(THEOS_OBJ_DIR)/install/Applications/Anemone.app
 
+$(ANEMONE_APP_DIR):
 	set -o pipefail; \
 		xcodebuild -project 'Anemone.xcodeproj' -scheme 'Anemone' -configuration $(BUILD_CONFIG) -arch arm64 -sdk iphoneos \
-		CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="com.anemoneteam.anemone" \
-		CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR) OBJROOT=$(THEOS_OBJ_DIR) SYMROOT=$(THEOS_OBJ_DIR) \
-		DSTROOT=$(THEOS_OBJ_DIR) $(XCPRETTY)
-	for x in $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*; do\
-		$(TARGET_LIPO) -remove armv7 $$x -o $$x; \
-		$(TARGET_LIPO) -remove armv7s $$x -o $$x; \
-		$(TARGET_LIPO) -remove arm64e $$x -o $$x; \
-	done
-	$(TARGET_LIPO) -remove armv7 $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
-	$(TARGET_LIPO) -remove armv7s $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
-	$(TARGET_LIPO) -remove arm64e $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib -o $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
-	$(TARGET_STRIP) $(THEOS_OBJ_DIR)/Anemone.app/Anemone
-	$(TARGET_CODESIGN) -Sent.plist $(THEOS_OBJ_DIR)/Anemone.app/Anemone
-	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/Frameworks/*.dylib
-	$(TARGET_CODESIGN) $(THEOS_OBJ_DIR)/Anemone.app/libswiftRemoteMirror.dylib
+		build install \
+		CODE_SIGNING_ALLOWED=NO PRODUCT_BUNDLE_IDENTIFIER="com.anemoneteam.anemone" \
+		DSTROOT=$(THEOS_OBJ_DIR)/install $(XCPRETTY)
+	rm -rf $(ANEMONE_APP_DIR)/Frameworks/libswift*.dylib
+	$(TARGET_CODESIGN) -Sent.plist $(ANEMONE_APP_DIR)/Anemone
 
-all:: $(THEOS_OBJ_DIR)/Anemone.app/Anemone
+all:: $(ANEMONE_APP_DIR)
 
 internal-stage::
 	mkdir -p $(THEOS_STAGING_DIR)/Applications/
-	cp -r $(THEOS_OBJ_DIR)/Anemone.app $(THEOS_STAGING_DIR)/Applications/
+	cp -a $(ANEMONE_APP_DIR) $(THEOS_STAGING_DIR)/Applications/
 
 internal-clean::
 	$(MAKE) -C clean
 
-.PHONY: $(THEOS_OBJ_DIR)/Anemone.app/Anemone
+.PHONY: $(ANEMONE_APP_DIR)
