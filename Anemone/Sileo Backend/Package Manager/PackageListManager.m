@@ -7,7 +7,7 @@
 //
 
 #import "PackageListManager.h"
-#import "ControlFileParser.h"
+#import "Anemone-Swift.h"
 #import "DpkgWrapper.h"
 
 #if TARGET_IPHONE_SIMULATOR
@@ -27,18 +27,18 @@
 
 - (Package *)packageFromDictionary:(NSDictionary *)rawPackage {
     Package *package = [Package new];
-    package.package = rawPackage[@"Package"];
-    package.name = rawPackage[@"Name"];
+    package.package = rawPackage[@"package"];
+    package.name = rawPackage[@"name"];
     if (!package.name)
         package.name = package.package;
-    package.version = rawPackage[@"Version"];
-    package.architecture = rawPackage[@"Architecture"];
-    package.maintainer = rawPackage[@"Maintainer"];
+    package.version = rawPackage[@"version"];
+    package.architecture = rawPackage[@"architecture"];
+    package.maintainer = rawPackage[@"maintainer"];
     if (package.maintainer){
-        if (rawPackage[@"Author"])
-            package.author = rawPackage[@"Author"];
+        if (rawPackage[@"author"])
+            package.author = rawPackage[@"author"];
         else
-            package.author = rawPackage[@"Maintainer"];
+            package.author = rawPackage[@"maintainer"];
     }
     
     package.rawControl = rawPackage;
@@ -119,22 +119,21 @@
                 NSRange subRange = NSMakeRange(index, newIndex - index);
                 
                 NSData *packageData = [normalizedData subdataWithRange:subRange];
-                NSString *rawPackageControl = [[NSString alloc] initWithData:packageData encoding:NSUTF8StringEncoding];
                 
-                NSDictionary *rawPackage = [ControlFileParser dictionaryFromControlFile:rawPackageControl isReleaseFile:NO];
-                if ([rawPackage[@"Package"] hasPrefix:@"gsc."]){
+                NSDictionary *rawPackage = [ControlFileParser dictionaryWithControlData:packageData isReleaseFile:NO];
+                if ([rawPackage[@"package"] hasPrefix:@"gsc."]){
                     index = newIndex;
                     continue;
                 }
-                if ([rawPackage[@"Package"] hasPrefix:@"cy+"]){
+                if ([rawPackage[@"package"] hasPrefix:@"cy+"]){
                     index = newIndex;
                     continue;
                 }
-                if ([rawPackage[@"Package"] isEqualToString:@""]){
+                if ([rawPackage[@"package"] isEqualToString:@""]){
                     index = newIndex;
                     continue;
                 }
-                if (!rawPackage[@"Package"]){
+                if (!rawPackage[@"package"]){
                     index = newIndex;
                     continue;
                 }
@@ -144,7 +143,7 @@
                 enum pkgeflag eFlag;
                 enum pkgstatus status;
                 
-                BOOL statusValid = [DpkgWrapper getValuesForStatusField:package.rawControl[@"Status"] wantInfo:&wantInfo eFlag:&eFlag status:&status];
+                BOOL statusValid = [DpkgWrapper getValuesForStatusField:package.rawControl[@"status"] wantInfo:&wantInfo eFlag:&eFlag status:&status];
                 if (!statusValid)
                     continue;
                 

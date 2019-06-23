@@ -15,6 +15,8 @@
 		F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */; };
 		F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693278218792B70017DF91 /* ActionBlockButton.swift */; };
 		F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */; };
+		F19FB3A222BF74B2008E986B /* String-TrimLeadingWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A122BF74B2008E986B /* String-TrimLeadingWhitespace.swift */; };
+		F19FB3A422BF74C0008E986B /* ControlFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A322BF74C0008E986B /* ControlFileParser.swift */; };
 		F1AE69E621FA63D500D4E7EA /* ANEMPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE69E521FA63D500D4E7EA /* ANEMPreviewController.swift */; };
 		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
@@ -32,8 +34,6 @@
 		F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396621864FFD00CDF1CC /* ThemeNode.swift */; };
 		F1C539762186539E00CDF1CC /* PackageListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539752186539E00CDF1CC /* PackageListManager.m */; };
 		F1C5397D2186542400CDF1CC /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C5397C2186542400CDF1CC /* Package.m */; };
-		F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539802186554100CDF1CC /* ControlFileParser.m */; };
-		F1C539852186557400CDF1CC /* NSString-TrimLeadingWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539832186557400CDF1CC /* NSString-TrimLeadingWhitespace.m */; };
 		F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539882186560700CDF1CC /* DpkgWrapper.m */; };
 		F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5398B21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift */; };
 		F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */; };
@@ -73,6 +73,8 @@
 		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
 		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
+		F19FB3A122BF74B2008E986B /* String-TrimLeadingWhitespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-TrimLeadingWhitespace.swift"; sourceTree = "<group>"; };
+		F19FB3A322BF74C0008E986B /* ControlFileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlFileParser.swift; sourceTree = "<group>"; };
 		F1AE69E521FA63D500D4E7EA /* ANEMPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMPreviewController.swift; sourceTree = "<group>"; };
 		F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePreviewProvider.swift; sourceTree = "<group>"; };
 		F1C12E562188402B005582D4 /* NSTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
@@ -103,10 +105,6 @@
 		F1C539752186539E00CDF1CC /* PackageListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PackageListManager.m; sourceTree = "<group>"; };
 		F1C5397B2186542400CDF1CC /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Package.h; sourceTree = "<group>"; };
 		F1C5397C2186542400CDF1CC /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Package.m; sourceTree = "<group>"; };
-		F1C5397F2186554100CDF1CC /* ControlFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlFileParser.h; sourceTree = "<group>"; };
-		F1C539802186554100CDF1CC /* ControlFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlFileParser.m; sourceTree = "<group>"; };
-		F1C539832186557400CDF1CC /* NSString-TrimLeadingWhitespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-TrimLeadingWhitespace.m"; sourceTree = "<group>"; };
-		F1C539842186557400CDF1CC /* NSString-TrimLeadingWhitespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-TrimLeadingWhitespace.h"; sourceTree = "<group>"; };
 		F1C539872186560700CDF1CC /* DpkgWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DpkgWrapper.h; sourceTree = "<group>"; };
 		F1C539882186560700CDF1CC /* DpkgWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DpkgWrapper.m; sourceTree = "<group>"; };
 		F1C5398B21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMListCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -297,8 +295,7 @@
 		F1C5397E2186552F00CDF1CC /* Control File Parser */ = {
 			isa = PBXGroup;
 			children = (
-				F1C5397F2186554100CDF1CC /* ControlFileParser.h */,
-				F1C539802186554100CDF1CC /* ControlFileParser.m */,
+				F19FB3A322BF74C0008E986B /* ControlFileParser.swift */,
 			);
 			path = "Control File Parser";
 			sourceTree = "<group>";
@@ -306,8 +303,7 @@
 		F1C539822186556800CDF1CC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F1C539842186557400CDF1CC /* NSString-TrimLeadingWhitespace.h */,
-				F1C539832186557400CDF1CC /* NSString-TrimLeadingWhitespace.m */,
+				F19FB3A122BF74B2008E986B /* String-TrimLeadingWhitespace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -536,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19FB3A422BF74C0008E986B /* ControlFileParser.swift in Sources */,
 				F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */,
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
 				F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */,
@@ -547,17 +544,16 @@
 				F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */,
 				F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */,
 				F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */,
-				F1C539852186557400CDF1CC /* NSString-TrimLeadingWhitespace.m in Sources */,
 				F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */,
 				F1C51DCC2200005C0081AFC6 /* SBCalendarApplicationIcon.m in Sources */,
 				F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */,
 				F1AE69E621FA63D500D4E7EA /* ANEMPreviewController.swift in Sources */,
 				F102246721FE55B0006A1B78 /* MobileIcons.m in Sources */,
-				F1C539812186554100CDF1CC /* ControlFileParser.m in Sources */,
 				F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */,
 				F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */,
 				F1C539762186539E00CDF1CC /* PackageListManager.m in Sources */,
 				F102246221FE5526006A1B78 /* AppSupport.m in Sources */,
+				F19FB3A222BF74B2008E986B /* String-TrimLeadingWhitespace.swift in Sources */,
 				F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */,
 				F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */,
 			);
