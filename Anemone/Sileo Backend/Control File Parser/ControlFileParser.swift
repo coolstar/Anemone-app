@@ -8,15 +8,15 @@
 
 import Foundation
 
-@objc class ControlFileParser: NSObject {
-    @objc class func dictionary(controlFile:String, isReleaseFile:Bool) -> Dictionary<String, String> {
+class ControlFileParser: NSObject {
+    class func dictionary(controlFile:String, isReleaseFile:Bool) -> Dictionary<String, String> {
         guard let controlData = controlFile.data(using: .utf8) else {
             return Dictionary()
         }
         return dictionary(controlData: controlData, isReleaseFile: isReleaseFile)
     }
     
-    @objc class func dictionary(controlData:Data, isReleaseFile:Bool) -> Dictionary<String, String> {
+    class func dictionary(controlData:Data, isReleaseFile:Bool) -> Dictionary<String, String> {
         let separator = "\n".data(using: .utf8)!
         let keyValueSeparator = ":".data(using: .utf8)!
         let space = " ".data(using: .utf8)!
@@ -89,14 +89,14 @@ import Foundation
         return dictionary
     }
     
-    @objc class func authorName(string:String) -> String {
+    class func authorName(string:String) -> String {
         guard let emailIndex = string.firstIndex(of: "<") else {
             return string.trimmingCharacters(in: .whitespaces)
         }
         return string[..<emailIndex].trimmingCharacters(in: .whitespaces)
     }
     
-    @objc class func authorEmail(string:String) -> String? {
+    class func authorEmail(string:String) -> String? {
         guard let emailIndex = string.firstIndex(of: "<") else {
             return nil
         }

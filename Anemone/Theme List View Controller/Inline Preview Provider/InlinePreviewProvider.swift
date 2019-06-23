@@ -15,7 +15,7 @@ class InlinePreviewProvider {
     var previewViews : Dictionary<String, UIScrollView> = [:]
     
     func getThemedIconForBundle(bundle: String, themeCategoryNode : ThemeCategoryNode?) -> String? {
-        let themesDir : String = PackageListManager.sharedInstance().prefixDir()
+        let themesDir : String = PackageListManager.shared.prefixDir().path
         
         for themeNode in (themeCategoryNode?.themes)! {
             let identifier : String = themeNode.identifier

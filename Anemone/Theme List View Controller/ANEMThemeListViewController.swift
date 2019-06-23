@@ -27,9 +27,9 @@ class ANEMThemeListViewController: UIViewController {
         treeView?.register(UINib.init(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
         treeView?.register(UINib.init(nibName: "ANEMListThemeTableViewCell", bundle: nil), forCellReuseIdentifier: "themeRows")
         
-        let themesFolderContents : Dictionary<String, Array<String>> = PackageListManager.sharedInstance().scanForThemes() as! Dictionary<String, Array>
+        let themesFolderContents : Dictionary<String, Array<String>> = PackageListManager.shared.scanForThemes() 
         
-        let packages : Dictionary<String, Package> = PackageListManager.sharedInstance().packagesList()
+        let packages : Dictionary<String, Package> = PackageListManager.shared.packagesList()
         
         let rawSettings : Array<Dictionary<String, Any>>? = UserDefaults.standard.array(forKey: "packages") as? Array<Dictionary<String, Any>>
         

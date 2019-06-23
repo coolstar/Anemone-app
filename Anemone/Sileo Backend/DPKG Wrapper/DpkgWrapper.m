@@ -47,7 +47,7 @@ const struct namevalue statusinfos[] = {
 };
 
 @implementation DpkgWrapper
-+ (BOOL)getValuesForStatusField:(NSString *)statusField wantInfo:(enum pkgwant *)wantInfo eFlag:(enum pkgeflag *)eFlag status:(enum pkgstatus *)pkgStatus {
++ (BOOL)getValuesForStatusField:(NSString * _Nullable )statusField wantInfo:(enum pkgwant *)wantInfo eFlag:(enum pkgeflag *)eFlag status:(enum pkgstatus *)pkgStatus {
     NSArray *statusParts = [statusField componentsSeparatedByString:@" "];
     if (statusParts.count < 3)
         return NO;

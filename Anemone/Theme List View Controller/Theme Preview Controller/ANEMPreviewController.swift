@@ -731,7 +731,7 @@ class ANEMPreviewController : UIViewController {
     
     func checkThemedIconForBundle(bundle: String) -> String? {
         var bundleIdentifier = bundle
-        let themesDir : String = PackageListManager.sharedInstance().prefixDir()
+        let themesDir : String = PackageListManager.shared.prefixDir().path
         
         let themes : Array<String>? = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String>
         
