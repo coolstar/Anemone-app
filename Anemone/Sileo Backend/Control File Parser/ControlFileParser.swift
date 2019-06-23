@@ -9,94 +9,83 @@
 import Foundation
 
 class ControlFileParser: NSObject {
-    class func dictionary(controlFile:String, isReleaseFile:Bool) -> Dictionary<String, String> {
-        guard let controlData = controlFile.data(using: .utf8) else {
-            return Dictionary()
-        }
-        return dictionary(controlData: controlData, isReleaseFile: isReleaseFile)
+    enum Error: LocalizedError {
+        case invalidStringData
+        case invalidMultilineValue
+        case expectedSeparator
     }
-    
-    class func dictionary(controlData:Data, isReleaseFile:Bool) -> Dictionary<String, String> {
-        let separator = "\n".data(using: .utf8)!
-        let keyValueSeparator = ":".data(using: .utf8)!
-        let space = " ".data(using: .utf8)!
-        
-        var dictionary = Dictionary<String, String>()
-        var lastMultilineKey = "";
-        
-        var index = 0;
-        while (index < controlData.count) {
-            let range = controlData.range(of: separator, options:[], in: index..<controlData.count)
-            var newIndex = 0
-            if ((range) != nil){
-                newIndex = range!.lowerBound + separator.count
-            } else {
-                newIndex = controlData.count
-            }
-            
-            let subRange = index..<newIndex
-            let lineData = controlData.subdata(in: subRange)
-            
-            let separatorRange = lineData.range(of: keyValueSeparator, options:[], in: 0..<lineData.count) ?? 0..<0
-            if (separatorRange.upperBound == 0){
-                if (lastMultilineKey == ""){
-                    index = newIndex
-                    continue
-                }
-            }
-            var rawKey : Data = "".data(using: .utf8)!
-            if (separatorRange.upperBound != 0) {
-                rawKey = lineData.subdata(in: 0..<separatorRange.lowerBound)
-            }
-            guard (rawKey.count != 0 && rawKey.range(of: space, options:[], in: 0..<rawKey.count) == nil) else {
-                if (lastMultilineKey != ""){
-                    let line = String.init(data: lineData, encoding: .utf8) ?? ""
-                    let newValue = dictionary[lastMultilineKey]?.appendingFormat("\n%@", line.trimmingLeadingWhitespace())
-                    dictionary[lastMultilineKey] = newValue
-                }
-                index = newIndex
+
+    private static let lineSeparator = "\n".utf8.first!
+    private static let keyValueSeparator = ":".utf8.first!
+    private static let space = " ".utf8.first!
+    private static let tab = "\t".utf8.first!
+    private static let regularMultilineKeys: Set = ["description"]
+    private static let releaseMultilineKeys: Set = ["description", "md5sum", "sha1", "sha256", "sha512"]
+
+    class func dictionary(controlFile: String, isReleaseFile: Bool) throws -> [String: String] {
+        guard let controlData = controlFile.data(using: .utf8) else {
+            throw Error.invalidStringData
+        }
+        return try dictionary(controlData: controlData, isReleaseFile: isReleaseFile)
+    }
+
+    class func dictionary(controlData: Data, isReleaseFile: Bool) throws -> [String: String] {
+        let lineSeparator = self.lineSeparator
+        let keyValueSeparator = self.keyValueSeparator
+        let space = self.space
+        let tab = self.tab
+        let multilineKeys = isReleaseFile ? releaseMultilineKeys : regularMultilineKeys
+
+        var dictionary: [String: String] = [:]
+        var lastMultilineKey: String?
+
+        var controlData = controlData
+        if let endIndex = controlData.lastIndex(where: { $0 != lineSeparator }) {
+            controlData = controlData[...endIndex]
+        }
+
+        var index = controlData.startIndex
+        while index < controlData.endIndex {
+            let lineEnd = controlData[index...].firstIndex(of: lineSeparator)?.advanced(by: 1) ?? controlData.endIndex
+            defer { index = lineEnd }
+            let lineData = controlData[index..<lineEnd]
+
+            guard lineData.first != space && lineData.first != tab else {
+                guard let lastMultilineKey = lastMultilineKey else { throw Error.invalidMultilineValue }
+                let line = String(data: lineData, encoding: .utf8) ?? ""
+                dictionary[lastMultilineKey, default: ""] += "\n\(line.trimmingLeadingWhitespace())"
                 continue
             }
-            let key = String.init(data: rawKey, encoding: .utf8)?.lowercased()
-            let rawValue = lineData.subdata(in: separatorRange.lowerBound + 1 ..< lineData.count)
-            var multiLineKeys = ["description"]
-            if (isReleaseFile){
-                multiLineKeys = ["description", "md5sum", "sha1", "sha256", "sha512"]
-            }
-            if (key != nil && multiLineKeys.contains(key!)){
-                lastMultilineKey = key!
+            guard let separatorIdx = lineData.firstIndex(of: keyValueSeparator)
+                else { throw Error.expectedSeparator }
+
+            guard let key = String(data: lineData[..<separatorIdx], encoding: .utf8)?.lowercased()
+                else { throw Error.invalidStringData }
+            lastMultilineKey = multilineKeys.contains(key) ? key : nil
+
+            let rawValue = lineData[separatorIdx.advanced(by: 1)...]
+            let value: String
+            if let start = rawValue.firstIndex(where: { $0 != space && $0 != tab }),
+                let end = rawValue.lastIndex(where: { $0 != space && $0 != tab && $0 != lineSeparator }) {
+                guard let decoded = String(data: rawValue[start...end], encoding: .utf8) else { throw Error.invalidStringData }
+                value = decoded
             } else {
-                lastMultilineKey = ""
+                value = ""
             }
-            
-            var rawValueArr = [UInt8](rawValue)
-            if (rawValueArr.count != 0){
-                let spaceChar = Array(" ".utf8)[0]
-                let newLineChar = Array("\n".utf8)[0]
-                while (rawValueArr[0] == spaceChar){
-                    rawValueArr.removeFirst()
-                }
-                while (rawValueArr.last == spaceChar || rawValueArr.last == newLineChar){
-                    rawValueArr.removeLast()
-                }
-            }
-            
-            let value : String = String(bytes: rawValueArr, encoding: .utf8) ?? ""
-            dictionary[key ?? ""] = value
-            
-            index = newIndex
+            dictionary[key] = value
         }
+
         return dictionary
     }
     
-    class func authorName(string:String) -> String {
+    class func authorName(string: String) -> String {
         guard let emailIndex = string.firstIndex(of: "<") else {
             return string.trimmingCharacters(in: .whitespaces)
         }
         return string[..<emailIndex].trimmingCharacters(in: .whitespaces)
     }
     
-    class func authorEmail(string:String) -> String? {
+    class func authorEmail(string: String) -> String? {
         guard let emailIndex = string.firstIndex(of: "<") else {
             return nil
         }

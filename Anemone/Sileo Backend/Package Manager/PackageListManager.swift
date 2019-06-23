@@ -78,7 +78,9 @@ import Foundation
                 
                 index = newIndex
                 
-                var rawPackage = ControlFileParser.dictionary(controlData: packageData, isReleaseFile: false)
+                guard var rawPackage = try? ControlFileParser.dictionary(controlData: packageData, isReleaseFile: false) else {
+                    continue
+                }
                 guard rawPackage["package"] != nil else {
                     continue
                 }
