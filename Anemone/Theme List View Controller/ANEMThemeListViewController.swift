@@ -36,7 +36,9 @@ class ANEMThemeListViewController: UIViewController {
         var rawOrderedPackages : Array<String> = []
         var rawHashedPackages : Dictionary<String, Array<Dictionary<String, Any>>> = [:]
         rawSettings?.forEach { (rawPackage) in
-            let identifier : String = rawPackage["identifier"] as! String
+            guard let identifier = rawPackage["identifier"] as? String else {
+                return
+            }
             rawOrderedPackages.append(identifier)
             
             rawHashedPackages[identifier] = rawPackage["themes"] as? [Dictionary<String, Any>]
@@ -50,11 +52,15 @@ class ANEMThemeListViewController: UIViewController {
             var orderedThemes : Array<String> = []
             var hashedThemes : Dictionary<String, Bool> = [:]
             rawThemes?.forEach({ (rawTheme) in
-                if (((rawTheme["name"] as? String) != nil) && ((rawTheme["enabled"] as? Bool) != nil)){
-                    if (themeFolders.contains(rawTheme["name"] as! String)){
-                        orderedThemes.append((rawTheme["name"] as? String)!)
-                        hashedThemes[rawTheme["name"] as! String] = (rawTheme["enabled"] as! Bool)
-                    }
+                guard let rawThemeName = rawTheme["name"] as? String else {
+                    return
+                }
+                guard let rawThemeEnabled = rawTheme["enabled"] as? Bool else {
+                    return
+                }
+                if (themeFolders.contains(rawThemeName)){
+                    orderedThemes.append(rawThemeName)
+                    hashedThemes[rawThemeName] = rawThemeEnabled
                 }
             })
             
@@ -77,11 +83,7 @@ class ANEMThemeListViewController: UIViewController {
                 let folderStr : NSString = folder as NSString
                 
                 themeNode.humanReadable = folderStr.deletingPathExtension
-                if (hashedThemes[folder] != nil){
-                    themeNode.enabled = hashedThemes[folder]!
-                } else {
-                    themeNode.enabled = false
-                }
+                themeNode.enabled = hashedThemes[folder] ?? false
                 hashedNodeThemes[folder] = themeNode
                 
                 if (!orderedThemes.contains(folder)){
@@ -137,10 +139,18 @@ class ANEMThemeListViewController: UIViewController {
         
         var settingsPacked : Array<String> = []
         settings.forEach { (themePackage) in
-            let themes : Array<Dictionary<String, Any>> = themePackage["themes"] as! Array<Dictionary<String, Any>>
+            guard let themes = themePackage["themes"] as? Array<Dictionary<String, Any>> else {
+                return
+            }
             themes.forEach({ (theme) in
-                if ((theme["enabled"] as! Bool) == true){
-                    settingsPacked.append(theme["name"] as! String)
+                guard let themeEnabled = theme["enabled"] as? Bool else {
+                    return
+                }
+                guard let themeName = theme["name"] as? String else {
+                    return
+                }
+                if (themeEnabled == true){
+                    settingsPacked.append(themeName)
                 }
             })
         }
@@ -234,8 +244,10 @@ extension ANEMThemeListViewController : LNZTreeViewDataSource {
                 cell.enableButton?.setImage(UIImage(named: "enable"), for: UIControl.State.normal)
             }
             cell.enableButton?.block_setAction(block: { (enableButton) in
-                let categoryNode : ThemeCategoryNode = node as! ThemeCategoryNode
-                let enableState : Bool = !node.isEnabled;
+                guard let categoryNode = node as? ThemeCategoryNode else {
+                    return
+                }
+                let enableState = !node.isEnabled;
                 categoryNode.themes.forEach({ (themeNode) in
                     themeNode.enabled = enableState
                     treeView.reload(node: themeNode, inSection: indexPath.section)

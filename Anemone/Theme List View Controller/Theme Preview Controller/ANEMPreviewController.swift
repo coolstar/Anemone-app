@@ -657,8 +657,11 @@ class ANEMPreviewController : UIViewController {
             }
             return nil
         }
-        let bundlePath : NSString? = app.bundleURL()?.path as NSString?
-        let infoPlist : NSDictionary = NSDictionary(contentsOfFile:(bundlePath?.appendingPathComponent("Info.plist"))!)!
+        guard let bundlePathStr = app.bundleURL()?.path else {
+            return nil
+        }
+        let bundlePath = bundlePathStr as NSString
+        let infoPlist : NSDictionary = NSDictionary(contentsOfFile:bundlePath.appendingPathComponent("Info.plist"))!
         
         var icon : UIImage? = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
         if ((icon == nil)){
