@@ -8,7 +8,11 @@
 
 import UIKit
 
-var springboardPath : URL? = nil
+#if targetEnvironment(simulator)
+var springboardPath = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Library/SpringBoard/")
+#else
+var springboardPath = URL(fileURLWithPath:"/var/mobile/Library/SpringBoard/")
+#endif
 
 enum DeviceType {
     case iPhone,
@@ -30,17 +34,11 @@ class ANEMPreviewController : UIViewController {
     var _refreshView : UIActivityIndicatorView?
     
     func getIconState() -> NSDictionary? {
-        return NSDictionary(contentsOf: springboardPath!.appendingPathComponent("IconState.plist"))
+        return NSDictionary(contentsOf: springboardPath.appendingPathComponent("IconState.plist"))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        #if targetEnvironment(simulator)
-        springboardPath = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Library/SpringBoard/")
-        #else
-        springboardPath = URL(fileURLWithPath:"/var/mobile/Library/SpringBoard/")
-        #endif
         
         _deviceType = (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) ? DeviceType.iPad : DeviceType.iPhone
         if (_deviceType == DeviceType.iPhone){
@@ -276,19 +274,18 @@ class ANEMPreviewController : UIViewController {
             floatyDockBackgroundView.addSubview(floatyDockContentsView)
             
             buttonBar?.forEach({ (rawIdentifier) in
-                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false, inDock: true)
-                if (iconView == nil){
+                guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: false, inDock: true) else {
                     return
                 }
-                var frame : CGRect = (iconView?.frame)!
+                var frame : CGRect = iconView.frame
                 frame.origin.x = x
                 if (_deviceType != DeviceType.iPad){
                     frame.origin.y = 17
                 } else {
                     frame.origin.y = 20
                 }
-                iconView?.frame = frame
-                floatyDockContentsView.addSubview(iconView!)
+                iconView.frame = frame
+                floatyDockContentsView.addSubview(iconView)
                 if (_deviceType != DeviceType.iPad){
                     x += frame.size.width + 27
                 } else {
@@ -358,15 +355,14 @@ class ANEMPreviewController : UIViewController {
             var x : CGFloat = dockXBase - (dockPosDiff * buttonBarCount)
             
             buttonBar?.forEach({ (rawIdentifier) in
-                let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: false, inDock: true)
-                if (iconView == nil){
+                guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: false, inDock: true) else {
                     return
                 }
-                var frame : CGRect = (iconView?.frame)!
+                var frame : CGRect = iconView.frame
                 frame.origin.x = x
                 frame.origin.y = dockYPos
-                iconView?.frame = frame
-                dockContentsView.addSubview(iconView!)
+                iconView.frame = frame
+                dockContentsView.addSubview(iconView)
                 x += dockXSeparation
             })
         }
@@ -421,15 +417,14 @@ class ANEMPreviewController : UIViewController {
         }
         let initialX : CGFloat = x
         iconList?.forEach({ (rawIdentifier) in
-            let iconView : UIView? = iconViewFromIdentifier(bundleIdentifier: rawIdentifier, hasLabel: true, inDock: false)
-            if (iconView == nil){
+            guard let iconView : UIView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: true, inDock: false) else {
                 return
             }
-            var frame : CGRect = (iconView?.frame)!
+            var frame : CGRect = iconView.frame
             frame.origin.x = x
             frame.origin.y = y
-            iconView?.frame = frame
-            homeContentsView.addSubview(iconView!)
+            iconView.frame = frame
+            homeContentsView.addSubview(iconView)
             x += iconXSeparation
             if (i%4 == 0){
                 x = initialX
@@ -496,28 +491,32 @@ class ANEMPreviewController : UIViewController {
         return getIconForBundle(bundle, iconsDictionary as? [AnyHashable : Any], variant, options, 2.0, getThemed)
     }
     
-    func miniIconViewFromIdentifier(bundleIdentifier : Any?) -> UIView? {
-        if ((bundleIdentifier as? NSString) == nil){
+    func miniIconViewFromIdentifier(rawBundleIdentifier : Any?) -> UIView? {
+        guard let bundleIdentifier = rawBundleIdentifier as? String else {
             return nil
         }
         
         let scale : CGFloat = UIScreen.main.scale
         
-        let app : LSApplicationProxy? = LSApplicationProxy(forIdentifier: (bundleIdentifier as! String))
-        let bundlePath : NSString? = app!.bundleURL()?.path as NSString?
-        if ((app == nil || bundlePath == nil) && ((bundleIdentifier as? String) == "com.apple.videos")){
-            return miniIconViewFromIdentifier(bundleIdentifier: "com.apple.tv")
-        }
-        if (app == nil || bundlePath == nil){
+        guard let app : LSApplicationProxy = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
+            if (bundleIdentifier == "com.apple.videos"){
+                return miniIconViewFromIdentifier(rawBundleIdentifier: "com.apple.tv")
+            }
             return nil
         }
-        let infoPlist : NSDictionary = NSDictionary(contentsOfFile:(bundlePath?.appendingPathComponent("Info.plist"))!)!
-        
-        var icon : UIImage? = getHomeScreenIconForApp(app: app!, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
-        if ((icon == nil)){
-            icon = getHomeScreenIconForApp(app: app!, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
+        guard let bundlePathStr = app.bundleURL()?.path else {
+            return nil
         }
-        icon = icon?._applicationIconImage(forFormat: 2, precomposed: (infoPlist.object(forKey: "UIPrerenderedIcon") as? NSNumber)?.boolValue ?? false, scale: scale)
+        let bundlePath = bundlePathStr as NSString
+        
+        let infoPlist : NSDictionary? = NSDictionary(contentsOfFile:(bundlePath.appendingPathComponent("Info.plist")))
+        
+        var icon : UIImage? = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
+        if ((icon == nil)){
+            icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
+        }
+        let prerendered = infoPlist?.object(forKey: "UIPrerenderedIcon") as? Bool
+        icon = icon?._applicationIconImage(forFormat: 2, precomposed: prerendered ?? false, scale: scale)
         
         var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 13, height: 13)
         if (_deviceType == DeviceType.iPad){
@@ -595,15 +594,14 @@ class ANEMPreviewController : UIViewController {
         let iconList : NSArray? = (folderDictionary?.object(forKey: "iconLists") as? NSArray)?.object(at: 0) as? NSArray
         iconList?.forEach({ (rawIdentifier) in
             let identifier : String? = rawIdentifier as? String
-            let miniIcon : UIView? = miniIconViewFromIdentifier(bundleIdentifier: identifier)
-            if (miniIcon == nil){
+            guard let miniIcon = miniIconViewFromIdentifier(rawBundleIdentifier: identifier) else {
                 return
             }
-            var frame : CGRect = (miniIcon?.frame)!
+            var frame : CGRect = miniIcon.frame
             frame.origin.x = x
             frame.origin.y = y
-            miniIcon?.frame = frame
-            gridView.addSubview(miniIcon!)
+            miniIcon.frame = frame
+            gridView.addSubview(miniIcon)
             x += folderSeparator
             if (i%maxX == 0){
                 x = minx
@@ -646,26 +644,25 @@ class ANEMPreviewController : UIViewController {
         return iconView
     }
     
-    func iconViewFromIdentifier(bundleIdentifier : Any?, hasLabel : Bool, inDock: Bool) -> UIView? {
-        if ((bundleIdentifier as? NSString) == nil){
-            return folderIconViewFromIdentifier(folderDictionary: (bundleIdentifier as? NSDictionary), hasLabel: hasLabel, inDock:inDock)
+    func iconViewFromIdentifier(rawBundleIdentifier : Any?, hasLabel : Bool, inDock: Bool) -> UIView? {
+        guard let bundleIdentifier = rawBundleIdentifier as? String else {
+            return folderIconViewFromIdentifier(folderDictionary: (rawBundleIdentifier as? NSDictionary), hasLabel: hasLabel, inDock:inDock)
         }
         
         let scale : CGFloat = UIScreen.main.scale
         
-        let app : LSApplicationProxy? = LSApplicationProxy(forIdentifier: (bundleIdentifier as! String))
-        let bundlePath : NSString? = app!.bundleURL()?.path as NSString?
-        if ((app == nil || bundlePath == nil) && ((bundleIdentifier as? String) == "com.apple.videos")){
-            return iconViewFromIdentifier(bundleIdentifier: "com.apple.tv", hasLabel:hasLabel, inDock: inDock)
-        }
-        if (app == nil || bundlePath == nil){
+        guard let app : LSApplicationProxy = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
+            if (bundleIdentifier == "com.apple.videos"){
+                return iconViewFromIdentifier(rawBundleIdentifier: "com.apple.tv", hasLabel:hasLabel, inDock: inDock)
+            }
             return nil
         }
+        let bundlePath : NSString? = app.bundleURL()?.path as NSString?
         let infoPlist : NSDictionary = NSDictionary(contentsOfFile:(bundlePath?.appendingPathComponent("Info.plist"))!)!
         
-        var icon : UIImage? = getHomeScreenIconForApp(app: app!, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
+        var icon : UIImage? = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
         if ((icon == nil)){
-            icon = getHomeScreenIconForApp(app: app!, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
+            icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
         }
         icon = icon?._applicationIconImage(forFormat: 2, precomposed: (infoPlist.object(forKey: "UIPrerenderedIcon") as? NSNumber)?.boolValue ?? false, scale: scale)
         
@@ -711,7 +708,7 @@ class ANEMPreviewController : UIViewController {
             iconLabel.textColor = UIColor.white
             iconView.addSubview(iconLabel)
             
-            var iconLabelText : String? = app!.localizedName()
+            var iconLabelText : String? = app.localizedName()
             if (iconLabelText == "" || iconLabelText == nil){
                 iconLabelText = infoPlist.object(forKey: "CFBundleExecutable") as? String
             }
@@ -733,7 +730,9 @@ class ANEMPreviewController : UIViewController {
         var bundleIdentifier = bundle
         let themesDir : String = PackageListManager.shared.prefixDir().path
         
-        let themes : Array<String>? = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String>
+        guard let themes : Array<String> = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String> else {
+            return nil
+        }
         
         if (bundleIdentifier == "com.anemoneteam.anemone"){
             bundleIdentifier = "com.anemonetheming.anemone"
@@ -743,7 +742,7 @@ class ANEMPreviewController : UIViewController {
             bundleIdentifier = "org.coolstar.electra1131"
         }
         
-        for identifier in themes! {
+        for identifier in themes {
             let ibLargeThemePath : String = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
             var icon : UIImage? = UIImage(contentsOfFile: ibLargeThemePath)
             if (icon != nil) {
