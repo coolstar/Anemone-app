@@ -62,7 +62,7 @@ class ANEMPreviewController : UIViewController {
         
         _refreshView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.whiteLarge)
         _refreshView?.layer.zPosition = 5000
-        _refreshView?.tintColor = UIColor.black
+        _refreshView?.tintColor = .black
         _refreshView?.center = CGPoint(x: 335, y: 400)
         self.view.addSubview(_refreshView!)
         _refreshView?.isHidden = true
@@ -208,12 +208,12 @@ class ANEMPreviewController : UIViewController {
         
         if (_useBlurredBackground){
             let blurredBackgroundView = UIImageView(frame: self.view.bounds)
-            blurredBackgroundView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
+            blurredBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             blurredBackgroundView.image = wallpaper
-            blurredBackgroundView.contentMode = UIView.ContentMode.scaleAspectFill
+            blurredBackgroundView.contentMode = .scaleAspectFill
             
             let darkeningView = UIView(frame: blurredBackgroundView.bounds)
-            darkeningView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
+            darkeningView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             darkeningView.backgroundColor = UIColor(white:0.0,alpha:0.5)
             blurredBackgroundView.addSubview(darkeningView)
             self.view.addSubview(blurredBackgroundView)
@@ -222,7 +222,7 @@ class ANEMPreviewController : UIViewController {
         
         let homeScreenView = UIImageView(frame: homeScreenFrame)
         homeScreenView.image = wallpaper
-        homeScreenView.contentMode = UIView.ContentMode.scaleAspectFill
+        homeScreenView.contentMode = .scaleAspectFill
         homeScreenView.clipsToBounds = true
         if (homeScreenCornerRadius > 0){
             homeScreenView.layer.cornerRadius = homeScreenCornerRadius
@@ -243,12 +243,12 @@ class ANEMPreviewController : UIViewController {
         statusBar.request(.lightContent)
         homeScreenView.addSubview(statusBar)
         
-        let homeContentsView = UIView(frame: CGRect.zero)
+        let homeContentsView = UIView(frame: .zero)
         homeContentsView.transform = CGAffineTransform(scaleX: transform, y: transform)
         homeContentsView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         homeScreenView.addSubview(homeContentsView)
         
-        let dockContentsView = UIView(frame: CGRect.zero)
+        let dockContentsView = UIView(frame: .zero)
         dockContentsView.transform = CGAffineTransform(scaleX: transform, y: transform)
         dockContentsView.frame = CGRect(x: 0, y: homeScreenFrame.size.height - transformedDockHeight - (dockMargins * transform), width: homeScreenFrame.size.width, height: transformedDockHeight)
         homeScreenView.addSubview(dockContentsView)
@@ -311,7 +311,7 @@ class ANEMPreviewController : UIViewController {
             effectiveDockHeight = floatyDockFrame.size.height + floatyDockYMargin
             dockContentsView.addSubview(floatyDockBackgroundView)
         } else {
-            let dockRootView = UIView.init(frame:CGRect.zero)
+            let dockRootView = UIView.init(frame:.zero)
             dockRootView.frame = CGRect(x: 0, y: 0, width: homeScreenFrame.size.width, height: transformedDockHeight)
             dockContentsView.addSubview(dockRootView)
             
@@ -525,7 +525,7 @@ class ANEMPreviewController : UIViewController {
         
         let iconView = UIImageView.init(frame: iconViewFrame)
         iconView.image = icon
-        iconView.layer.minificationFilter = CALayerContentsFilter.trilinear
+        iconView.layer.minificationFilter = .trilinear
         
         return iconView
     }
@@ -623,14 +623,14 @@ class ANEMPreviewController : UIViewController {
         
         if (hasLabel){
             let iconLabel = UILabel(frame: labelFrame)
-            iconLabel.backgroundColor = UIColor.clear
-            iconLabel.textAlignment = NSTextAlignment.center
-            if (_deviceType == DeviceType.iPad){
+            iconLabel.backgroundColor = .clear
+            iconLabel.textAlignment = .center
+            if (_deviceType == .iPad){
                 iconLabel.font = UIFont.systemFont(ofSize: 14)
             } else {
                 iconLabel.font = UIFont.systemFont(ofSize: 12)
             }
-            iconLabel.textColor = UIColor.white
+            iconLabel.textColor = .white
             iconView.addSubview(iconLabel)
             
             let iconLabelText = folderDictionary?.object(forKey: "displayName") as? String
@@ -693,7 +693,7 @@ class ANEMPreviewController : UIViewController {
         let iconView = AnemoneIconView.init(frame: iconViewFrame)
         let iconImageView = UIImageView.init(frame: iconImageViewFrame)
         iconImageView.image = icon
-        iconImageView.layer.minificationFilter = CALayerContentsFilter.trilinear
+        iconImageView.layer.minificationFilter = .trilinear
         iconView.addSubview(iconImageView)
         
         iconView.imageView = iconImageView
@@ -708,7 +708,7 @@ class ANEMPreviewController : UIViewController {
             } else {
                 iconLabel.font = UIFont.systemFont(ofSize: 12)
             }
-            iconLabel.textColor = UIColor.white
+            iconLabel.textColor = .white
             iconView.addSubview(iconLabel)
             
             var iconLabelText = app.localizedName()

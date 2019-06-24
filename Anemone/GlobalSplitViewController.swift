@@ -8,7 +8,7 @@ class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDel
         super.viewDidLoad()
         
         self.delegate = self
-        self.preferredDisplayMode = DisplayMode.allVisible
+        self.preferredDisplayMode = .allVisible
     }
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {

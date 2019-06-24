@@ -233,17 +233,17 @@ extension ANEMThemeListViewController : LNZTreeViewDataSource {
             node = parent.themes[indexPath.row]
             cell = treeView.dequeueReusableCell(withIdentifier: "themeRows", for: node, inSection: indexPath.section) as! ANEMListThemeTableViewCell
             if (node.isEnabled){
-                cell.enableButton?.setImage(UIImage(named: "selected"), for: UIControl.State.normal)
+                cell.enableButton?.setImage(UIImage(named: "selected"), for: .normal)
             } else {
-                cell.enableButton?.setImage(UIImage(named: "unselected"), for: UIControl.State.normal)
+                cell.enableButton?.setImage(UIImage(named: "unselected"), for: .normal)
             }
         } else {
             node = themeSections[indexPath.row]
             cell = treeView.dequeueReusableCell(withIdentifier: "themeSections", for: node, inSection: indexPath.section) as! ANEMListThemeTableViewCell
             if (node.isEnabled){
-                cell.enableButton?.setImage(UIImage(named: "disable"), for: UIControl.State.normal)
+                cell.enableButton?.setImage(UIImage(named: "disable"), for: .normal)
             } else {
-                cell.enableButton?.setImage(UIImage(named: "enable"), for: UIControl.State.normal)
+                cell.enableButton?.setImage(UIImage(named: "enable"), for: .normal)
             }
             cell.enableButton?.block_setAction(block: { (enableButton) in
                 guard let categoryNode = node as? ThemeCategoryNode else {
