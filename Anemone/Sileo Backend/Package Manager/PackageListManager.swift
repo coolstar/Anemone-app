@@ -95,11 +95,11 @@ import Foundation
                 }
                 
                 let package = self.package(dictionary: rawPackage)
-                var wantInfo : pkgwant = PKG_WANT_INSTALL
-                var eFlag : pkgeflag = PKG_EFLAG_OK
-                var pkgStatus : pkgstatus = PKG_STAT_INSTALLED
+                var wantInfo : pkgwant = .install
+                var eFlag : pkgeflag = .ok
+                var pkgStatus : pkgstatus = .installed
                 
-                let statusValid = DpkgWrapper.getValuesForStatusField(package.rawControl["status"], wantInfo: &wantInfo, eFlag: &eFlag, status: &pkgStatus)
+                let statusValid = DpkgWrapper.getValues(statusField:package.rawControl["status"], wantInfo: &wantInfo, eFlag: &eFlag, pkgStatus: &pkgStatus)
                 if (!statusValid){
                     continue
                 }
@@ -108,8 +108,8 @@ import Foundation
                 package.eFlag = eFlag
                 package.status = pkgStatus
                 
-                if (package.eFlag == PKG_EFLAG_OK){
-                    if (package.status == PKG_STAT_NOTINSTALLED || package.status == PKG_STAT_CONFIGFILES){
+                if (package.eFlag == .ok){
+                    if (package.status == .notinstalled || package.status == .configfiles){
                         continue
                     }
                 }

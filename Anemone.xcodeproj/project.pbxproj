@@ -19,6 +19,7 @@
 		F19FB3A422BF74C0008E986B /* ControlFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A322BF74C0008E986B /* ControlFileParser.swift */; };
 		F19FB3A622BF7803008E986B /* PackageListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A522BF7803008E986B /* PackageListManager.swift */; };
 		F19FB3A922BF8AEC008E986B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A822BF8AEC008E986B /* Package.swift */; };
+		F19FB3B022C05F02008E986B /* DpkgWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3AF22C05F02008E986B /* DpkgWrapper.swift */; };
 		F1AE69E621FA63D500D4E7EA /* ANEMPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE69E521FA63D500D4E7EA /* ANEMPreviewController.swift */; };
 		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
@@ -34,7 +35,6 @@
 		F1C5395421864B5100CDF1CC /* AnemoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5395321864B5100CDF1CC /* AnemoneUITests.swift */; };
 		F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396421864F9E00CDF1CC /* ThemeCategoryNode.swift */; };
 		F1C5396721864FFD00CDF1CC /* ThemeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5396621864FFD00CDF1CC /* ThemeNode.swift */; };
-		F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C539882186560700CDF1CC /* DpkgWrapper.m */; };
 		F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5398B21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift */; };
 		F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */; };
 		F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */; };
@@ -77,6 +77,7 @@
 		F19FB3A322BF74C0008E986B /* ControlFileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlFileParser.swift; sourceTree = "<group>"; };
 		F19FB3A522BF7803008E986B /* PackageListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListManager.swift; sourceTree = "<group>"; };
 		F19FB3A822BF8AEC008E986B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F19FB3AF22C05F02008E986B /* DpkgWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DpkgWrapper.swift; sourceTree = "<group>"; };
 		F1AE69E521FA63D500D4E7EA /* ANEMPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMPreviewController.swift; sourceTree = "<group>"; };
 		F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePreviewProvider.swift; sourceTree = "<group>"; };
 		F1C12E562188402B005582D4 /* NSTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
@@ -103,8 +104,6 @@
 		F1C5396621864FFD00CDF1CC /* ThemeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNode.swift; sourceTree = "<group>"; };
 		F1C5396F2186533A00CDF1CC /* Test Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Data"; sourceTree = "<group>"; };
 		F1C539732186539D00CDF1CC /* Anemone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Anemone-Bridging-Header.h"; sourceTree = "<group>"; };
-		F1C539872186560700CDF1CC /* DpkgWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DpkgWrapper.h; sourceTree = "<group>"; };
-		F1C539882186560700CDF1CC /* DpkgWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DpkgWrapper.m; sourceTree = "<group>"; };
 		F1C5398B21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMListCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F1C5398C21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ANEMListCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEMListThemeTableViewCell.swift; sourceTree = "<group>"; };
@@ -307,8 +306,7 @@
 		F1C53986218655FD00CDF1CC /* DPKG Wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				F1C539872186560700CDF1CC /* DpkgWrapper.h */,
-				F1C539882186560700CDF1CC /* DpkgWrapper.m */,
+				F19FB3AF22C05F02008E986B /* DpkgWrapper.swift */,
 			);
 			path = "DPKG Wrapper";
 			sourceTree = "<group>";
@@ -542,10 +540,10 @@
 				F1C5398D21866B1100CDF1CC /* ANEMListCategoryTableViewCell.swift in Sources */,
 				F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */,
 				F1C51DCC2200005C0081AFC6 /* SBCalendarApplicationIcon.m in Sources */,
-				F1C539892186560700CDF1CC /* DpkgWrapper.m in Sources */,
 				F1AE69E621FA63D500D4E7EA /* ANEMPreviewController.swift in Sources */,
 				F102246721FE55B0006A1B78 /* MobileIcons.m in Sources */,
 				F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */,
+				F19FB3B022C05F02008E986B /* DpkgWrapper.swift in Sources */,
 				F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */,
 				F102246221FE5526006A1B78 /* AppSupport.m in Sources */,
 				F19FB3A222BF74B2008E986B /* String-TrimLeadingWhitespace.swift in Sources */,

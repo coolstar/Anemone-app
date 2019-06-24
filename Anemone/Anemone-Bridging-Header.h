@@ -3,7 +3,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DpkgWrapper.h"
 #import "NSTask.h"
 #import "LaunchServices.h"
 #import "AppSupport.h"

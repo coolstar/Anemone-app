@@ -18,7 +18,7 @@ class Package {
     var section : String?
     var rawControl : Dictionary<String, String> = Dictionary()
     
-    var wantInfo : pkgwant = PKG_WANT_INSTALL
-    var eFlag : pkgeflag = PKG_EFLAG_OK
-    var status : pkgstatus = PKG_STAT_INSTALLED
+    var wantInfo : pkgwant = .install
+    var eFlag : pkgeflag = .ok
+    var status : pkgstatus = .installed
 }
