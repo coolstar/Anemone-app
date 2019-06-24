@@ -7,13 +7,13 @@
 //
 
 class ThemeNode: NSObject, TreeNodeProtocol {
-    var identifier: String = ""
-    var humanReadable : String = ""
-    var isExpandable: Bool {
+    var identifier = ""
+    var humanReadable = ""
+    var isExpandable : Bool {
         return false
     }
     
-    var enabled : Bool = false
+    var enabled = false
     var isEnabled : Bool {
         return enabled
     }

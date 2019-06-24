@@ -27,9 +27,9 @@ enum PhoneType {
 }
 
 class ANEMPreviewController : UIViewController {
-    var _deviceType : DeviceType = DeviceType.iPhone
-    var _phoneType : PhoneType = PhoneType.iPhoneX
-    var _useBlurredBackground : Bool = true
+    var _deviceType = DeviceType.iPhone
+    var _phoneType = PhoneType.iPhoneX
+    var _useBlurredBackground = true
     
     var _refreshView : UIActivityIndicatorView?
     
@@ -40,19 +40,19 @@ class ANEMPreviewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _deviceType = (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) ? DeviceType.iPad : DeviceType.iPhone
-        if (_deviceType == DeviceType.iPhone){
-            _phoneType = PhoneType.iPhone5S
+        _deviceType = (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) ? .iPad : .iPhone
+        if (_deviceType == .iPhone){
+            _phoneType = .iPhone5S
             let screenHeight = UIScreen.main.nativeBounds.size.height
             let screenWidth = UIScreen.main.nativeBounds.size.width
 			
 			//XXX: 1792 is XR, 2688 is XS Max
             if (screenHeight == 1792 || screenHeight == 2436 || screenHeight == 2688){
-                _phoneType = PhoneType.iPhoneX
+                _phoneType = .iPhoneX
             } else if (screenWidth > 400){
-                _phoneType = PhoneType.iPhone6Plus
+                _phoneType = .iPhone6Plus
             } else if (screenWidth > 350){
-                _phoneType = PhoneType.iPhone6
+                _phoneType = .iPhone6
             }
         }
         
@@ -74,31 +74,31 @@ class ANEMPreviewController : UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let heightMargin : CGFloat = UIApplication.shared.statusBarFrame.size.height
+        let heightMargin = UIApplication.shared.statusBarFrame.size.height
         var totalHeightMargin = heightMargin
         if (self.navigationController?.navigationBar.bounds.size.height != nil){
             totalHeightMargin += (self.navigationController?.navigationBar.bounds.size.height)!
         }
         
-        var backgroundViewFrame : CGRect = CGRect(x: 50, y: 80, width: 260, height: 530)
+        var backgroundViewFrame = CGRect(x: 50, y: 80, width: 260, height: 530)
         
-        if (_deviceType == DeviceType.iPad){
+        if (_deviceType == .iPad){
             backgroundViewFrame = CGRect(x: 100, y: 50, width: 470, height: 700)
         } else {
-            if (_phoneType == PhoneType.iPhone5S){
+            if (_phoneType == .iPhone5S){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 226, height: 475)
-            } else if (_phoneType == PhoneType.iPhone6){
+            } else if (_phoneType == .iPhone6){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
-            } else if (_phoneType == PhoneType.iPhoneX){
+            } else if (_phoneType == .iPhoneX){
                 backgroundViewFrame = CGRect(x: 50, y: 80, width: 260, height: 530)
             }
         }
         
-        let backgroundViewScaleY : CGFloat = (self.view.bounds.size.height - (totalHeightMargin + 30))/backgroundViewFrame.size.height
-        let backgroundViewScaleX : CGFloat = (self.view.bounds.size.width - 30.0)/backgroundViewFrame.size.width
-        let backgroundViewScale : CGFloat = min(backgroundViewScaleX,backgroundViewScaleY)
+        let backgroundViewScaleY = (self.view.bounds.size.height - (totalHeightMargin + 30))/backgroundViewFrame.size.height
+        let backgroundViewScaleX = (self.view.bounds.size.width - 30.0)/backgroundViewFrame.size.width
+        let backgroundViewScale = min(backgroundViewScaleX,backgroundViewScaleY)
         
         _backgroundView?.transform = CGAffineTransform(scaleX: backgroundViewScale, y: backgroundViewScale)
         _backgroundView?.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY + heightMargin)
@@ -108,8 +108,8 @@ class ANEMPreviewController : UIViewController {
         enableThemes()
         _backgroundView?.removeFromSuperview()
         
-        var backgroundViewFrame : CGRect = CGRect(x: 50, y: 80, width: 260, height: 530)
-        var homeScreenFrame : CGRect = CGRect(x: 11, y: 10, width: 236, height: 510)
+        var backgroundViewFrame = CGRect(x: 50, y: 80, width: 260, height: 530)
+        var homeScreenFrame = CGRect(x: 11, y: 10, width: 236, height: 510)
         var homeScreenCornerRadius : CGFloat = 35
         var statusBarHeight : CGFloat = 44
         var transform : CGFloat = 0.63
@@ -118,11 +118,11 @@ class ANEMPreviewController : UIViewController {
         var screenHeight : CGFloat = 812
 		var dockMargins : CGFloat = 0
 		
-        var useFloatyDock : Bool = true
+        var useFloatyDock = true
         var floatyDockMargins : CGFloat = 20
         var floatyDockYMargin : CGFloat = 20
         
-        if (_deviceType == DeviceType.iPad){
+        if (_deviceType == .iPad){
             backgroundViewFrame = CGRect(x: 100, y: 50, width: 470, height: 700)
             homeScreenFrame = CGRect(x: 27, y: 72, width: 415, height: 552)
             homeScreenCornerRadius = 0
@@ -135,7 +135,7 @@ class ANEMPreviewController : UIViewController {
             floatyDockYMargin = 34
         } else {
 			useFloatyDock = false
-            if (_phoneType == PhoneType.iPhone5S){
+            if (_phoneType == .iPhone5S){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 226, height: 475)
                 homeScreenFrame = CGRect(x: 18, y: 69, width: 192, height: 340)
                 homeScreenCornerRadius = 0
@@ -144,7 +144,7 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 96
                 screenWidth = 320
                 screenHeight = 568
-            } else if (_phoneType == PhoneType.iPhone6){
+            } else if (_phoneType == .iPhone6){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
                 homeScreenFrame = CGRect(x: 19, y: 69, width: 240, height: 427)
                 homeScreenCornerRadius = 0
@@ -153,7 +153,7 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 96
                 screenWidth = 375
                 screenHeight = 667
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 backgroundViewFrame = CGRect(x: 47, y: 80, width: 281, height: 570)
                 homeScreenFrame = CGRect(x: 19, y: 68, width: 245, height: 437)
                 homeScreenCornerRadius = 0
@@ -162,7 +162,7 @@ class ANEMPreviewController : UIViewController {
                 dockHeight = 96
                 screenWidth = 414
                 screenHeight = 736
-            } else if (_phoneType == PhoneType.iPhoneX){
+            } else if (_phoneType == .iPhoneX){
                 backgroundViewFrame = CGRect(x: 50, y: 80, width: 260, height: 530)
                 homeScreenFrame = CGRect(x: 11, y: 10, width: 236, height: 510)
                 homeScreenCornerRadius = 35
@@ -175,18 +175,18 @@ class ANEMPreviewController : UIViewController {
             }
         }
         
-        let transformedDockHeight : CGFloat = dockHeight * transform
+        let transformedDockHeight = dockHeight * transform
         _backgroundView = UIImageView(frame: backgroundViewFrame)
-        if (_deviceType == DeviceType.iPad){
+        if (_deviceType == .iPad){
             _backgroundView?.image = UIImage(named: "iPad mini")
         } else {
-            if (_phoneType == PhoneType.iPhone5S){
+            if (_phoneType == .iPhone5S){
                 _backgroundView?.image = UIImage(named: "iPhone 5s")
-            } else if (_phoneType == PhoneType.iPhone6){
+            } else if (_phoneType == .iPhone6){
                 _backgroundView?.image = UIImage(named: "iPhone 6")
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 _backgroundView?.image = UIImage(named: "iPhone 6+")
-            } else if (_phoneType == PhoneType.iPhoneX){
+            } else if (_phoneType == .iPhoneX){
                 _backgroundView?.image = UIImage(named: "iPhone X")
             }
         }
@@ -194,25 +194,25 @@ class ANEMPreviewController : UIViewController {
         _backgroundView?.isUserInteractionEnabled = false
         self.view.addSubview(_backgroundView!)
         
-        if (_deviceType == DeviceType.iPhone && _phoneType == PhoneType.iPhoneX){
-            let overlayView : UIImageView? = UIImageView.init(frame: (_backgroundView?.bounds)!)
-            overlayView?.image = UIImage(named: "iPhone X-overlay")
-            overlayView?.isUserInteractionEnabled = false
-            overlayView?.layer.zPosition = 5000
-            _backgroundView?.addSubview(overlayView!)
+        if (_deviceType == .iPhone && _phoneType == .iPhoneX){
+            let overlayView = UIImageView.init(frame: (_backgroundView?.bounds)!)
+            overlayView.image = UIImage(named: "iPhone X-overlay")
+            overlayView.isUserInteractionEnabled = false
+            overlayView.layer.zPosition = 5000
+            _backgroundView?.addSubview(overlayView)
         }
         
         self.viewDidLayoutSubviews()
         
-        let wallpaper : UIImage? = getWallpaper()
+        let wallpaper = getWallpaper()
         
         if (_useBlurredBackground){
-            let blurredBackgroundView : UIImageView = UIImageView(frame: self.view.bounds)
+            let blurredBackgroundView = UIImageView(frame: self.view.bounds)
             blurredBackgroundView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
             blurredBackgroundView.image = wallpaper
             blurredBackgroundView.contentMode = UIView.ContentMode.scaleAspectFill
             
-            let darkeningView : UIView = UIView(frame: blurredBackgroundView.bounds)
+            let darkeningView = UIView(frame: blurredBackgroundView.bounds)
             darkeningView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
             darkeningView.backgroundColor = UIColor(white:0.0,alpha:0.5)
             blurredBackgroundView.addSubview(darkeningView)
@@ -220,7 +220,7 @@ class ANEMPreviewController : UIViewController {
             self.view.sendSubviewToBack(blurredBackgroundView)
         }
         
-        let homeScreenView : UIImageView = UIImageView(frame: homeScreenFrame)
+        let homeScreenView = UIImageView(frame: homeScreenFrame)
         homeScreenView.image = wallpaper
         homeScreenView.contentMode = UIView.ContentMode.scaleAspectFill
         homeScreenView.clipsToBounds = true
@@ -237,27 +237,27 @@ class ANEMPreviewController : UIViewController {
             self._refreshView?.isHidden = true
         }
         
-        let statusBar : UIStatusBar = UIStatusBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: statusBarHeight))
+        let statusBar = UIStatusBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: statusBarHeight))
         statusBar.transform = CGAffineTransform(scaleX: transform, y: transform)
         statusBar.frame = CGRect(x: 0, y: 0, width: homeScreenFrame.size.width, height: statusBarHeight * transform)
-        statusBar.request(UIStatusBarStyle.lightContent)
+        statusBar.request(.lightContent)
         homeScreenView.addSubview(statusBar)
         
-        let homeContentsView : UIView = UIView(frame: CGRect.zero)
+        let homeContentsView = UIView(frame: CGRect.zero)
         homeContentsView.transform = CGAffineTransform(scaleX: transform, y: transform)
         homeContentsView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         homeScreenView.addSubview(homeContentsView)
         
-        let dockContentsView : UIView = UIView(frame: CGRect.zero)
+        let dockContentsView = UIView(frame: CGRect.zero)
         dockContentsView.transform = CGAffineTransform(scaleX: transform, y: transform)
         dockContentsView.frame = CGRect(x: 0, y: homeScreenFrame.size.height - transformedDockHeight - (dockMargins * transform), width: homeScreenFrame.size.width, height: transformedDockHeight)
         homeScreenView.addSubview(dockContentsView)
         
-        let iconState : NSDictionary? = getIconState()
+        let iconState = getIconState()
         
-        let buttonBar : NSArray? = iconState?.object(forKey: "buttonBar") as? NSArray
+        let buttonBar = iconState?.object(forKey: "buttonBar") as? NSArray
         
-        let dockSettings : _UIBackdropViewSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
+        let dockSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
         dockSettings.blurRadius = 25
         
         var effectiveDockHeight : CGFloat = dockHeight + dockMargins
@@ -265,28 +265,28 @@ class ANEMPreviewController : UIViewController {
         if (useFloatyDock){
             var x : CGFloat = 21
             
-            let floatyDockBackgroundView : AnemoneFloatyDockBackgroundView = AnemoneFloatyDockBackgroundView.init(frame: CGRect.zero, autosizesToFitSuperview: false, settings: dockSettings)
+            let floatyDockBackgroundView = AnemoneFloatyDockBackgroundView.init(frame: CGRect.zero, autosizesToFitSuperview: false, settings: dockSettings)
             floatyDockBackgroundView.layer.cornerRadius = 31
             floatyDockBackgroundView.clipsToBounds = true
 			floatyDockBackgroundView.configureForDisplay()
             
-            let floatyDockContentsView : UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 1024, height: dockHeight))
+            let floatyDockContentsView = UIView.init(frame: CGRect(x: 0, y: 0, width: 1024, height: dockHeight))
             floatyDockBackgroundView.addSubview(floatyDockContentsView)
             
             buttonBar?.forEach({ (rawIdentifier) in
                 guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: false, inDock: true) else {
                     return
                 }
-                var frame : CGRect = iconView.frame
+                var frame = iconView.frame
                 frame.origin.x = x
-                if (_deviceType != DeviceType.iPad){
+                if (_deviceType != .iPad){
                     frame.origin.y = 17
                 } else {
                     frame.origin.y = 20
                 }
                 iconView.frame = frame
                 floatyDockContentsView.addSubview(iconView)
-                if (_deviceType != DeviceType.iPad){
+                if (_deviceType != .iPad){
                     x += frame.size.width + 27
                 } else {
                     x += frame.size.width + 21
@@ -303,7 +303,7 @@ class ANEMPreviewController : UIViewController {
                 floatyDockBackgroundView.transform = CGAffineTransform(scaleX: floatyScale, y: floatyScale)
             }
             
-            var floatyDockFrame : CGRect = floatyDockBackgroundView.frame
+            var floatyDockFrame = floatyDockBackgroundView.frame
             floatyDockFrame.origin.x = (screenWidth - floatyDockFrame.size.width)/2
             floatyDockFrame.origin.y = dockHeight - (floatyDockFrame.size.height + 17)
             floatyDockBackgroundView.frame = floatyDockFrame
@@ -311,17 +311,17 @@ class ANEMPreviewController : UIViewController {
             effectiveDockHeight = floatyDockFrame.size.height + floatyDockYMargin
             dockContentsView.addSubview(floatyDockBackgroundView)
         } else {
-            let dockRootView : UIView = UIView.init(frame:CGRect.zero)
+            let dockRootView = UIView.init(frame:CGRect.zero)
             dockRootView.frame = CGRect(x: 0, y: 0, width: homeScreenFrame.size.width, height: transformedDockHeight)
             dockContentsView.addSubview(dockRootView)
             
-            let dockView : AnemoneDockBackgroundView = AnemoneDockBackgroundView.init(frame: CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight), autosizesToFitSuperview: false, settings: dockSettings)
+            let dockView = AnemoneDockBackgroundView.init(frame: CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight), autosizesToFitSuperview: false, settings: dockSettings)
 			dockView.clipsToBounds = true
 			dockView.layer.cornerRadius = (dockMargins * 2)
 			dockView.configureForDisplay()
             dockRootView.addSubview(dockView)
             
-            let dockOverlayView : AnemoneDockOverlayView = AnemoneDockOverlayView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
+            let dockOverlayView = AnemoneDockOverlayView.init(frame:CGRect(x: dockMargins, y: 0, width: screenWidth - (2 * dockMargins), height: dockHeight))
             dockOverlayView.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
 			dockOverlayView.clipsToBounds = true
 			dockOverlayView.layer.cornerRadius = (dockMargins * 2)
@@ -333,15 +333,15 @@ class ANEMPreviewController : UIViewController {
             var dockXSeparation : CGFloat = 76.0
             let dockYPos : CGFloat = 14
             
-            if (_phoneType == PhoneType.iPhone6){
+            if (_phoneType == .iPhone6){
                 dockXBase = 199.0
                 dockPosDiff = 43.0
                 dockXSeparation = 87.0
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 dockXBase = 223.0
                 dockPosDiff = 47.0
                 dockXSeparation = 94.0
-			} else if (_phoneType == PhoneType.iPhoneX){
+			} else if (_phoneType == .iPhoneX){
 				dockXBase = 199.0
 				dockPosDiff = 43.0
 				dockXSeparation = 87.0
@@ -369,27 +369,27 @@ class ANEMPreviewController : UIViewController {
         
         var iconXSeparation : CGFloat = 87
         var iconYSeparation : CGFloat = 102
-        if (_deviceType == DeviceType.iPad){
+        if (_deviceType == .iPad){
             iconXSeparation = 176
             iconYSeparation = 161
         } else {
-            if (_phoneType == PhoneType.iPhone5S){
+            if (_phoneType == .iPhone5S){
                 iconXSeparation = 76
                 iconYSeparation = 88
-            } else if (_phoneType == PhoneType.iPhone6){
+            } else if (_phoneType == .iPhone6){
                 iconXSeparation = 87
                 iconYSeparation = 88
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 iconXSeparation = 94
                 iconYSeparation = 100
-            } else if (_phoneType == PhoneType.iPhoneX){
+            } else if (_phoneType == .iPhoneX){
                 iconXSeparation = 87
                 iconYSeparation = 102
             }
         }
         
         var page = 0
-        var iconList : NSArray? = (iconState?.object(forKey: "iconLists") as? NSArray)?.object(at: page) as? NSArray
+        var iconList = (iconState?.object(forKey: "iconLists") as? NSArray)?.object(at: page) as? NSArray
         while (iconList?.count == 0){
             page += 1
             iconList = (iconState?.object(forKey: "iconLists") as? NSArray)?.object(at: page) as? NSArray
@@ -397,30 +397,30 @@ class ANEMPreviewController : UIViewController {
         var i = 1
         var x : CGFloat = 27
         var y : CGFloat = 71
-        if (_deviceType == DeviceType.iPad){
+        if (_deviceType == .iPad){
             x = 82
             y = 68
         } else {
-            if (_phoneType == PhoneType.iPhone5S){
+            if (_phoneType == .iPhone5S){
                 x = 16
                 y = 25
-            } else if (_phoneType == PhoneType.iPhone6){
+            } else if (_phoneType == .iPhone6){
                 x = 27
                 y = 24
-            } else if (_phoneType == PhoneType.iPhone6Plus){
+            } else if (_phoneType == .iPhone6Plus){
                 x = 35
                 y = 18
-            } else if (_phoneType == PhoneType.iPhoneX){
+            } else if (_phoneType == .iPhoneX){
                 x = 27
                 y = 71
             }
         }
         let initialX : CGFloat = x
         iconList?.forEach({ (rawIdentifier) in
-            guard let iconView : UIView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: true, inDock: false) else {
+            guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: true, inDock: false) else {
                 return
             }
-            var frame : CGRect = iconView.frame
+            var frame = iconView.frame
             frame.origin.x = x
             frame.origin.y = y
             iconView.frame = frame
@@ -431,8 +431,8 @@ class ANEMPreviewController : UIViewController {
                 y += iconYSeparation
             }
             i += 1
-            if (_deviceType != DeviceType.iPad){
-                if (_phoneType != PhoneType.iPhone5S){
+            if (_deviceType != .iPad){
+                if (_phoneType != .iPhone5S){
                     if (i > 24){
                         return
                     }
@@ -443,23 +443,23 @@ class ANEMPreviewController : UIViewController {
             }
         })
         
-        let pageDots : UIView = UIView(frame: CGRect(x: 0, y: screenHeight - (effectiveDockHeight + 37), width: screenWidth, height: 37))
-        let pageDot : UIImage = AnemoneExtensionParameters.kitImageNamed("UIPageIndicator")
-        let pageDotCurrent : UIImage = AnemoneExtensionParameters.kitImageNamed("UIPageIndicatorCurrent")
+        let pageDots = UIView(frame: CGRect(x: 0, y: screenHeight - (effectiveDockHeight + 37), width: screenWidth, height: 37))
+        let pageDot = AnemoneExtensionParameters.kitImageNamed("UIPageIndicator")
+        let pageDotCurrent = AnemoneExtensionParameters.kitImageNamed("UIPageIndicatorCurrent")
         let pageDotSize = pageDotCurrent.size
         
-        var pageCount : Int = ((iconState?.object(forKey: "iconLists") as? NSArray)?.count)!
+        var pageCount = ((iconState?.object(forKey: "iconLists") as? NSArray)?.count)!
         pageCount += 1
         
         let pageDotSeparators : CGFloat = 8.0
-        let width : CGFloat = (pageDotSize.width * CGFloat(pageCount)) + (pageDotSeparators * (CGFloat(pageCount) - 1))
-        var pageX : CGFloat = (pageDots.frame.size.width / 2.0) - (width / 2.0)
-        let pageY : CGFloat = (pageDots.frame.size.height / 2.0) - (pageDotSize.height / 2.0)
+        let width = (pageDotSize.width * CGFloat(pageCount)) + (pageDotSeparators * (CGFloat(pageCount) - 1))
+        var pageX = (pageDots.frame.size.width / 2.0) - (width / 2.0)
+        let pageY = (pageDots.frame.size.height / 2.0) - (pageDotSize.height / 2.0)
         
         for i in stride(from: 0, to: pageCount, by: 1){
             let idx = i - 1
             
-            let dotView : UIImageView = UIImageView(frame: CGRect(x: pageX, y: pageY, width: pageDotSize.width, height: pageDotSize.height))
+            let dotView = UIImageView(frame: CGRect(x: pageX, y: pageY, width: pageDotSize.width, height: pageDotSize.height))
             if (idx == page){
                 dotView.image = pageDotCurrent
             } else {
@@ -474,8 +474,8 @@ class ANEMPreviewController : UIViewController {
     }
     
     func getHomeScreenIconForApp(app : LSApplicationProxy, isiPad : Bool, getThemed: Bool) -> UIImage? {
-        let iconsDictionary : NSDictionary? = app.iconsDictionary() as NSDictionary?
-		let bundle : Bundle? = Bundle(url: app.bundleURL()!)
+        let iconsDictionary = app.iconsDictionary() as NSDictionary?
+		let bundle = Bundle(url: app.bundleURL()!)
         
         var variant : Int32 = 15
         if (_deviceType == DeviceType.iPad){
@@ -496,9 +496,9 @@ class ANEMPreviewController : UIViewController {
             return nil
         }
         
-        let scale : CGFloat = UIScreen.main.scale
+        let scale = UIScreen.main.scale
         
-        guard let app : LSApplicationProxy = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
+        guard let app = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
             if (bundleIdentifier == "com.apple.videos"){
                 return miniIconViewFromIdentifier(rawBundleIdentifier: "com.apple.tv")
             }
@@ -509,21 +509,21 @@ class ANEMPreviewController : UIViewController {
         }
         let bundlePath = bundlePathStr as NSString
         
-        let infoPlist : NSDictionary? = NSDictionary(contentsOfFile:(bundlePath.appendingPathComponent("Info.plist")))
+        let infoPlist = NSDictionary(contentsOfFile:(bundlePath.appendingPathComponent("Info.plist")))
         
-        var icon : UIImage? = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
+        var icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
         if ((icon == nil)){
             icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
         }
         let prerendered = infoPlist?.object(forKey: "UIPrerenderedIcon") as? Bool
         icon = icon?._applicationIconImage(forFormat: 2, precomposed: prerendered ?? false, scale: scale)
         
-        var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 13, height: 13)
+        var iconViewFrame = CGRect(x: 0, y: 0, width: 13, height: 13)
         if (_deviceType == DeviceType.iPad){
             iconViewFrame = CGRect(x: 0, y: 0, width: 11, height: 11)
         }
         
-        let iconView : UIImageView = UIImageView.init(frame: iconViewFrame)
+        let iconView = UIImageView.init(frame: iconViewFrame)
         iconView.image = icon
         iconView.layer.minificationFilter = CALayerContentsFilter.trilinear
         
@@ -531,47 +531,47 @@ class ANEMPreviewController : UIViewController {
     }
     
     func folderIconViewFromIdentifier(folderDictionary : NSDictionary?, hasLabel : Bool, inDock: Bool) -> UIView? {
-        var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 76, height: 93)
-        var iconImageViewFrame : CGRect = CGRect(x: -1, y: -1, width: 78, height: 78)
-        var labelFrame : CGRect = CGRect(x: -10, y: 83, width: 96, height: 16)
+        var iconViewFrame = CGRect(x: 0, y: 0, width: 76, height: 93)
+        var iconImageViewFrame = CGRect(x: -1, y: -1, width: 78, height: 78)
+        var labelFrame = CGRect(x: -10, y: 83, width: 96, height: 16)
         let cornerRadius : CGFloat = 12
-        if (_deviceType != DeviceType.iPad){
+        if (_deviceType != .iPad){
             iconViewFrame = CGRect(x: 0, y: 0, width: 60, height: 74)
             iconImageViewFrame = CGRect(x: -1, y: -1, width: 62, height: 62)
             labelFrame = CGRect(x: -18, y: 63, width: 96, height: 16)
         }
         
-        let iconView : AnemoneFolderIconView = AnemoneFolderIconView.init(frame: iconViewFrame)
-        let iconImageView : UIImageView = UIImageView.init(frame: iconImageViewFrame)
-        iconImageView.contentMode = UIView.ContentMode.center
+        let iconView = AnemoneFolderIconView.init(frame: iconViewFrame)
+        let iconImageView = UIImageView.init(frame: iconImageViewFrame)
+        iconImageView.contentMode = .center
         
-        var mask : UIImage? = UIImage(contentsOfFile: "/System/Library/PrivateFrameworks/MobileIcons.framework/AppIconMask~iphone.png")
-        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad){
+        var mask = UIImage(contentsOfFile: "/System/Library/PrivateFrameworks/MobileIcons.framework/AppIconMask~iphone.png")
+        if (UIDevice.current.userInterfaceIdiom == .pad){
             mask = UIImage(contentsOfFile: "/System/Library/PrivateFrameworks/MobileIcons.framework/AppIconMask~ipad.png")
         }
         
         UIGraphicsBeginImageContextWithOptions(iconImageView.bounds.size, false, 0)
         UIColor.white.setFill()
         mask?.draw(in: CGRect(x: (iconImageView.bounds.size.width-mask!.size.width)/2.0, y: (iconImageView.bounds.size.height-mask!.size.height)/2.0, width: mask!.size.width, height: mask!.size.height))
-        let renderedMask : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        let renderedMask = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         let maskView = UIImageView.init(frame: iconImageView.bounds)
         maskView.image = renderedMask
         
-        let folderSettings : _UIBackdropViewSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
-        let folderBackgroundView : _UIBackdropView = _UIBackdropView.init(frame: CGRect.zero, autosizesToFitSuperview: true, settings: folderSettings)
+        let folderSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
+        let folderBackgroundView = _UIBackdropView.init(frame: CGRect.zero, autosizesToFitSuperview: true, settings: folderSettings)
         folderBackgroundView.layer.cornerRadius = cornerRadius
         folderBackgroundView.clipsToBounds = true
         iconImageView.addSubview(folderBackgroundView)
         
-        let folderOverlayView : UIView = UIView.init(frame: iconImageView.bounds)
+        let folderOverlayView = UIView.init(frame: iconImageView.bounds)
         folderOverlayView.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
         folderOverlayView.layer.cornerRadius = cornerRadius
         folderOverlayView.clipsToBounds = true
         iconImageView.addSubview(folderOverlayView)
         
-        let gridView : UIView = UIView.init(frame: iconImageView.bounds)
+        let gridView = UIView.init(frame: iconImageView.bounds)
         iconImageView.addSubview(gridView)
         
         var i : Int32 = 1
@@ -591,13 +591,13 @@ class ANEMPreviewController : UIViewController {
             maxItems = 16
         }
         
-        let iconList : NSArray? = (folderDictionary?.object(forKey: "iconLists") as? NSArray)?.object(at: 0) as? NSArray
+        let iconList = (folderDictionary?.object(forKey: "iconLists") as? NSArray)?.object(at: 0) as? NSArray
         iconList?.forEach({ (rawIdentifier) in
-            let identifier : String? = rawIdentifier as? String
+            let identifier = rawIdentifier as? String
             guard let miniIcon = miniIconViewFromIdentifier(rawBundleIdentifier: identifier) else {
                 return
             }
-            var frame : CGRect = miniIcon.frame
+            var frame = miniIcon.frame
             frame.origin.x = x
             frame.origin.y = y
             miniIcon.frame = frame
@@ -622,7 +622,7 @@ class ANEMPreviewController : UIViewController {
         iconView.inDock = inDock
         
         if (hasLabel){
-            let iconLabel : UILabel = UILabel(frame: labelFrame)
+            let iconLabel = UILabel(frame: labelFrame)
             iconLabel.backgroundColor = UIColor.clear
             iconLabel.textAlignment = NSTextAlignment.center
             if (_deviceType == DeviceType.iPad){
@@ -633,7 +633,7 @@ class ANEMPreviewController : UIViewController {
             iconLabel.textColor = UIColor.white
             iconView.addSubview(iconLabel)
             
-            let iconLabelText : String? = folderDictionary?.object(forKey: "displayName") as? String
+            let iconLabelText = folderDictionary?.object(forKey: "displayName") as? String
             iconLabel.text = iconLabelText
             
             iconView.iconLabel = iconLabel
@@ -651,7 +651,7 @@ class ANEMPreviewController : UIViewController {
         
         let scale : CGFloat = UIScreen.main.scale
         
-        guard let app : LSApplicationProxy = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
+        guard let app = LSApplicationProxy(forIdentifier: bundleIdentifier) else {
             if (bundleIdentifier == "com.apple.videos"){
                 return iconViewFromIdentifier(rawBundleIdentifier: "com.apple.tv", hasLabel:hasLabel, inDock: inDock)
             }
@@ -661,9 +661,9 @@ class ANEMPreviewController : UIViewController {
             return nil
         }
         let bundlePath = bundlePathStr as NSString
-        let infoPlist : NSDictionary = NSDictionary(contentsOfFile:bundlePath.appendingPathComponent("Info.plist"))!
+        let infoPlist = NSDictionary(contentsOfFile:bundlePath.appendingPathComponent("Info.plist"))!
         
-        var icon : UIImage? = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
+        var icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: true)
         if ((icon == nil)){
             icon = getHomeScreenIconForApp(app: app, isiPad: _deviceType == DeviceType.iPad, getThemed: false)
         }
@@ -681,17 +681,17 @@ class ANEMPreviewController : UIViewController {
             }
         }
         
-        var iconViewFrame : CGRect = CGRect(x: 0, y: 0, width: 76, height: 93)
-        var iconImageViewFrame : CGRect = CGRect(x: -1, y: -1, width: 78, height: 78)
-        var labelFrame : CGRect = CGRect(x: -10, y: 83, width: 96, height: 16)
-        if (_deviceType != DeviceType.iPad){
+        var iconViewFrame = CGRect(x: 0, y: 0, width: 76, height: 93)
+        var iconImageViewFrame = CGRect(x: -1, y: -1, width: 78, height: 78)
+        var labelFrame = CGRect(x: -10, y: 83, width: 96, height: 16)
+        if (_deviceType != .iPad){
             iconViewFrame = CGRect(x: 0, y: 0, width: 60, height: 74)
             iconImageViewFrame = CGRect(x: -1, y: -1, width: 62, height: 62)
             labelFrame = CGRect(x: -18, y: 63, width: 96, height: 16)
         }
         
-        let iconView : AnemoneIconView = AnemoneIconView.init(frame: iconViewFrame)
-        let iconImageView : UIImageView = UIImageView.init(frame: iconImageViewFrame)
+        let iconView = AnemoneIconView.init(frame: iconViewFrame)
+        let iconImageView = UIImageView.init(frame: iconImageViewFrame)
         iconImageView.image = icon
         iconImageView.layer.minificationFilter = CALayerContentsFilter.trilinear
         iconView.addSubview(iconImageView)
@@ -700,10 +700,10 @@ class ANEMPreviewController : UIViewController {
         iconView.inDock = inDock
         
         if (hasLabel){
-            let iconLabel : UILabel = UILabel(frame: labelFrame)
-            iconLabel.backgroundColor = UIColor.clear
-            iconLabel.textAlignment = NSTextAlignment.center
-            if (_deviceType == DeviceType.iPad){
+            let iconLabel = UILabel(frame: labelFrame)
+            iconLabel.backgroundColor = .clear
+            iconLabel.textAlignment = .center
+            if (_deviceType == .iPad){
                 iconLabel.font = UIFont.systemFont(ofSize: 14)
             } else {
                 iconLabel.font = UIFont.systemFont(ofSize: 12)
@@ -711,7 +711,7 @@ class ANEMPreviewController : UIViewController {
             iconLabel.textColor = UIColor.white
             iconView.addSubview(iconLabel)
             
-            var iconLabelText : String? = app.localizedName()
+            var iconLabelText = app.localizedName()
             if (iconLabelText == "" || iconLabelText == nil){
                 iconLabelText = infoPlist.object(forKey: "CFBundleExecutable") as? String
             }
@@ -731,9 +731,9 @@ class ANEMPreviewController : UIViewController {
     
     func checkThemedIconForBundle(bundle: String) -> String? {
         var bundleIdentifier = bundle
-        let themesDir : String = PackageListManager.shared.prefixDir().path
+        let themesDir = PackageListManager.shared.prefixDir().path
         
-        guard let themes : Array<String> = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String> else {
+        guard let themes = UserDefaults.standard.value(forKey: "settingsPacked") as? Array<String> else {
             return nil
         }
         
@@ -746,13 +746,13 @@ class ANEMPreviewController : UIViewController {
         }
         
         for identifier in themes {
-            let ibLargeThemePath : String = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
-            var icon : UIImage? = UIImage(contentsOfFile: ibLargeThemePath)
+            let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
+            var icon = UIImage(contentsOfFile: ibLargeThemePath)
             if (icon != nil) {
                 return ibLargeThemePath
             }
             
-            let ibThemePath : String = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundleIdentifier)
+            let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundleIdentifier)
             icon  = UIImage(contentsOfFile: ibThemePath)
             if (icon != nil) {
                 return ibThemePath
@@ -762,8 +762,8 @@ class ANEMPreviewController : UIViewController {
     }
     
     func applyAltIconName(altIconName : String?){
-        let workspace : LSApplicationWorkspace = LSApplicationWorkspace.default()
-        let allApps : Array<LSApplicationProxy> = workspace.allInstalledApplications()
+        let workspace = LSApplicationWorkspace.default()
+        let allApps = workspace.allInstalledApplications()
         
         let sem = DispatchSemaphore(value: allApps.count)
         
@@ -795,15 +795,15 @@ class ANEMPreviewController : UIViewController {
     }
     
     @objc func applyThemes(){
-        let alertController : UIAlertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: "Applying Changes", message: "Please Wait", preferredStyle: UIAlertController.Style.alert)
         self.present(alertController, animated: true) {
-            let recache : NSTask = NSTask()
+            let recache = NSTask()
             recache.launchPath = "/usr/bin/recache"
             recache.arguments = ["--no-respring"]
             recache.launch()
             recache.waitUntilExit()
             
-            let notificationName : CFString = "com.anemoneteam.anemone/reload" as CFString
+            let notificationName = "com.anemoneteam.anemone/reload" as CFString
             
             CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFNotificationName(notificationName), nil, nil, true);
             
@@ -812,7 +812,7 @@ class ANEMPreviewController : UIViewController {
             self.applyAltIconName(altIconName: "__ANEM__AltIcon")
             
             if (AnemoneExtensionParameters.respringRequired()){
-                let killall : NSTask = NSTask()
+                let killall = NSTask()
                 killall.launchPath = "/usr/bin/killall"
                 killall.arguments = ["backboardd"]
                 killall.launch()

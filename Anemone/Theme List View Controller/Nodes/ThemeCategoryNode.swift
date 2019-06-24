@@ -14,7 +14,7 @@ class ThemeCategoryNode: ThemeNode {
     var themes : Array<ThemeNode> = []
     
     override var isEnabled: Bool {
-        var enabled : Bool = false
+        var enabled = false
         themes.forEach { (theme) in
             if (theme.isEnabled){
                 enabled = true
