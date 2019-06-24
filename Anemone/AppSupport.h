@@ -12,6 +12,6 @@
 #ifndef AppSupport_h
 #define AppSupport_h
 
-UIImage *getWallpaper(void);
+UIImage *_Nullable getWallpaper(void);
 
 #endif

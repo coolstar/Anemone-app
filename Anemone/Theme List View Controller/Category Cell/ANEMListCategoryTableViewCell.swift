@@ -17,7 +17,7 @@ class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
         scrollPreview.removeFromSuperview()
         
         scrollPreview.autoresizingMask = AutoresizingMask(rawValue:AutoresizingMask.flexibleWidth.rawValue | AutoresizingMask.flexibleHeight.rawValue)
-        scrollPreview.frame = (scrollPreviews?.bounds)!
+        scrollPreview.frame = scrollPreviews?.bounds ?? .zero
         scrollPreviews?.addSubview(scrollPreview)
     }
     

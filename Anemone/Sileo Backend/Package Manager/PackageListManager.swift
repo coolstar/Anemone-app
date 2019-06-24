@@ -81,16 +81,16 @@ import Foundation
                 guard var rawPackage = try? ControlFileParser.dictionary(controlData: packageData, isReleaseFile: false) else {
                     continue
                 }
-                guard rawPackage["package"] != nil else {
+                guard let packageID = rawPackage["package"] else {
                     continue
                 }
-                if (rawPackage["package"] == ""){
+                if (packageID == ""){
                     continue
                 }
-                if ((rawPackage["package"]?.hasPrefix("gsc."))!) {
+                if (packageID.hasPrefix("gsc.")) {
                     continue
                 }
-                if ((rawPackage["package"]?.hasPrefix("cy+"))!) {
+                if (packageID.hasPrefix("cy+")) {
                     continue
                 }
                 
@@ -114,7 +114,7 @@ import Foundation
                     }
                 }
                 
-                packagesList[package.package!] = package
+                packagesList[packageID] = package
             }
             tempDictionary.removeAll()
         } catch let error {
@@ -172,7 +172,9 @@ import Foundation
                     
                     for themePath in themesFolders {
                         if files.contains(themePath){
-                            let packageID : String = (URL(string: packageFile)?.deletingPathExtension().path)!
+                            guard let packageID : String = URL(string: packageFile)?.deletingPathExtension().path else {
+                                continue
+                            }
                             var paths = themeIdentifiers[packageID]
                             if (paths == nil){
                                 paths = Array()

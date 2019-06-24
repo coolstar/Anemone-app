@@ -9,7 +9,6 @@
 #ifndef AnemoneTweakBridge_h
 #define AnemoneTweakBridge_h
 
-NSURL *getBundleURL(NSBundle *bundle, NSString *name, NSString *extension);
 void enableThemes(void);
 void disableThemes(void);
 

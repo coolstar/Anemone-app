@@ -102,17 +102,19 @@ class ANEMThemeListViewController: UIViewController {
         }
         
         rawOrderedPackages.forEach { (identifier) in
-            if (sectionsDict[identifier] != nil){
-                themeSections.append(sectionsDict[identifier]!)
+            guard let section = sectionsDict[identifier] else {
+                return
             }
+            themeSections.append(section)
         }
 
         // Do any additional setup after loading the view.
     }
 
     @objc func toggleEditing(){
-        treeView?.setEditing(!(treeView?.isEditing)!, animated: true)
-        if ((treeView?.isEditing)!){
+        let editing = treeView?.isEditing ?? false
+        treeView?.setEditing(!editing, animated: true)
+        if (!editing){
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
         } else {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))

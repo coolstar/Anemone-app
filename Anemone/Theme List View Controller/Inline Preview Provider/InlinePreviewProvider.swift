@@ -15,9 +15,13 @@ class InlinePreviewProvider {
     var previewViews : Dictionary<String, UIScrollView> = [:]
     
     func getThemedIconForBundle(bundle: String, themeCategoryNode : ThemeCategoryNode?) -> String? {
+        guard let themes = themeCategoryNode?.themes else {
+            return nil
+        }
+        
         let themesDir : String = PackageListManager.shared.prefixDir().path
         
-        for themeNode in (themeCategoryNode?.themes)! {
+        for themeNode in themes {
             let identifier : String = themeNode.identifier
             
             let ibLargeThemePath : String = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundle)
@@ -36,8 +40,11 @@ class InlinePreviewProvider {
     }
     
     func previewViewForTheme(themeCategoryNode: ThemeCategoryNode?) -> UIScrollView {
-        if (previewViews[(themeCategoryNode?.identifier)!] != nil){
-            return previewViews[(themeCategoryNode?.identifier)!]!
+        guard let themeIdentifier = themeCategoryNode?.identifier else {
+            return UIScrollView()
+        }
+        if (previewViews[themeIdentifier] != nil){
+            return previewViews[themeIdentifier]!
         }
         
         let scrollPreviews : UIScrollView = UIScrollView()
@@ -45,13 +52,12 @@ class InlinePreviewProvider {
         let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather", "com.apple.Maps", "com.apple.videos", "com.apple.mobilenotes", "com.apple.reminders", "com.apple.stocks", "com.apple.news", "com.apple.MobileStore", "com.apple.AppStore", "com.apple.iBooks", "com.apple.Health", "com.apple.Passbook", "com.apple.Preferences"]
         var x = 0
         for bundle in bundleIds {
-            let icon : String? = getThemedIconForBundle(bundle: bundle, themeCategoryNode: themeCategoryNode)
-            if (icon == nil){
+            guard let icon = getThemedIconForBundle(bundle: bundle, themeCategoryNode: themeCategoryNode) else {
                 continue
             }
             
             let iconView : UIImageView = UIImageView(frame: CGRect(x: x, y: 0, width: 32, height: 32))
-            iconView.image = UIImage(contentsOfFile: icon!)
+            iconView.image = UIImage(contentsOfFile: icon)
             iconView.clipsToBounds = true
             iconView.layer.cornerRadius = 5
             scrollPreviews.addSubview(iconView)
@@ -62,7 +68,7 @@ class InlinePreviewProvider {
         scrollPreviews.showsVerticalScrollIndicator = false
         scrollPreviews.showsHorizontalScrollIndicator = false
         
-        previewViews[(themeCategoryNode?.identifier)!] = scrollPreviews
+        previewViews[themeIdentifier] = scrollPreviews
         return scrollPreviews
     }
 }
