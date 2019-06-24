@@ -11,7 +11,7 @@ class ANEMThemeListViewController: UIViewController {
     
     @IBOutlet var treeView : LNZTreeView?
     var themeSections : Array<ThemeCategoryNode> = []
-    var previewIsStale : Bool = false
+    var previewIsStale = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,11 @@ class ANEMThemeListViewController: UIViewController {
         treeView?.register(UINib.init(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
         treeView?.register(UINib.init(nibName: "ANEMListThemeTableViewCell", bundle: nil), forCellReuseIdentifier: "themeRows")
         
-        let themesFolderContents : Dictionary<String, Array<String>> = PackageListManager.shared.scanForThemes() 
+        let themesFolderContents = PackageListManager.shared.scanForThemes()
         
-        let packages : Dictionary<String, Package> = PackageListManager.shared.packagesList()
+        let packages = PackageListManager.shared.packagesList()
         
-        let rawSettings : Array<Dictionary<String, Any>>? = UserDefaults.standard.array(forKey: "packages") as? Array<Dictionary<String, Any>>
+        let rawSettings = UserDefaults.standard.array(forKey: "packages") as? Array<Dictionary<String, Any>>
         
         var rawOrderedPackages : Array<String> = []
         var rawHashedPackages : Dictionary<String, Array<Dictionary<String, Any>>> = [:]
@@ -64,9 +64,9 @@ class ANEMThemeListViewController: UIViewController {
                 }
             })
             
-            let node : ThemeCategoryNode = ThemeCategoryNode()
+            let node = ThemeCategoryNode()
             
-            let package : Package? = packages[themeIdentifier]
+            let package = packages[themeIdentifier]
             
             node.identifier = themeIdentifier
             node.humanReadable = package?.name ?? themeIdentifier
@@ -77,10 +77,10 @@ class ANEMThemeListViewController: UIViewController {
             var hashedNodeThemes : Dictionary<String, ThemeNode> = [:]
             
             themeFolders.forEach({ (folder) in
-                let themeNode : ThemeNode = ThemeNode()
+                let themeNode = ThemeNode()
                 themeNode.identifier = folder
                 
-                let folderStr : NSString = folder as NSString
+                let folderStr = folder as NSString
                 
                 themeNode.humanReadable = folderStr.deletingPathExtension
                 themeNode.enabled = hashedThemes[folder] ?? false
@@ -178,13 +178,13 @@ class ANEMThemeListViewController: UIViewController {
     
     @objc func applyThemes(){
         if ((self.splitViewController?.isCollapsed)!){
-            let previewController : ANEMPreviewController = ANEMPreviewController()
+            let previewController = ANEMPreviewController()
             let navController = UINavigationController(rootViewController: previewController)
             self.present(navController, animated: true){
                 
             }
         } else {
-            let previewController : ANEMPreviewController = self.splitViewController?.viewControllers[1] as! ANEMPreviewController
+            let previewController = self.splitViewController?.viewControllers[1] as! ANEMPreviewController
             if (previewIsStale){
                 previewController.refreshTheme()
                 previewIsStale = false
@@ -257,7 +257,7 @@ extension ANEMThemeListViewController : LNZTreeViewDataSource {
                 treeView.reload(node: node, inSection: indexPath.section)
                 self.writeSettings()
             }, for: UIControl.Event.touchUpInside)
-            let categoryCell : ANEMListCategoryTableViewCell = cell as! ANEMListCategoryTableViewCell
+            let categoryCell = cell as! ANEMListCategoryTableViewCell
             categoryCell.themeCategoryNode = node as? ThemeCategoryNode
             categoryCell.reloadTheme()
         }
