@@ -135,27 +135,28 @@ import Foundation
     }
     
     func scanForThemes() -> Dictionary<String, Array<String>> {
-#if targetEnvironment(simulator)
-        let themesDirContents = ["Amury Alt Apple Icons.theme", "Amury Alt Icons.theme",
-                                  "Amury Apple Music Icon.theme", "Amury Control Center.theme",
-                                   "Amury Icons.theme", "Amury Interface.theme",
-                                    "Amury Keyboard Sounds.theme", "Amury Legacy Icons.theme",
-                                     "Amury Messages.theme", "Felicity iOS 11.theme",
-                                      "Felicity.theme", "iOS 7-10 icons.theme", "iOS 8 Music Icon.theme "]
-#else
-        let themesDirContents = FileManager.default.contentsOfDirectory(atPath: self.prefixDir().path)
-#endif
-        var themesFolders = Array<String>()
-        let prefixURL = URL(fileURLWithPath: "/Library/Themes")
-        for folder in themesDirContents {
-            let fullPath = prefixURL.appendingPathComponent(folder).path
-            themesFolders.append(fullPath)
-        }
-        
         var themeIdentifiers = Dictionary<String, Array<String>>()
-        
-        let contentsFilesURL = self.dpkgDir().appendingPathComponent("info").resolvingSymlinksInPath()
         do {
+            #if targetEnvironment(simulator)
+            let themesDirContents = ["Amury Alt Apple Icons.theme", "Amury Alt Icons.theme",
+             "Amury Apple Music Icon.theme", "Amury Control Center.theme",
+             "Amury Icons.theme", "Amury Interface.theme",
+             "Amury Keyboard Sounds.theme", "Amury Legacy Icons.theme",
+             "Amury Messages.theme", "Felicity iOS 11.theme",
+             "Felicity.theme", "iOS 7-10 icons.theme", "iOS 8 Music Icon.theme "]
+            #else
+            let themesDirContents = try FileManager.default.contentsOfDirectory(atPath: self.prefixDir().path)
+            #endif
+            
+            var themesFolders = Array<String>()
+            let prefixURL = URL(fileURLWithPath: "/Library/Themes")
+            for folder in themesDirContents {
+                let fullPath = prefixURL.appendingPathComponent(folder).path
+                themesFolders.append(fullPath)
+            }
+            
+            let contentsFilesURL = self.dpkgDir().appendingPathComponent("info").resolvingSymlinksInPath()
+            
             let contentsFiles = try FileManager.default.contentsOfDirectory(atPath: contentsFilesURL.path)
             
             for packageFile in contentsFiles {
