@@ -206,7 +206,7 @@ import Foundation
                     paths = Array()
                     themeIdentifiers[packageId] = paths
                 }
-                paths?.append(themePath)
+                paths?.append((themePath as NSString).lastPathComponent)
                 themeIdentifiers[packageId] = paths
             }
         } catch let error {
