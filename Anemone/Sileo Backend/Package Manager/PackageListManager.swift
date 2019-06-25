@@ -143,7 +143,7 @@ import Foundation
              "Amury Icons.theme", "Amury Interface.theme",
              "Amury Keyboard Sounds.theme", "Amury Legacy Icons.theme",
              "Amury Messages.theme", "Felicity iOS 11.theme",
-             "Felicity.theme", "iOS 7-10 icons.theme", "iOS 8 Music Icon.theme "]
+             "Felicity.theme", "iOS 7-10 icons.theme", "iOS 8 Music Icon.theme ", "test.theme"]
             #else
             let themesDirContents = try FileManager.default.contentsOfDirectory(atPath: self.prefixDir().path)
             #endif
@@ -207,6 +207,7 @@ import Foundation
                     themeIdentifiers[packageId] = paths
                 }
                 paths?.append(themePath)
+                themeIdentifiers[packageId] = paths
             }
         } catch let error {
 #if DEBUG
