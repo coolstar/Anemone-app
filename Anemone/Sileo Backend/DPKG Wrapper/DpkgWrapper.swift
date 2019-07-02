@@ -45,7 +45,7 @@ enum pkgpriority : Int {
     unset = -1
 }
 
-class DpkgWrapper : NSObject {
+class DpkgWrapper {
     private static let priorityinfos : [String:pkgpriority] = ["required" : .required,
                                                         "important" : .important,
                                                         "standard" : .standard,

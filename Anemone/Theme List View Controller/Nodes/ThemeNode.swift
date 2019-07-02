@@ -6,7 +6,7 @@
 //  Copyright © 2018 CoolStar. All rights reserved.
 //
 
-class ThemeNode: NSObject, TreeNodeProtocol {
+class ThemeNode : TreeNodeProtocol {
     var identifier = ""
     var humanReadable = ""
     var isExpandable : Bool {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ControlFileParser: NSObject {
+class ControlFileParser {
     enum Error: LocalizedError {
         case invalidStringData
         case invalidMultilineValue

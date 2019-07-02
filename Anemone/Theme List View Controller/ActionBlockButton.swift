@@ -7,7 +7,7 @@ var ActionBlockKey: UInt8 = 0
 // a type for our action block closure
 typealias BlockButtonActionBlock = (_ sender: UIButton) -> Void
 
-class ActionBlockWrapper : NSObject {
+class ActionBlockWrapper {
     var block : BlockButtonActionBlock
     init(block: @escaping BlockButtonActionBlock) {
         self.block = block

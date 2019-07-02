@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class PackageListManager: NSObject {
+class PackageListManager {
     static let shared = PackageListManager()
     
     func package(dictionary:Dictionary<String,String>) -> Package {
