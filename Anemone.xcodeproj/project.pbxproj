@@ -443,10 +443,12 @@
 					};
 					F1C5394321864B5100CDF1CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = F1C5392F21864B5000CDF1CC;
 					};
 					F1C5394E21864B5100CDF1CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = F1C5392F21864B5000CDF1CC;
 					};
 				};
@@ -785,7 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.AnemoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anemone.app/Anemone";
 			};
@@ -805,7 +807,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.AnemoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anemone.app/Anemone";
 			};
@@ -824,7 +826,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.AnemoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Anemone;
 			};
@@ -843,7 +845,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.AnemoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Anemone;
 			};
