@@ -768,7 +768,7 @@ class ANEMPreviewController : UIViewController {
         let sem = DispatchSemaphore(value: allApps.count)
         
         allApps.forEach { (app) in
-            let bundleIdentifier = app._boundApplicationIdentifier()
+            let bundleIdentifier = app.anemIdentifier()
             
             clearCacheForItem(bundleIdentifier)
             
@@ -777,14 +777,14 @@ class ANEMPreviewController : UIViewController {
             if (altIconName == "__ANEM__AltIcon"){
                 shouldApplyIcon = false
                 
-				let icon = checkThemedIconForBundle(bundle: app._boundApplicationIdentifier()!)
+                let icon = checkThemedIconForBundle(bundle: app.anemIdentifier()!)
                 
                 if (icon != nil){
                     shouldApplyIcon = true
                 }
             }
             if (shouldApplyIcon){
-                app.setAlternateIconName(altIconName, withResult: { (success) in
+                app.setAlternateIconName(altIconName, withResult: { (success, error) in
                         sem.signal()
                 })
             } else {

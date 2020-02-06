@@ -12,8 +12,9 @@
 - (nullable NSString *)localizedName;
 - (BOOL)iconIsPrerendered;
 - (nullable NSString *)_boundApplicationIdentifier;
+- (nullable NSString *)ANEMIdentifier;
 - (nullable NSDictionary *)iconsDictionary;
-- (void)setAlternateIconName:(nullable NSString *)name withResult:(void (^_Nullable)(bool success))result;
+- (void)setAlternateIconName:(nullable NSString *)name withResult:(void (^_Nullable)(bool success, NSError *error))result;
 @end
 
 @interface LSApplicationWorkspace : NSObject
