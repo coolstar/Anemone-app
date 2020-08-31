@@ -202,7 +202,9 @@ class ANEMThemeListViewController: UIViewController {
                 
             }
         } else {
-            let previewController = self.splitViewController?.viewControllers[1] as! ANEMPreviewController
+            guard let previewController = self.splitViewController?.viewControllers[1] as? ANEMPreviewController else {
+                return
+            }
             if previewIsStale {
                 previewController.refreshTheme()
                 previewIsStale = false
@@ -249,9 +251,12 @@ extension ANEMThemeListViewController: LNZTreeViewDataSource {
         let cell: ANEMListThemeTableViewCell
         if let parent = parentNode as? ThemeCategoryNode {
             node = parent.themes[indexPath.row]
-            cell = treeView.dequeueReusableCell(withIdentifier: "themeRows",
-                                                for: node,
-                                                inSection: indexPath.section) as! ANEMListThemeTableViewCell
+            guard let rawCell = treeView.dequeueReusableCell(withIdentifier: "themeRows",
+                                                             for: node,
+                                                             inSection: indexPath.section) as? ANEMListThemeTableViewCell else {
+                                                                fatalError("Wrong Cell Type")
+            }
+            cell = rawCell
             if node.isEnabled {
                 cell.enableButton?.setImage(UIImage(named: "selected"), for: .normal)
             } else {
@@ -259,9 +264,12 @@ extension ANEMThemeListViewController: LNZTreeViewDataSource {
             }
         } else {
             node = themeSections[indexPath.row]
-            cell = treeView.dequeueReusableCell(withIdentifier: "themeSections",
-                                                for: node,
-                                                inSection: indexPath.section) as! ANEMListThemeTableViewCell
+            guard let rawCell = treeView.dequeueReusableCell(withIdentifier: "themeSections",
+                                                             for: node,
+                                                             inSection: indexPath.section) as? ANEMListThemeTableViewCell else {
+                                                                fatalError("Wrong Cell Type")
+            }
+            cell = rawCell
             if node.isEnabled {
                 cell.enableButton?.setImage(UIImage(named: "disable"), for: .normal)
             } else {
@@ -278,10 +286,11 @@ extension ANEMThemeListViewController: LNZTreeViewDataSource {
                 })
                 treeView.reload(node: node, inSection: indexPath.section)
                 self.writeSettings()
-            }, for: UIControl.Event.touchUpInside)
-            let categoryCell = cell as! ANEMListCategoryTableViewCell
-            categoryCell.themeCategoryNode = node as? ThemeCategoryNode
-            categoryCell.reloadTheme()
+            }, for: .touchUpInside)
+            if let categoryCell = cell as? ANEMListCategoryTableViewCell {
+                categoryCell.themeCategoryNode = node as? ThemeCategoryNode
+                categoryCell.reloadTheme()
+            }
         }
         cell.themeLabel?.text = node.humanReadable
         return cell

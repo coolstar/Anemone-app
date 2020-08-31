@@ -49,7 +49,11 @@ class InlinePreviewProvider {
         
         let scrollPreviews = UIScrollView()
         
-        let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather", "com.apple.Maps", "com.apple.videos", "com.apple.mobilenotes", "com.apple.reminders", "com.apple.stocks", "com.apple.news", "com.apple.MobileStore", "com.apple.AppStore", "com.apple.iBooks", "com.apple.Health", "com.apple.Passbook", "com.apple.Preferences"]
+        let bundleIds = ["com.apple.MobileSMS", "com.apple.mobileslideshow", "com.apple.camera", "com.apple.weather",
+                         "com.apple.Maps", "com.apple.videos", "com.apple.mobilenotes", "com.apple.reminders",
+                         "com.apple.stocks", "com.apple.news", "com.apple.MobileStore",
+                         "com.apple.AppStore", "com.apple.iBooks", "com.apple.Health", "com.apple.Passbook",
+                         "com.apple.Preferences"].shuffled()
         var x = 0
         for bundle in bundleIds {
             guard let icon = getThemedIconForBundle(bundle: bundle, themeCategoryNode: themeCategoryNode) else {

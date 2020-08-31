@@ -16,7 +16,7 @@ class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
         let scrollPreview: UIScrollView = InlinePreviewProvider.shared.previewViewForTheme(themeCategoryNode: themeCategoryNode)
         scrollPreview.removeFromSuperview()
         
-        scrollPreview.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleWidth.rawValue | AutoresizingMask.flexibleHeight.rawValue)
+        scrollPreview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollPreview.frame = scrollPreviews?.bounds ?? .zero
         scrollPreviews?.addSubview(scrollPreview)
     }

@@ -9,7 +9,10 @@
 import UIKit
 
 #if targetEnvironment(simulator)
-var springboardPath = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Library/SpringBoard/")
+var springboardPath = Bundle.main.bundleURL
+    .deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().appendingPathComponent("Library/SpringBoard/")
 #else
 var springboardPath = URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/")
 #endif
@@ -572,7 +575,10 @@ class ANEMPreviewController: UIViewController {
         
         UIGraphicsBeginImageContextWithOptions(iconImageView.bounds.size, false, 0)
         UIColor.white.setFill()
-        mask?.draw(in: CGRect(x: (iconImageView.bounds.size.width-mask!.size.width)/2.0, y: (iconImageView.bounds.size.height-mask!.size.height)/2.0, width: mask!.size.width, height: mask!.size.height))
+        mask?.draw(in: CGRect(x: (iconImageView.bounds.size.width-mask!.size.width)/2.0,
+                              y: (iconImageView.bounds.size.height-mask!.size.height)/2.0,
+                              width: mask!.size.width,
+                              height: mask!.size.height))
         let renderedMask = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -602,7 +608,7 @@ class ANEMPreviewController: UIViewController {
         var maxItems: Int32 = 9
         
         var folderSeparator: CGFloat = 16
-        if deviceType == DeviceType.iPad {
+        if deviceType == .iPad {
             x = 11
             minx = 11
             y = 11
@@ -611,7 +617,7 @@ class ANEMPreviewController: UIViewController {
             maxItems = 16
         }
         
-        let iconList = (folderDictionary["iconLists"] as? [[String]])?[0]
+        let iconList = (folderDictionary["iconLists"] as? [[Any]])?[0]
         iconList?.forEach({ rawIdentifier in
             let identifier = rawIdentifier as? String
             guard let miniIcon = miniIconViewFromIdentifier(rawBundleIdentifier: identifier) else {
@@ -646,9 +652,9 @@ class ANEMPreviewController: UIViewController {
             iconLabel.backgroundColor = .clear
             iconLabel.textAlignment = .center
             if deviceType == .iPad {
-                iconLabel.font = UIFont.systemFont(ofSize: 14)
+                iconLabel.font = .systemFont(ofSize: 14)
             } else {
-                iconLabel.font = UIFont.systemFont(ofSize: 12)
+                iconLabel.font = .systemFont(ofSize: 12)
             }
             iconLabel.textColor = .white
             iconView.addSubview(iconLabel)
@@ -728,9 +734,9 @@ class ANEMPreviewController: UIViewController {
             iconLabel.backgroundColor = .clear
             iconLabel.textAlignment = .center
             if deviceType == .iPad {
-                iconLabel.font = UIFont.systemFont(ofSize: 14)
+                iconLabel.font = .systemFont(ofSize: 14)
             } else {
-                iconLabel.font = UIFont.systemFont(ofSize: 12)
+                iconLabel.font = .systemFont(ofSize: 12)
             }
             iconLabel.textColor = .white
             iconView.addSubview(iconLabel)
