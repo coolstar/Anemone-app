@@ -78,13 +78,13 @@ class PackageListManager {
                 
                 index = newIndex
                 
-                guard var rawPackage = try? ControlFileParser.dictionary(controlData: packageData, isReleaseFile: false) else {
+                guard let rawPackage = try? ControlFileParser.dictionary(controlData: packageData, isReleaseFile: false) else {
                     continue
                 }
                 guard let packageID = rawPackage["package"] else {
                     continue
                 }
-                if packageID == "" {
+                if packageID.isEmpty {
                     continue
                 }
                 if packageID.hasPrefix("gsc.") {
@@ -99,7 +99,10 @@ class PackageListManager {
                 var eFlag: pkgeflag = .ok
                 var pkgStatus: pkgstatus = .installed
                 
-                let statusValid = DpkgWrapper.getValues(statusField: package.rawControl["status"], wantInfo: &wantInfo, eFlag: &eFlag, pkgStatus: &pkgStatus)
+                let statusValid = DpkgWrapper.getValues(statusField: package.rawControl["status"],
+                                                        wantInfo: &wantInfo,
+                                                        eFlag: &eFlag,
+                                                        pkgStatus: &pkgStatus)
                 if !statusValid {
                     continue
                 }

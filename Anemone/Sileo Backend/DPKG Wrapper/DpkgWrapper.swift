@@ -78,22 +78,16 @@ class DpkgWrapper {
         }
         wantInfo = .unknown
         
-        for (name, wantValue) in wantinfos {
-            if name == statusParts[0] {
-                wantInfo = wantValue
-            }
+        for (name, wantValue) in wantinfos where name == statusParts[0] {
+            wantInfo = wantValue
         }
         
-        for (name, eflagValue) in eflaginfos {
-            if name == statusParts[1] {
-                eFlag = eflagValue
-            }
+        for (name, eflagValue) in eflaginfos where name == statusParts[1] {
+            eFlag = eflagValue
         }
         
-        for (name, statusValue) in statusinfos {
-            if name == statusParts[2] {
-                pkgStatus = statusValue
-            }
+        for (name, statusValue) in statusinfos where name == statusParts[2] {
+            pkgStatus = statusValue
         }
         return true
     }

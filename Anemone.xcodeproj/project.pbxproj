@@ -24,7 +24,6 @@
 		F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393721864B5000CDF1CC /* Main.storyboard */; };
 		F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */; };
 		F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C12E4F218838E9005582D4 /* InlinePreviewProvider.swift */; };
-		F1C12E592188455B005582D4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C12E582188455B005582D4 /* MobileCoreServices.framework */; };
 		F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C12E5A218847DF005582D4 /* LaunchServices.m */; };
 		F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C29DF22187DCA900B40F93 /* ANEMThemeListViewController.swift */; };
 		F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C29DF32187DCA900B40F93 /* ANEMThemeListViewController.xib */; };
@@ -40,6 +39,7 @@
 		F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5399321866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift */; };
 		F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5399421866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib */; };
 		F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */; };
+		F1FF7A9E24FCDA290088F88B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FF7A9D24FCDA290088F88B /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +110,7 @@
 		F1C5399421866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ANEMListThemeTableViewCell.xib; sourceTree = "<group>"; };
 		F1DCAC462213908B007379D9 /* AnemoneExtensionParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnemoneExtensionParameters.h; sourceTree = "<group>"; };
 		F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnemoneExtensionParameters.m; sourceTree = "<group>"; };
+		F1FF7A9D24FCDA290088F88B /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C12E592188455B005582D4 /* MobileCoreServices.framework in Frameworks */,
+				F1FF7A9E24FCDA290088F88B /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +366,7 @@
 		FAF93B9363F70B8AEB246082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1FF7A9D24FCDA290088F88B /* CoreServices.framework */,
 				F1C12E582188455B005582D4 /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
@@ -381,6 +383,7 @@
 				F1C5392D21864B5000CDF1CC /* Frameworks */,
 				F1C5392E21864B5000CDF1CC /* Resources */,
 				F1B4D9B52187E25900F963B5 /* ShellScript */,
+				F1FF7A9C24FCD64B0088F88B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -520,6 +523,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${PLATFORM_NAME}\" != \"iphoneos\" ]\nthen\nrsync -av --exclude=\".*\" $SRCROOT/Anemone/Test\\ Data \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/\"\nrsync -av --exclude=\".*\" $SRCROOT/Anemone/Test\\ Themes \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/\"\nfi\n";
+		};
+		F1FF7A9C24FCD64B0088F88B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nswiftlint || true\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

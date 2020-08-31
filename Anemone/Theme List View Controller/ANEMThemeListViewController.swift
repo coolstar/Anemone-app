@@ -21,8 +21,13 @@ class ANEMThemeListViewController: UIViewController {
         UserDefaults.standard.set(UIDevice.current.userInterfaceIdiom.rawValue, forKey: "userInterfaceIdiom")
         UserDefaults.standard.set(UIScreen.main.scale, forKey: "displayScale")
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                                target: self,
+                                                                action: #selector(ANEMThemeListViewController.toggleEditing))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""),
+                                                                 style: .done,
+                                                                 target: self,
+                                                                 action: #selector(ANEMThemeListViewController.applyThemes))
         
         treeView?.register(UINib(nibName: "ANEMListCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "themeSections")
         treeView?.register(UINib(nibName: "ANEMListThemeTableViewCell", bundle: nil), forCellReuseIdentifier: "themeRows")
@@ -115,9 +120,13 @@ class ANEMThemeListViewController: UIViewController {
         let editing = treeView?.isEditing ?? false
         treeView?.setEditing(!editing, animated: true)
         if !editing {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                    target: self,
+                                                                    action: #selector(ANEMThemeListViewController.toggleEditing))
         } else {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(ANEMThemeListViewController.toggleEditing))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                                    target: self,
+                                                                    action: #selector(ANEMThemeListViewController.toggleEditing))
         }
     }
     
@@ -166,12 +175,21 @@ class ANEMThemeListViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if (self.splitViewController?.isCollapsed)! {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""),
+                                                                     style: .done,
+                                                                     target: self,
+                                                                     action: #selector(ANEMThemeListViewController.applyThemes))
         } else {
             if previewIsStale {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Refresh Preview", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Refresh Preview", comment: ""),
+                                                                         style: .done,
+                                                                         target: self,
+                                                                         action: #selector(ANEMThemeListViewController.applyThemes))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""), style: UIBarButtonItem.Style.done, target: self, action: #selector(ANEMThemeListViewController.applyThemes))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""),
+                                                                         style: .done,
+                                                                         target: self,
+                                                                         action: #selector(ANEMThemeListViewController.applyThemes))
             }
         }
     }
@@ -231,7 +249,9 @@ extension ANEMThemeListViewController: LNZTreeViewDataSource {
         let cell: ANEMListThemeTableViewCell
         if let parent = parentNode as? ThemeCategoryNode {
             node = parent.themes[indexPath.row]
-            cell = treeView.dequeueReusableCell(withIdentifier: "themeRows", for: node, inSection: indexPath.section) as! ANEMListThemeTableViewCell
+            cell = treeView.dequeueReusableCell(withIdentifier: "themeRows",
+                                                for: node,
+                                                inSection: indexPath.section) as! ANEMListThemeTableViewCell
             if node.isEnabled {
                 cell.enableButton?.setImage(UIImage(named: "selected"), for: .normal)
             } else {
@@ -239,7 +259,9 @@ extension ANEMThemeListViewController: LNZTreeViewDataSource {
             }
         } else {
             node = themeSections[indexPath.row]
-            cell = treeView.dequeueReusableCell(withIdentifier: "themeSections", for: node, inSection: indexPath.section) as! ANEMListThemeTableViewCell
+            cell = treeView.dequeueReusableCell(withIdentifier: "themeSections",
+                                                for: node,
+                                                inSection: indexPath.section) as! ANEMListThemeTableViewCell
             if node.isEnabled {
                 cell.enableButton?.setImage(UIImage(named: "disable"), for: .normal)
             } else {
