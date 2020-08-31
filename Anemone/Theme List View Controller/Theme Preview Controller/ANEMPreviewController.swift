@@ -33,8 +33,12 @@ class ANEMPreviewController: UIViewController {
     
     private var refreshView: UIActivityIndicatorView?
     
-    func getIconState() -> NSDictionary? {
-        NSDictionary(contentsOf: springboardPath.appendingPathComponent("IconState.plist"))
+    func getIconState() -> [String: Any] {
+        if let plistData = try? Data(contentsOf: springboardPath.appendingPathComponent("IconState.plist")),
+            let iconState = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String: Any] {
+            return iconState
+        }
+        return [:]
     }
     
     override func viewDidLoad() {
@@ -64,7 +68,7 @@ class ANEMPreviewController: UIViewController {
                                                                  style: .done,
                                                                  target: self, action: #selector(ANEMPreviewController.applyThemes))
         
-        refreshView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        refreshView = UIActivityIndicatorView(style: .whiteLarge)
         refreshView?.layer.zPosition = 5000
         refreshView?.tintColor = .black
         refreshView?.center = CGPoint(x: 335, y: 400)
@@ -262,7 +266,7 @@ class ANEMPreviewController: UIViewController {
         
         let iconState = getIconState()
         
-        let buttonBar = iconState?.object(forKey: "buttonBar") as? NSArray
+        let buttonBar = iconState["buttonBar"] as? [Any]
         
         let dockSettings = _UIBackdropViewSettings(forStyle: 2060, graphicsQuality: 100)
         dockSettings.blurRadius = 25
@@ -400,12 +404,6 @@ class ANEMPreviewController: UIViewController {
             }
         }
         
-        var page = 0
-        var iconList = (iconState?.object(forKey: "iconLists") as? NSArray)?.object(at: page) as? NSArray
-        while iconList?.count == 0 {
-            page += 1
-            iconList = (iconState?.object(forKey: "iconLists") as? NSArray)?.object(at: page) as? NSArray
-        }
         var i = 1
         var x: CGFloat = 27
         var y: CGFloat = 71
@@ -428,39 +426,51 @@ class ANEMPreviewController: UIViewController {
             }
         }
         let initialX: CGFloat = x
-        iconList?.forEach({ rawIdentifier in
-            guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: true, inDock: false) else {
-                return
+        
+        var page = 0
+        var pageCount = 0
+        if let iconLists = iconState["iconLists"] as? [[Any]] {
+            pageCount = iconLists.count
+            
+            var iconList = iconLists[page]
+            while iconList.isEmpty && page < iconLists.count {
+                page += 1
+                iconList = iconLists[page]
             }
-            var frame = iconView.frame
-            frame.origin.x = x
-            frame.origin.y = y
-            iconView.frame = frame
-            homeContentsView.addSubview(iconView)
-            x += iconXSeparation
-            if i%4 == 0 {
-                x = initialX
-                y += iconYSeparation
-            }
-            i += 1
-            if deviceType != .iPad {
-                if phoneType != .iPhone5S {
-                    if i > 24 {
-                        return
+            
+            iconList.forEach({ rawIdentifier in
+                guard let iconView = iconViewFromIdentifier(rawBundleIdentifier: rawIdentifier, hasLabel: true, inDock: false) else {
+                    return
+                }
+                var frame = iconView.frame
+                frame.origin.x = x
+                frame.origin.y = y
+                iconView.frame = frame
+                homeContentsView.addSubview(iconView)
+                x += iconXSeparation
+                if i%4 == 0 {
+                    x = initialX
+                    y += iconYSeparation
+                }
+                i += 1
+                if deviceType != .iPad {
+                    if phoneType != .iPhone5S {
+                        if i > 24 {
+                            return
+                        }
                     }
                 }
-            }
-            if i > 20 {
-                return
-            }
-        })
+                if i > 20 {
+                    return
+                }
+            })
+        }
         
         let pageDots = UIView(frame: CGRect(x: 0, y: screenHeight - (effectiveDockHeight + 37), width: screenWidth, height: 37))
         let pageDot = AnemoneExtensionParameters.kitImageNamed("UIPageIndicator")
         let pageDotCurrent = AnemoneExtensionParameters.kitImageNamed("UIPageIndicatorCurrent")
         let pageDotSize = pageDotCurrent.size
         
-        var pageCount = ((iconState?.object(forKey: "iconLists") as? NSArray)?.count)!
         pageCount += 1
         
         let pageDotSeparators: CGFloat = 8.0
@@ -486,7 +496,7 @@ class ANEMPreviewController: UIViewController {
     }
     
     func getHomeScreenIconForApp(app: LSApplicationProxy, isiPad: Bool, getThemed: Bool) -> UIImage? {
-        let iconsDictionary = app.iconsDictionary() as NSDictionary?
+        let iconsDictionary = app.iconsDictionary()
 		let bundle = Bundle(url: app.bundleURL()!)
         
         var variant: Int32 = 15
@@ -500,7 +510,7 @@ class ANEMPreviewController: UIViewController {
         
         let options: Int32 = 0
         
-        return getIconForBundle(bundle, iconsDictionary as? [AnyHashable: Any], variant, options, 2.0, getThemed)
+        return getIconForBundle(bundle, iconsDictionary, variant, options, 2.0, getThemed)
     }
     
     func miniIconViewFromIdentifier(rawBundleIdentifier: Any?) -> UIView? {
@@ -516,18 +526,16 @@ class ANEMPreviewController: UIViewController {
             }
             return nil
         }
-        guard let bundlePathStr = app.bundleURL()?.path else {
+        guard let bundleURL = app.bundleURL() else {
             return nil
         }
-        let bundlePath = bundlePathStr as NSString
-        
-        let infoPlist = NSDictionary(contentsOfFile: (bundlePath.appendingPathComponent("Info.plist")))
+        let infoPlist = NSDictionary(contentsOf: (bundleURL.appendingPathComponent("Info.plist"))) as? [String: Any]
         
         var icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
         if icon == nil {
             icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
         }
-        let prerendered = infoPlist?.object(forKey: "UIPrerenderedIcon") as? Bool
+        let prerendered = infoPlist?["UIPrerenderedIcon"] as? Bool
         icon = icon?._applicationIconImage(forFormat: 2, precomposed: prerendered ?? false, scale: scale)
         
         var iconViewFrame = CGRect(x: 0, y: 0, width: 13, height: 13)
@@ -542,7 +550,7 @@ class ANEMPreviewController: UIViewController {
         return iconView
     }
     
-    func folderIconViewFromIdentifier(folderDictionary: NSDictionary?, hasLabel: Bool, inDock: Bool) -> UIView? {
+    func folderIconViewFromIdentifier(folderDictionary: [String: Any], hasLabel: Bool, inDock: Bool) -> UIView? {
         var iconViewFrame = CGRect(x: 0, y: 0, width: 76, height: 93)
         var iconImageViewFrame = CGRect(x: -1, y: -1, width: 78, height: 78)
         var labelFrame = CGRect(x: -10, y: 83, width: 96, height: 16)
@@ -603,7 +611,7 @@ class ANEMPreviewController: UIViewController {
             maxItems = 16
         }
         
-        let iconList = (folderDictionary?.object(forKey: "iconLists") as? NSArray)?.object(at: 0) as? NSArray
+        let iconList = (folderDictionary["iconLists"] as? [[String]])?[0]
         iconList?.forEach({ rawIdentifier in
             let identifier = rawIdentifier as? String
             guard let miniIcon = miniIconViewFromIdentifier(rawBundleIdentifier: identifier) else {
@@ -645,7 +653,7 @@ class ANEMPreviewController: UIViewController {
             iconLabel.textColor = .white
             iconView.addSubview(iconLabel)
             
-            let iconLabelText = folderDictionary?.object(forKey: "displayName") as? String
+            let iconLabelText = folderDictionary["displayName"] as? String
             iconLabel.text = iconLabelText
             
             iconView.iconLabel = iconLabel
@@ -658,7 +666,10 @@ class ANEMPreviewController: UIViewController {
     
     func iconViewFromIdentifier(rawBundleIdentifier: Any?, hasLabel: Bool, inDock: Bool) -> UIView? {
         guard let bundleIdentifier = rawBundleIdentifier as? String else {
-            return folderIconViewFromIdentifier(folderDictionary: (rawBundleIdentifier as? NSDictionary), hasLabel: hasLabel, inDock: inDock)
+            if let folderDictionary = rawBundleIdentifier as? [String: Any] {
+                return folderIconViewFromIdentifier(folderDictionary: folderDictionary, hasLabel: hasLabel, inDock: inDock)
+            }
+            return nil
         }
         
         let scale: CGFloat = UIScreen.main.scale
@@ -669,22 +680,21 @@ class ANEMPreviewController: UIViewController {
             }
             return nil
         }
-        guard let bundlePathStr = app.bundleURL()?.path else {
+        guard let bundleURL = app.bundleURL() else {
             return nil
         }
-        let bundlePath = bundlePathStr as NSString
-        let infoPlist = NSDictionary(contentsOfFile: bundlePath.appendingPathComponent("Info.plist"))!
+        let infoPlist = NSDictionary(contentsOf: (bundleURL.appendingPathComponent("Info.plist"))) as? [String: Any]
         
         var icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
         if icon == nil {
             icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
         }
         icon = icon?._applicationIconImage(forFormat: 2,
-                                           precomposed: (infoPlist.object(forKey: "UIPrerenderedIcon") as? NSNumber)?.boolValue ?? false,
+                                           precomposed: (infoPlist?["UIPrerenderedIcon"] as? Bool) ?? false,
                                            scale: scale)
         
         if icon != nil {
-            if (infoPlist.object(forKey: "SBIconClass") as? String) == "SBCalendarApplicationIcon" {
+            if (infoPlist?["SBIconClass"] as? String) == "SBCalendarApplicationIcon" {
                 let calendarIconObj = SBCalendarApplicationIcon()
                 if calendarIconObj.responds(to: #selector(SBCalendarApplicationIcon.drawTextIntoCurrentContext(withImageSize:iconBase:))) {
                     UIGraphicsBeginImageContextWithOptions(icon!.size, false, 0.0)
@@ -727,7 +737,7 @@ class ANEMPreviewController: UIViewController {
             
             var iconLabelText = app.localizedName()
             if iconLabelText?.isEmpty ?? true {
-                iconLabelText = infoPlist.object(forKey: "CFBundleExecutable") as? String
+                iconLabelText = infoPlist?["CFBundleExecutable"] as? String
             }
             iconLabel.text = iconLabelText
             
