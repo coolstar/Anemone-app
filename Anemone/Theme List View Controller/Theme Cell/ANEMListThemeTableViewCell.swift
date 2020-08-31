@@ -9,8 +9,8 @@
 import UIKit
 
 class ANEMListThemeTableViewCell: UITableViewCell {
-    @IBOutlet var themeLabel : UILabel?
-    @IBOutlet var enableButton : UIButton?
+    @IBOutlet var themeLabel: UILabel?
+    @IBOutlet var enableButton: UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()

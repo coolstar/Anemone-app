@@ -11,18 +11,18 @@ import Foundation
 class PackageListManager {
     static let shared = PackageListManager()
     
-    func package(dictionary:Dictionary<String,String>) -> Package {
+    func package(dictionary: [String: String]) -> Package {
         let package = Package()
         package.package = dictionary["package"]
         package.name = dictionary["name"]
-        if (package.name == nil){
+        if package.name == nil {
             package.name = package.package
         }
         package.version = dictionary["version"]
         package.architecture = dictionary["architecture"]
         package.maintainer = dictionary["maintainer"]
-        if (package.maintainer != nil){
-            if (dictionary["author"] != nil){
+        if package.maintainer != nil {
+            if dictionary["author"] != nil {
                 package.author = dictionary["author"]
             } else {
                 package.author = dictionary["maintainer"]
@@ -40,34 +40,34 @@ class PackageListManager {
 #endif
     }
     
-    func packagesList() -> Dictionary<String, Package> {
+    func packagesList() -> [String: Package] {
         let packagesFile = self.dpkgDir().appendingPathComponent("status").resolvingSymlinksInPath()
         
-        var packagesList = Dictionary<String, Package>()
+        var packagesList = [String: Package]()
         
         do {
-            let rawPackagesData = try Data.init(contentsOf: packagesFile)
+            let rawPackagesData = try Data(contentsOf: packagesFile)
             
             var index = 0
             var separator = "\n\n".data(using: .utf8)!
             
-            guard let firstSeparator = rawPackagesData.range(of: "\n".data(using: .utf8)!, options:[], in:0..<rawPackagesData.count) else {
+            guard let firstSeparator = rawPackagesData.range(of: "\n".data(using: .utf8)!, options: [], in: 0..<rawPackagesData.count) else {
                 return packagesList
             }
-            if (firstSeparator.lowerBound != 0){
+            if firstSeparator.lowerBound != 0 {
                 let subdata = rawPackagesData.subdata(in: firstSeparator.lowerBound-1..<firstSeparator.lowerBound)
                 let character = subdata.first
-                if (character == 13){ // \r
+                if character == 13 { // \r
                     //Found windows line endings
                     separator = "\r\n\r\n".data(using: .utf8)!
                 }
             }
             
-            var tempDictionary = Dictionary<String, Any>()
-            while (index < rawPackagesData.count){
-                let range = rawPackagesData.range(of: separator, options:[], in:index..<rawPackagesData.count)
+            var tempDictionary = [String: Any]()
+            while index < rawPackagesData.count {
+                let range = rawPackagesData.range(of: separator, options: [], in: index..<rawPackagesData.count)
                 var newIndex = 0
-                if (range == nil){
+                if range == nil {
                     newIndex = rawPackagesData.count
                 } else {
                     newIndex = range!.lowerBound + separator.count
@@ -84,23 +84,23 @@ class PackageListManager {
                 guard let packageID = rawPackage["package"] else {
                     continue
                 }
-                if (packageID == ""){
+                if packageID == "" {
                     continue
                 }
-                if (packageID.hasPrefix("gsc.")) {
+                if packageID.hasPrefix("gsc.") {
                     continue
                 }
-                if (packageID.hasPrefix("cy+")) {
+                if packageID.hasPrefix("cy+") {
                     continue
                 }
                 
                 let package = self.package(dictionary: rawPackage)
-                var wantInfo : pkgwant = .install
-                var eFlag : pkgeflag = .ok
-                var pkgStatus : pkgstatus = .installed
+                var wantInfo: pkgwant = .install
+                var eFlag: pkgeflag = .ok
+                var pkgStatus: pkgstatus = .installed
                 
-                let statusValid = DpkgWrapper.getValues(statusField:package.rawControl["status"], wantInfo: &wantInfo, eFlag: &eFlag, pkgStatus: &pkgStatus)
-                if (!statusValid){
+                let statusValid = DpkgWrapper.getValues(statusField: package.rawControl["status"], wantInfo: &wantInfo, eFlag: &eFlag, pkgStatus: &pkgStatus)
+                if !statusValid {
                     continue
                 }
                 
@@ -108,8 +108,8 @@ class PackageListManager {
                 package.eFlag = eFlag
                 package.status = pkgStatus
                 
-                if (package.eFlag == .ok){
-                    if (package.status == .notinstalled || package.status == .configfiles){
+                if package.eFlag == .ok {
+                    if package.status == .notinstalled || package.status == .configfiles {
                         continue
                     }
                 }
@@ -134,8 +134,8 @@ class PackageListManager {
 #endif
     }
     
-    func scanForThemes() -> Dictionary<String, Array<String>> {
-        var themeIdentifiers = Dictionary<String, Array<String>>()
+    func scanForThemes() -> [String: [String]] {
+        var themeIdentifiers: [String: [String]] = [:]
         do {
             #if targetEnvironment(simulator)
             let themesDirContents = ["Amury Alt Apple Icons.theme", "Amury Alt Icons.theme",
@@ -148,7 +148,7 @@ class PackageListManager {
             let themesDirContents = try FileManager.default.contentsOfDirectory(atPath: self.prefixDir().path)
             #endif
             
-            var themesFolders = Array<String>()
+            var themesFolders = [String]()
             let prefixURL = URL(fileURLWithPath: "/Library/Themes")
             for folder in themesDirContents {
                 let fullPath = prefixURL.appendingPathComponent(folder).path
@@ -160,24 +160,24 @@ class PackageListManager {
             let contentsFiles = try FileManager.default.contentsOfDirectory(atPath: contentsFilesURL.path)
             
             for packageFile in contentsFiles {
-                if (!packageFile.hasSuffix(".list")){
+                if !packageFile.hasSuffix(".list") {
                     continue
                 }
                 let fullURL = contentsFilesURL.appendingPathComponent(packageFile)
                 do {
-                    let contents = try String.init(contentsOf: fullURL, encoding: .utf8)
+                    let contents = try String(contentsOf: fullURL, encoding: .utf8)
                     
                     let files = contents.components(separatedBy: CharacterSet(charactersIn: "\n"))
                     
-                    var itemsToRemove = Array<String>()
+                    var itemsToRemove = [String]()
                     
                     for themePath in themesFolders {
-                        if files.contains(themePath){
-                            guard let packageID : String = URL(string: packageFile)?.deletingPathExtension().path else {
+                        if files.contains(themePath) {
+                            guard let packageID: String = URL(string: packageFile)?.deletingPathExtension().path else {
                                 continue
                             }
                             var paths = themeIdentifiers[packageID]
-                            if (paths == nil){
+                            if paths == nil {
                                 paths = Array()
                                 themeIdentifiers[packageID] = paths
                             }
@@ -187,7 +187,7 @@ class PackageListManager {
                         }
                     }
                     for item in itemsToRemove {
-                        themesFolders.removeAll { (iter) -> Bool in
+                        themesFolders.removeAll { iter -> Bool in
                             item == iter
                         }
                     }
@@ -202,7 +202,7 @@ class PackageListManager {
             for themePath in themesFolders {
                 let packageId = "com.anemonetheming.unknown"
                 var paths = themeIdentifiers[packageId]
-                if (paths == nil){
+                if paths == nil {
                     paths = Array()
                     themeIdentifiers[packageId] = paths
                 }

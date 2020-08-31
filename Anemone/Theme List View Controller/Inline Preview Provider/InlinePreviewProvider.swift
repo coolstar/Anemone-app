@@ -12,9 +12,9 @@ import UIKit
 class InlinePreviewProvider {
     static let shared = InlinePreviewProvider()
     
-    var previewViews : Dictionary<String, UIScrollView> = [:]
+    var previewViews: [String: UIScrollView] = [:]
     
-    func getThemedIconForBundle(bundle: String, themeCategoryNode : ThemeCategoryNode?) -> String? {
+    func getThemedIconForBundle(bundle: String, themeCategoryNode: ThemeCategoryNode?) -> String? {
         guard let themes = themeCategoryNode?.themes else {
             return nil
         }
@@ -26,13 +26,13 @@ class InlinePreviewProvider {
             
             let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundle)
             var icon = UIImage(contentsOfFile: ibLargeThemePath)
-            if (icon != nil) {
+            if icon != nil {
                 return ibLargeThemePath
             }
             
             let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundle)
             icon  = UIImage(contentsOfFile: ibThemePath)
-            if (icon != nil) {
+            if icon != nil {
                 return ibThemePath
             }
         }
@@ -43,7 +43,7 @@ class InlinePreviewProvider {
         guard let themeIdentifier = themeCategoryNode?.identifier else {
             return UIScrollView()
         }
-        if (previewViews[themeIdentifier] != nil){
+        if previewViews[themeIdentifier] != nil {
             return previewViews[themeIdentifier]!
         }
         

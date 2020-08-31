@@ -6,15 +6,15 @@
 //  Copyright © 2018 CoolStar. All rights reserved.
 //
 
-class ThemeNode : TreeNodeProtocol {
+class ThemeNode: TreeNodeProtocol {
     var identifier = ""
     var humanReadable = ""
-    var isExpandable : Bool {
-        return false
+    var isExpandable: Bool {
+        false
     }
     
     var enabled = false
-    var isEnabled : Bool {
-        return enabled
+    var isEnabled: Bool {
+        enabled
     }
 }

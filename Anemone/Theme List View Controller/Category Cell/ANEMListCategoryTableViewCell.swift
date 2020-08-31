@@ -9,14 +9,14 @@
 import UIKit
 
 class ANEMListCategoryTableViewCell: ANEMListThemeTableViewCell {
-    @IBOutlet var scrollPreviews : UIView?
-    var themeCategoryNode : ThemeCategoryNode?
+    @IBOutlet var scrollPreviews: UIView?
+    var themeCategoryNode: ThemeCategoryNode?
     
-    func reloadTheme(){
-        let scrollPreview : UIScrollView = InlinePreviewProvider.shared.previewViewForTheme(themeCategoryNode: themeCategoryNode)
+    func reloadTheme() {
+        let scrollPreview: UIScrollView = InlinePreviewProvider.shared.previewViewForTheme(themeCategoryNode: themeCategoryNode)
         scrollPreview.removeFromSuperview()
         
-        scrollPreview.autoresizingMask = AutoresizingMask(rawValue:AutoresizingMask.flexibleWidth.rawValue | AutoresizingMask.flexibleHeight.rawValue)
+        scrollPreview.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleWidth.rawValue | AutoresizingMask.flexibleHeight.rawValue)
         scrollPreview.frame = scrollPreviews?.bounds ?? .zero
         scrollPreviews?.addSubview(scrollPreview)
     }

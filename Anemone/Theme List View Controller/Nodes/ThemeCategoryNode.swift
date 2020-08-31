@@ -8,15 +8,15 @@
 
 class ThemeCategoryNode: ThemeNode {
     override var isExpandable: Bool {
-        return true
+        true
     }
     
-    var themes : Array<ThemeNode> = []
+    var themes: [ThemeNode] = []
     
     override var isEnabled: Bool {
         var enabled = false
-        themes.forEach { (theme) in
-            if (theme.isEnabled){
+        themes.forEach { theme in
+            if theme.isEnabled {
                 enabled = true
             }
         }

@@ -8,7 +8,7 @@ var ActionBlockKey: UInt8 = 0
 typealias BlockButtonActionBlock = (_ sender: UIButton) -> Void
 
 class ActionBlockWrapper {
-    var block : BlockButtonActionBlock
+    var block: BlockButtonActionBlock
     init(block: @escaping BlockButtonActionBlock) {
         self.block = block
     }
@@ -20,7 +20,7 @@ extension UIButton {
         self.addTarget(self, action: #selector(UIButton.block_handleAction), for: .touchUpInside)
     }
     
-    @objc func block_handleAction(sender: UIButton, for control:UIControl.Event) {
+    @objc func block_handleAction(sender: UIButton, for control: UIControl.Event) {
         
         let wrapper = objc_getAssociatedObject(self, &ActionBlockKey) as! ActionBlockWrapper
         wrapper.block(sender)

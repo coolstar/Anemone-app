@@ -10,6 +10,6 @@ import Foundation
 
 extension String {
     func trimmingLeadingWhitespace() -> String {
-        return self.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression)
+        self.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression)
     }
 }
