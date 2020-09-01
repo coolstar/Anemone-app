@@ -57,6 +57,14 @@ class AppSelectionViewController: UICollectionViewController {
                 "appName": iconLabelText ?? ""
             ])
         }
+        
+        apps.sort { i, j -> Bool in
+            if let iApp = i["appName"] as? String,
+                let jApp = j["appName"] as? String {
+                return iApp.caseInsensitiveCompare(jApp) == .orderedAscending
+            }
+            return true
+        }
         self.collectionView.reloadData()
     }
     

@@ -42,6 +42,14 @@ class IconSelectionViewController: UICollectionViewController {
                 ])
             }
         }
+        
+        themeIcons.sort { i, j -> Bool in
+            if let iTheme = i["theme"] as? String,
+                let jTheme = j["theme"] as? String {
+                return iTheme.caseInsensitiveCompare(jTheme) == .orderedAscending
+            }
+            return true
+        }
     }
     
     @objc func save(_: Any?) {
