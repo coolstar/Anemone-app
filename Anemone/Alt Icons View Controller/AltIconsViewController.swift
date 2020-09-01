@@ -68,6 +68,7 @@ class AltIconsViewController: UITableViewController {
                                       handler: { _ in
                                         UserDefaults.standard.removeObject(forKey: "iconOverrides")
                                         UserDefaults.standard.synchronize()
+                                        NotificationCenter.default.post(name: IconHelper.shared.altIconsChangedNotification, object: nil)
                                         self.reloadData()
         }))
         alert.addAction(UIAlertAction(title: String(localizationKey: "No"),

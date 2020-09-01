@@ -52,7 +52,7 @@ class AppSelectionViewController: UICollectionViewController {
             }
             
             apps.append([
-                "bundleIdentifer": bundleID,
+                "bundleIdentifier": bundleID,
                 "icon": appIcon,
                 "appName": iconLabelText ?? ""
             ])
