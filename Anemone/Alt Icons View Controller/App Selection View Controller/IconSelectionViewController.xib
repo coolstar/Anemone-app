@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="3hj-Yy-H3g" id="8kS-sd-FxT"/>
+                <outlet property="filterOption" destination="NhC-BM-YYN" id="HnC-Lw-pN2"/>
+                <outlet property="pickerView" destination="A6b-zH-HRi" id="qPR-1f-yeB"/>
+                <outlet property="pickerViewHeight" destination="0R5-rN-g90" id="JbP-IX-hdz"/>
+                <outlet property="themeSelector" destination="mAN-Yb-HKg" id="yD6-mk-J0K"/>
+                <outlet property="view" destination="B6U-dC-dRR" id="PLG-zq-JAw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="B6U-dC-dRR">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-Yy-H3g">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="847"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zlg-y7-d85">
+                        <size key="itemSize" width="104" height="90"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="uSK-8B-YXg"/>
+                        <outlet property="delegate" destination="-1" id="GQE-GG-UOT"/>
+                    </connections>
+                </collectionView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dc6-Rr-Cpk">
+                    <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                    <items>
+                        <barButtonItem enabled="NO" title="Filter By" id="cHW-is-LMA"/>
+                        <barButtonItem style="plain" id="f8V-YT-YdT">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="NhC-BM-YYN">
+                                <rect key="frame" x="93.5" y="10.5" width="131" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="App"/>
+                                    <segment title="Theme"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filterChanged:" destination="-1" eventType="valueChanged" id="zGW-Po-fVk"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="FNA-Ws-hKP"/>
+                        <barButtonItem enabled="NO" title="Themes" id="mAN-Yb-HKg">
+                            <connections>
+                                <action selector="toggleThemeSelector:" destination="-1" id="DGJ-da-pOI"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <pickerView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6b-zH-HRi">
+                    <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="0R5-rN-g90"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="h0b-BC-9Ye"/>
+                        <outlet property="delegate" destination="-1" id="siu-Dk-O1B"/>
+                    </connections>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Dc6-Rr-Cpk" firstAttribute="top" secondItem="3hj-Yy-H3g" secondAttribute="bottom" id="51S-Wj-1YM"/>
+                <constraint firstItem="Dc6-Rr-Cpk" firstAttribute="bottom" secondItem="A6b-zH-HRi" secondAttribute="top" id="5xU-Yy-2eZ"/>
+                <constraint firstItem="Dc6-Rr-Cpk" firstAttribute="trailing" secondItem="w3B-Yt-Kih" secondAttribute="trailing" id="EN1-DG-9v6"/>
+                <constraint firstItem="3hj-Yy-H3g" firstAttribute="trailing" secondItem="w3B-Yt-Kih" secondAttribute="trailing" id="FNY-cQ-NsD"/>
+                <constraint firstItem="3hj-Yy-H3g" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="MP3-yR-8fv"/>
+                <constraint firstItem="3hj-Yy-H3g" firstAttribute="top" secondItem="B6U-dC-dRR" secondAttribute="top" id="OIC-K9-hLk"/>
+                <constraint firstAttribute="bottom" secondItem="A6b-zH-HRi" secondAttribute="bottom" id="XXy-zD-YKw"/>
+                <constraint firstItem="A6b-zH-HRi" firstAttribute="trailing" secondItem="w3B-Yt-Kih" secondAttribute="trailing" id="Xcd-5y-iR6"/>
+                <constraint firstItem="A6b-zH-HRi" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="hq5-Z9-W7t"/>
+                <constraint firstItem="Dc6-Rr-Cpk" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="t4r-N7-e9B"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="w3B-Yt-Kih"/>
+            <point key="canvasLocation" x="125" y="-1006"/>
+        </view>
+    </objects>
+</document>

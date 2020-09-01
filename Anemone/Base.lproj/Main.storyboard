@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -128,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P47-Tg-q5p">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="104" height="90"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -147,12 +146,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="5tt-2C-aeP" kind="show" identifier="altIconAddIcon" id="sL0-Ud-W1Z"/>
+                        <segue destination="YHb-dh-hSN" kind="show" identifier="altIconAddIcon" id="qsZ-fp-cHn"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqt-cJ-ODb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3369" y="1290"/>
+        </scene>
+        <!--Icon Selection View Controller-->
+        <scene sceneID="fIi-xk-vpt">
+            <objects>
+                <viewController id="YHb-dh-hSN" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="edH-Ss-j3V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYR-yq-azf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4321" y="1290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n3p-sg-XjX">
@@ -163,80 +172,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bOo-W8-EkN" kind="relationship" relationship="rootViewController" id="5WL-Gw-SAA"/>
+                        <segue destination="q1l-9l-CWH" kind="relationship" relationship="rootViewController" id="kUa-hd-BdJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knh-JP-iVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3369" y="483"/>
         </scene>
-        <!--Select Icon-->
-        <scene sceneID="OLJ-Ol-ggJ">
+        <!--Icon Selection View Controller-->
+        <scene sceneID="tz4-Z7-2wO">
             <objects>
-                <collectionViewController id="bOo-W8-EkN" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="t0E-fF-vcJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="imf-jA-kUK">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HSf-SW-UZY">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zqZ-EU-o7V">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="bOo-W8-EkN" id="8xT-iw-xPP"/>
-                            <outlet property="delegate" destination="bOo-W8-EkN" id="Rd0-wO-8aa"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Select Icon" id="OSv-MS-1zB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RXg-oJ-53v">
-                            <connections>
-                                <action selector="dismiss:" destination="bOo-W8-EkN" id="KBL-Ef-PIO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d5g-oS-MQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="q1l-9l-CWH" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1VZ-i7-ETZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4U-ta-WxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4321" y="483"/>
-        </scene>
-        <!--Select Icon-->
-        <scene sceneID="8yU-Of-zPP">
-            <objects>
-                <collectionViewController id="5tt-2C-aeP" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wt1-hm-WnT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="57z-mu-dLK">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                        <connections>
-                            <outlet property="dataSource" destination="5tt-2C-aeP" id="xuP-IW-d9K"/>
-                            <outlet property="delegate" destination="5tt-2C-aeP" id="9yQ-cl-rLY"/>
-                        </connections>
-                    </collectionView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Select Icon" id="zuA-ra-cYZ"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zGH-W6-j7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4321" y="1290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jdr-Hb-Vs3">

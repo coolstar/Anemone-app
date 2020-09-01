@@ -13,6 +13,8 @@
 		F11174452187DD4600260E89 /* LNZTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111741E2187DD4600260E89 /* LNZTreeView.swift */; };
 		F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111741F2187DD4600260E89 /* LNZTreeViewDataSource.swift */; };
 		F11174472187DD4600260E89 /* LNZTreeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */; };
+		F11E22D824FE32FD00CC58D1 /* IconSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F11E22D724FE32FD00CC58D1 /* IconSelectionViewController.xib */; };
+		F11E22DA24FE3C6800CC58D1 /* String+Suffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E22D924FE3C6800CC58D1 /* String+Suffix.swift */; };
 		F1693279218792B70017DF91 /* ActionBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693278218792B70017DF91 /* ActionBlockButton.swift */; };
 		F169327B2187BA0B0017DF91 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */; };
 		F19FB3A222BF74B2008E986B /* String-TrimLeadingWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19FB3A122BF74B2008E986B /* String-TrimLeadingWhitespace.swift */; };
@@ -78,6 +80,8 @@
 		F111741F2187DD4600260E89 /* LNZTreeViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNZTreeViewDataSource.swift; sourceTree = "<group>"; };
 		F11174202187DD4600260E89 /* LNZTreeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNZTreeViewDelegate.swift; sourceTree = "<group>"; };
 		F11174362187DD4600260E89 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F11E22D724FE32FD00CC58D1 /* IconSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconSelectionViewController.xib; sourceTree = "<group>"; };
+		F11E22D924FE3C6800CC58D1 /* String+Suffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Suffix.swift"; sourceTree = "<group>"; };
 		F1693278218792B70017DF91 /* ActionBlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBlockButton.swift; sourceTree = "<group>"; };
 		F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		F169327C2187CF050017DF91 /* Test Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Test Themes"; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				F1FF7AA224FCF7410088F88B /* Alt Icons View Controller */,
 				F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */,
 				F1FF7AA624FD8C5D0088F88B /* String+LocalizedHelpers.swift */,
+				F11E22D924FE3C6800CC58D1 /* String+Suffix.swift */,
 				F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */,
 				F1C5393721864B5000CDF1CC /* Main.storyboard */,
 				F1C5393A21864B5100CDF1CC /* Assets.xcassets */,
@@ -406,6 +411,7 @@
 				F1FF7AAB24FD9A530088F88B /* App Icon Cell */,
 				F1FF7AA924FD97E60088F88B /* AppSelectionViewController.swift */,
 				F1FF7AB524FDCF660088F88B /* IconSelectionViewController.swift */,
+				F11E22D724FE32FD00CC58D1 /* IconSelectionViewController.xib */,
 			);
 			path = "App Selection View Controller";
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 				F1FF7AB124FD9A830088F88B /* AppIconCollectionViewCell.xib in Resources */,
 				F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */,
 				F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */,
+				F11E22D824FE32FD00CC58D1 /* IconSelectionViewController.xib in Resources */,
 				F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +617,7 @@
 				F1FF7AAA24FD97E60088F88B /* AppSelectionViewController.swift in Sources */,
 				F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */,
 				F1FF7AB324FD9D0B0088F88B /* IconHelper.swift in Sources */,
+				F11E22DA24FE3C6800CC58D1 /* String+Suffix.swift in Sources */,
 				F1FF7AA724FD8C5D0088F88B /* String+LocalizedHelpers.swift in Sources */,
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
 				F1FF7AA124FCF6350088F88B /* FeaturedViewController.swift in Sources */,

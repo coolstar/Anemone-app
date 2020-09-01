@@ -100,7 +100,8 @@ extension AltIconsViewController {
         cell.textLabel?.text = appNames[bundleID]
         
         if var theme = iconAssignment["theme"] {
-            cell.imageView?.image = IconHelper.shared.getThemedIconForBundle(bundle: bundleID, identifier: theme)
+            let overriddenName = iconAssignment["name"] ?? bundleID
+            cell.imageView?.image = IconHelper.shared.getThemedIconForBundle(bundle: overriddenName, identifier: theme)
             cell.imageView?.layer.cornerRadius = 10
             cell.imageView?.clipsToBounds = true
             
