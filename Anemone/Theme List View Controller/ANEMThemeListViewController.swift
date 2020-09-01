@@ -24,7 +24,7 @@ class ANEMThemeListViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                                 target: self,
                                                                 action: #selector(ANEMThemeListViewController.toggleEditing))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""),
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localizationKey: "Preview"),
                                                                  style: .done,
                                                                  target: self,
                                                                  action: #selector(ANEMThemeListViewController.applyThemes))
@@ -76,7 +76,7 @@ class ANEMThemeListViewController: UIViewController {
             node.identifier = themeIdentifier
             node.humanReadable = package?.name ?? themeIdentifier
             if themeIdentifier == "com.anemonetheming.unknown" {
-                node.humanReadable = NSLocalizedString("Miscellaneous", comment: "")
+                node.humanReadable = String(localizationKey: "Miscellaneous")
             }
             
             var hashedNodeThemes: [String: ThemeNode] = [:]
@@ -175,18 +175,18 @@ class ANEMThemeListViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if (self.splitViewController?.isCollapsed)! {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""),
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localizationKey: "Preview"),
                                                                      style: .done,
                                                                      target: self,
                                                                      action: #selector(ANEMThemeListViewController.applyThemes))
         } else {
             if previewIsStale {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Refresh Preview", comment: ""),
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localizationKey: "Refresh Preview"),
                                                                          style: .done,
                                                                          target: self,
                                                                          action: #selector(ANEMThemeListViewController.applyThemes))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""),
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localizationKey: "Apply"),
                                                                          style: .done,
                                                                          target: self,
                                                                          action: #selector(ANEMThemeListViewController.applyThemes))

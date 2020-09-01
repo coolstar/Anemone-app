@@ -40,6 +40,13 @@
 		F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C5399421866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib */; };
 		F1DCAC482213908B007379D9 /* AnemoneExtensionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */; };
 		F1FF7A9E24FCDA290088F88B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FF7A9D24FCDA290088F88B /* CoreServices.framework */; };
+		F1FF7AA124FCF6350088F88B /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AA024FCF6350088F88B /* FeaturedViewController.swift */; };
+		F1FF7AA424FCF7B30088F88B /* AltIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AA324FCF7B30088F88B /* AltIconsViewController.swift */; };
+		F1FF7AA724FD8C5D0088F88B /* String+LocalizedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AA624FD8C5D0088F88B /* String+LocalizedHelpers.swift */; };
+		F1FF7AAA24FD97E60088F88B /* AppSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AA924FD97E60088F88B /* AppSelectionViewController.swift */; };
+		F1FF7AB024FD9A830088F88B /* AppIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AAE24FD9A830088F88B /* AppIconCollectionViewCell.swift */; };
+		F1FF7AB124FD9A830088F88B /* AppIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FF7AAF24FD9A830088F88B /* AppIconCollectionViewCell.xib */; };
+		F1FF7AB324FD9D0B0088F88B /* IconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +118,13 @@
 		F1DCAC462213908B007379D9 /* AnemoneExtensionParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnemoneExtensionParameters.h; sourceTree = "<group>"; };
 		F1DCAC472213908B007379D9 /* AnemoneExtensionParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnemoneExtensionParameters.m; sourceTree = "<group>"; };
 		F1FF7A9D24FCDA290088F88B /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		F1FF7AA024FCF6350088F88B /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		F1FF7AA324FCF7B30088F88B /* AltIconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltIconsViewController.swift; sourceTree = "<group>"; };
+		F1FF7AA624FD8C5D0088F88B /* String+LocalizedHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LocalizedHelpers.swift"; sourceTree = "<group>"; };
+		F1FF7AA924FD97E60088F88B /* AppSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectionViewController.swift; sourceTree = "<group>"; };
+		F1FF7AAE24FD9A830088F88B /* AppIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1FF7AAF24FD9A830088F88B /* AppIconCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppIconCollectionViewCell.xib; sourceTree = "<group>"; };
+		F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +236,12 @@
 				F1C5396F2186533A00CDF1CC /* Test Data */,
 				F1C539792186541000CDF1CC /* Sileo Backend */,
 				F1C5393321864B5000CDF1CC /* AppDelegate.swift */,
+				F1FF7A9F24FCF6230088F88B /* Featured View Controller */,
 				F1C5398F21866B1900CDF1CC /* Theme List View Controller */,
+				F1FF7AA224FCF7410088F88B /* Alt Icons View Controller */,
 				F169327A2187BA0B0017DF91 /* GlobalSplitViewController.swift */,
+				F1FF7AA624FD8C5D0088F88B /* String+LocalizedHelpers.swift */,
+				F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */,
 				F1C5393721864B5000CDF1CC /* Main.storyboard */,
 				F1C5393A21864B5100CDF1CC /* Assets.xcassets */,
 				F1C5393C21864B5100CDF1CC /* LaunchScreen.storyboard */,
@@ -363,6 +381,41 @@
 			path = "Extension Parameters";
 			sourceTree = "<group>";
 		};
+		F1FF7A9F24FCF6230088F88B /* Featured View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1FF7AA024FCF6350088F88B /* FeaturedViewController.swift */,
+			);
+			path = "Featured View Controller";
+			sourceTree = "<group>";
+		};
+		F1FF7AA224FCF7410088F88B /* Alt Icons View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1FF7AA824FD97D40088F88B /* App Selection View Controller */,
+				F1FF7AA324FCF7B30088F88B /* AltIconsViewController.swift */,
+			);
+			path = "Alt Icons View Controller";
+			sourceTree = "<group>";
+		};
+		F1FF7AA824FD97D40088F88B /* App Selection View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1FF7AAB24FD9A530088F88B /* App Icon Cell */,
+				F1FF7AA924FD97E60088F88B /* AppSelectionViewController.swift */,
+			);
+			path = "App Selection View Controller";
+			sourceTree = "<group>";
+		};
+		F1FF7AAB24FD9A530088F88B /* App Icon Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F1FF7AAE24FD9A830088F88B /* AppIconCollectionViewCell.swift */,
+				F1FF7AAF24FD9A830088F88B /* AppIconCollectionViewCell.xib */,
+			);
+			path = "App Icon Cell";
+			sourceTree = "<group>";
+		};
 		FAF93B9363F70B8AEB246082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +537,7 @@
 				F1BE2E3C2187DE2B000D24AC /* Main.storyboard in Resources */,
 				F1BE2E3D2187DE2E000D24AC /* LaunchScreen.storyboard in Resources */,
 				F1C5399621866BBB00CDF1CC /* ANEMListThemeTableViewCell.xib in Resources */,
+				F1FF7AB124FD9A830088F88B /* AppIconCollectionViewCell.xib in Resources */,
 				F1C5393B21864B5100CDF1CC /* Assets.xcassets in Resources */,
 				F1C5398E21866B1100CDF1CC /* ANEMListCategoryTableViewCell.xib in Resources */,
 				F1C29DF52187DCA900B40F93 /* ANEMThemeListViewController.xib in Resources */,
@@ -550,10 +604,16 @@
 			files = (
 				F19FB3A422BF74C0008E986B /* ControlFileParser.swift in Sources */,
 				F19FB3A922BF8AEC008E986B /* Package.swift in Sources */,
+				F1FF7AAA24FD97E60088F88B /* AppSelectionViewController.swift in Sources */,
 				F1C12E50218838E9005582D4 /* InlinePreviewProvider.swift in Sources */,
+				F1FF7AB324FD9D0B0088F88B /* IconHelper.swift in Sources */,
+				F1FF7AA724FD8C5D0088F88B /* String+LocalizedHelpers.swift in Sources */,
 				F1C5399521866BBB00CDF1CC /* ANEMListThemeTableViewCell.swift in Sources */,
+				F1FF7AA124FCF6350088F88B /* FeaturedViewController.swift in Sources */,
+				F1FF7AB024FD9A830088F88B /* AppIconCollectionViewCell.swift in Sources */,
 				F11174462187DD4600260E89 /* LNZTreeViewDataSource.swift in Sources */,
 				F1C29DF42187DCA900B40F93 /* ANEMThemeListViewController.swift in Sources */,
+				F1FF7AA424FCF7B30088F88B /* AltIconsViewController.swift in Sources */,
 				F102246A21FE5D3D006A1B78 /* AnemoneTweakBridge.m in Sources */,
 				F1C5393421864B5000CDF1CC /* AppDelegate.swift in Sources */,
 				F11174452187DD4600260E89 /* LNZTreeView.swift in Sources */,

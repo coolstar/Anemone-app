@@ -63,11 +63,11 @@ class ANEMPreviewController: UIViewController {
             }
         }
         
-        self.title = NSLocalizedString("Preview", comment: "")
+        self.title = String(localizationKey: "Preview")
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                                 target: self,
                                                                 action: #selector(ANEMPreviewController.dismissController))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Apply", comment: ""),
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localizationKey: "Apply"),
                                                                  style: .done,
                                                                  target: self, action: #selector(ANEMPreviewController.applyThemes))
         
@@ -498,24 +498,6 @@ class ANEMPreviewController: UIViewController {
         disableThemes()
     }
     
-    func getHomeScreenIconForApp(app: LSApplicationProxy, isiPad: Bool, getThemed: Bool) -> UIImage? {
-        let iconsDictionary = app.iconsDictionary()
-		let bundle = Bundle(url: app.bundleURL()!)
-        
-        var variant: Int32 = 15
-        if deviceType == DeviceType.iPad {
-            variant = 24
-        } else {
-            if UIScreen.main.scale == 3 {
-                variant = 32
-            }
-        }
-        
-        let options: Int32 = 0
-        
-        return getIconForBundle(bundle, iconsDictionary, variant, options, 2.0, getThemed)
-    }
-    
     func miniIconViewFromIdentifier(rawBundleIdentifier: Any?) -> UIView? {
         guard let bundleIdentifier = rawBundleIdentifier as? String else {
             return nil
@@ -534,9 +516,9 @@ class ANEMPreviewController: UIViewController {
         }
         let infoPlist = NSDictionary(contentsOf: (bundleURL.appendingPathComponent("Info.plist"))) as? [String: Any]
         
-        var icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
+        var icon = IconHelper.shared.getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
         if icon == nil {
-            icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
+            icon = IconHelper.shared.getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
         }
         let prerendered = infoPlist?["UIPrerenderedIcon"] as? Bool
         icon = icon?._applicationIconImage(forFormat: 2, precomposed: prerendered ?? false, scale: scale)
@@ -691,9 +673,9 @@ class ANEMPreviewController: UIViewController {
         }
         let infoPlist = NSDictionary(contentsOf: (bundleURL.appendingPathComponent("Info.plist"))) as? [String: Any]
         
-        var icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
+        var icon = IconHelper.shared.getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: true)
         if icon == nil {
-            icon = getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
+            icon = IconHelper.shared.getHomeScreenIconForApp(app: app, isiPad: deviceType == DeviceType.iPad, getThemed: false)
         }
         icon = icon?._applicationIconImage(forFormat: 2,
                                            precomposed: (infoPlist?["UIPrerenderedIcon"] as? Bool) ?? false,
