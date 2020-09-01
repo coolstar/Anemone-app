@@ -20,10 +20,10 @@ class AltIconsViewController: UITableViewController {
                                                selector: #selector(AltIconsViewController.reloadData),
                                                name: IconHelper.shared.altIconsChangedNotification,
                                                object: nil)
-        self.actuallyReload(ui: true)
+        self.actuallyReload(reloadUI: true)
     }
     
-    func actuallyReload(ui: Bool) {
+    func actuallyReload(reloadUI: Bool) {
         appNames = [:]
         for proxy in LSApplicationWorkspace.default().allInstalledApplications() {
             guard let bundleURL = proxy.bundleURL(),
@@ -50,7 +50,7 @@ class AltIconsViewController: UITableViewController {
             }
         }
         
-        if ui {
+        if reloadUI {
             tableView.reloadData()
         }
     }
@@ -132,7 +132,7 @@ extension AltIconsViewController {
             UserDefaults.standard.synchronize()
             
             NotificationCenter.default.post(name: IconHelper.shared.altIconsChangedNotification, object: nil)
-            self.actuallyReload(ui: false)
+            self.actuallyReload(reloadUI: false)
         }
     }
     
