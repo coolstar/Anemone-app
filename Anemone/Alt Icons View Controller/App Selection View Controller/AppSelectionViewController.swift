@@ -20,6 +20,7 @@ class AppSelectionViewController: UICollectionViewController {
                                      forCellWithReuseIdentifier: "AppSelectionCell")
         
         apps = []
+        enableThemes()
         for proxy in LSApplicationWorkspace.default().allInstalledApplications() {
             guard let bundleURL = proxy.bundleURL(),
                 let plistData = try? Data(contentsOf: bundleURL.appendingPathComponent("Info.plist")),
@@ -57,6 +58,7 @@ class AppSelectionViewController: UICollectionViewController {
                 "appName": iconLabelText ?? ""
             ])
         }
+        disableThemes()
         
         apps.sort { i, j -> Bool in
             if let iApp = i["appName"] as? String,
