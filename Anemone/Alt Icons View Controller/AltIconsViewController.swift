@@ -56,7 +56,7 @@ class AltIconsViewController: UITableViewController {
     }
     
     @objc func reloadData() {
-        self.actuallyReload(ui: true)
+        self.actuallyReload(reloadUI: true)
     }
     
     @IBAction func resetAll(_: Any?) {
@@ -97,8 +97,22 @@ extension AltIconsViewController {
         }
         
         cell.textLabel?.text = appNames[bundleID]
-        cell.detailTextLabel?.text = iconAssignment["theme"]
+        
+        if var theme = iconAssignment["theme"] {
+            cell.imageView?.image = IconHelper.shared.getThemedIconForBundle(bundle: bundleID, identifier: theme)
+            cell.imageView?.layer.cornerRadius = 10
+            cell.imageView?.clipsToBounds = true
+            
+            if theme.hasSuffix(".theme") {
+                theme.removeLast(6)
+            }
+            cell.detailTextLabel?.text = theme
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
 }
 

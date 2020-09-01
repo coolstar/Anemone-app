@@ -200,7 +200,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Select Icon" id="OSv-MS-1zB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RXg-oJ-53v"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RXg-oJ-53v">
+                            <connections>
+                                <action selector="dismiss:" destination="bOo-W8-EkN" id="KBL-Ef-PIO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5g-oS-MQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

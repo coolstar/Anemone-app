@@ -14,32 +14,6 @@ class IconSelectionViewController: UICollectionViewController {
     private var themeIcons: [[String: Any]] = []
     private var selectedTheme: String = ""
     
-    func getThemedIconForBundle(bundle: String, identifier: String) -> UIImage? {
-        var bundleIdentifier = bundle
-        let themesDir = PackageListManager.shared.prefixDir().path
-        
-        if bundleIdentifier == "com.anemoneteam.anemone" {
-            bundleIdentifier = "com.anemonetheming.anemone"
-        }
-
-        if bundleIdentifier == "org.coolstar.electra1141" {
-            bundleIdentifier = "org.coolstar.electra1131"
-        }
-        
-        let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
-        var icon = UIImage(contentsOfFile: ibLargeThemePath)
-        if icon != nil {
-            return icon
-        }
-        
-        let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundleIdentifier)
-        icon = UIImage(contentsOfFile: ibThemePath)
-        if icon != nil {
-            return icon
-        }
-        return nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,7 +35,7 @@ class IconSelectionViewController: UICollectionViewController {
         }
         
         for theme in themes {
-            if let image = getThemedIconForBundle(bundle: bundleID, identifier: theme) {
+            if let image = IconHelper.shared.getThemedIconForBundle(bundle: bundleID, identifier: theme) {
                 themeIcons.append([
                     "theme": theme,
                     "icon": image
@@ -77,6 +51,7 @@ class IconSelectionViewController: UICollectionViewController {
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: String(localizationKey: "OK"), style: .default, handler: { _ in
                 self.actuallySave()
+                UserDefaults.standard.set(true, forKey: "altIconPrompt")
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -93,6 +68,10 @@ class IconSelectionViewController: UICollectionViewController {
         UserDefaults.standard.synchronize()
         
         NotificationCenter.default.post(name: IconHelper.shared.altIconsChangedNotification, object: nil)
+    }
+    
+    @IBAction func dismiss(_: Any?) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

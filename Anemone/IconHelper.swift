@@ -29,4 +29,30 @@ class IconHelper {
         
         return getIconForBundle(bundle, iconsDictionary, variant, options, 2.0, getThemed)
     }
+    
+    public func getThemedIconForBundle(bundle: String, identifier: String) -> UIImage? {
+        var bundleIdentifier = bundle
+        let themesDir = PackageListManager.shared.prefixDir().path
+        
+        if bundleIdentifier == "com.anemoneteam.anemone" {
+            bundleIdentifier = "com.anemonetheming.anemone"
+        }
+
+        if bundleIdentifier == "org.coolstar.electra1141" {
+            bundleIdentifier = "org.coolstar.electra1131"
+        }
+        
+        let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
+        var icon = UIImage(contentsOfFile: ibLargeThemePath)
+        if icon != nil {
+            return icon
+        }
+        
+        let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundleIdentifier)
+        icon = UIImage(contentsOfFile: ibThemePath)
+        if icon != nil {
+            return icon
+        }
+        return nil
+    }
 }
