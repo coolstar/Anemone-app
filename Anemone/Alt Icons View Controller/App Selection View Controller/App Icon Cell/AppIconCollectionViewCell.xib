@@ -16,6 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="104" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBE-h8-8oV">
+                        <rect key="frame" x="0.0" y="0.0" width="104" height="90"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJu-mS-g5T">
                         <rect key="frame" x="21" y="4" width="62" height="62"/>
                         <constraints>
@@ -49,6 +54,7 @@
             <connections>
                 <outlet property="imageView" destination="TJu-mS-g5T" id="lqJ-1b-gk7"/>
                 <outlet property="labelView" destination="Eit-mc-bLo" id="sFT-Le-urF"/>
+                <outlet property="selectedBackgroundView" destination="zBE-h8-8oV" id="fAO-bt-Kge"/>
             </connections>
             <point key="canvasLocation" x="155.07246376811597" y="111.83035714285714"/>
         </collectionViewCell>
