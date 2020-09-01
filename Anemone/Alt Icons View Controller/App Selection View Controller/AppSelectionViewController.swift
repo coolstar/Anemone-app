@@ -10,6 +10,7 @@ import Foundation
 
 class AppSelectionViewController: UICollectionViewController {
     private var apps: [LSApplicationProxy] = []
+    private var selectedBundleID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class AppSelectionViewController: UICollectionViewController {
         self.collectionView.reloadData()
     }
     
-    @IBAction func dismiss(_: Any?){
+    @IBAction func dismiss(_: Any?) {
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -83,5 +84,15 @@ extension AppSelectionViewController {
 extension AppSelectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        selectedBundleID = apps[indexPath.row].anemIdentifier() ?? ""
+        
+        self.performSegue(withIdentifier: "altIconSelectIcon", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let iconSelectionController = segue.destination as? IconSelectionViewController {
+            iconSelectionController.bundleID = selectedBundleID
+        }
     }
 }

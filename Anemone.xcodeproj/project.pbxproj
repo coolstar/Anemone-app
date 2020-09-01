@@ -47,6 +47,7 @@
 		F1FF7AB024FD9A830088F88B /* AppIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AAE24FD9A830088F88B /* AppIconCollectionViewCell.swift */; };
 		F1FF7AB124FD9A830088F88B /* AppIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FF7AAF24FD9A830088F88B /* AppIconCollectionViewCell.xib */; };
 		F1FF7AB324FD9D0B0088F88B /* IconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */; };
+		F1FF7AB624FDCF660088F88B /* IconSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF7AB524FDCF660088F88B /* IconSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		F1FF7AAE24FD9A830088F88B /* AppIconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1FF7AAF24FD9A830088F88B /* AppIconCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppIconCollectionViewCell.xib; sourceTree = "<group>"; };
 		F1FF7AB224FD9D0B0088F88B /* IconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconHelper.swift; sourceTree = "<group>"; };
+		F1FF7AB524FDCF660088F88B /* IconSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 			children = (
 				F1FF7AAB24FD9A530088F88B /* App Icon Cell */,
 				F1FF7AA924FD97E60088F88B /* AppSelectionViewController.swift */,
+				F1FF7AB524FDCF660088F88B /* IconSelectionViewController.swift */,
 			);
 			path = "App Selection View Controller";
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				F1C5396521864F9E00CDF1CC /* ThemeCategoryNode.swift in Sources */,
 				F1C51DCC2200005C0081AFC6 /* SBCalendarApplicationIcon.m in Sources */,
 				F1AE69E621FA63D500D4E7EA /* ANEMPreviewController.swift in Sources */,
+				F1FF7AB624FDCF660088F88B /* IconSelectionViewController.swift in Sources */,
 				F102246721FE55B0006A1B78 /* MobileIcons.m in Sources */,
 				F1C12E5B218847DF005582D4 /* LaunchServices.m in Sources */,
 				F19FB3B022C05F02008E986B /* DpkgWrapper.swift in Sources */,
