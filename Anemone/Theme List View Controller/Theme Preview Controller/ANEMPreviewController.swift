@@ -749,6 +749,12 @@ class ANEMPreviewController: UIViewController {
             return nil
         }
         
+        if let overrides = UserDefaults.standard.dictionary(forKey: "iconOverrides") as? [String: [String: String]] {
+            if overrides[bundle] != nil {
+                return ""
+            }
+        }
+        
         if bundleIdentifier == "com.anemoneteam.anemone" {
             bundleIdentifier = "com.anemonetheming.anemone"
         }
