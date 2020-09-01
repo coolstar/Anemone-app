@@ -136,7 +136,8 @@ class ANEMThemeListViewController: UIViewController {
     }
     
     @objc func markStale() {
-        previewIsStale = true
+        writeSettings()
+        CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication)
         self.viewDidLayoutSubviews()
     }
     
