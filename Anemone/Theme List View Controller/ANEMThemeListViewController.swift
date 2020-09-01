@@ -18,6 +18,11 @@ class ANEMThemeListViewController: UIViewController {
         
         previewIsStale = false
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ANEMThemeListViewController.markStale),
+                                               name: IconHelper.shared.altIconsChangedNotification,
+                                               object: nil)
+        
         UserDefaults.standard.set(UIDevice.current.userInterfaceIdiom.rawValue, forKey: "userInterfaceIdiom")
         UserDefaults.standard.set(UIScreen.main.scale, forKey: "displayScale")
         
@@ -128,6 +133,11 @@ class ANEMThemeListViewController: UIViewController {
                                                                     target: self,
                                                                     action: #selector(ANEMThemeListViewController.toggleEditing))
         }
+    }
+    
+    @objc func markStale() {
+        previewIsStale = true
+        self.viewDidLayoutSubviews()
     }
     
     func writeSettings() {

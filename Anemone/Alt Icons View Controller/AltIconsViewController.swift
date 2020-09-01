@@ -11,12 +11,36 @@ import Foundation
 class AltIconsViewController: UITableViewController {
     private var iconAssignments: [[String: String]] = []
     private var appNames: [String: String] = [:]
+    private var selectedBundleID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(AltIconsViewController.reloadData),
+                                               name: IconHelper.shared.altIconsChangedNotification,
+                                               object: nil)
+        self.actuallyReload(ui: true)
     }
     
-    func reloadData() {
+    func actuallyReload(ui: Bool) {
+        appNames = [:]
+        for proxy in LSApplicationWorkspace.default().allInstalledApplications() {
+            guard let bundleURL = proxy.bundleURL(),
+                let plistData = try? Data(contentsOf: bundleURL.appendingPathComponent("Info.plist")),
+                let plist = try? PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as? [String: Any],
+                let bundleIdentifier = proxy.anemIdentifier() else {
+                continue
+            }
+            
+            var appName = proxy.localizedName()
+            if appName?.isEmpty ?? true {
+                appName = plist["CFBundleExecutable"] as? String
+            }
+            
+            appNames[bundleIdentifier] = appName ?? ""
+        }
+        
         iconAssignments = []
         if let rawOverrides = UserDefaults.standard.dictionary(forKey: "iconOverrides") as? [String: [String: String]] {
             for (bundleIdentifier, rawOverride) in rawOverrides {
@@ -26,7 +50,13 @@ class AltIconsViewController: UITableViewController {
             }
         }
         
-        tableView.reloadData()
+        if ui {
+            tableView.reloadData()
+        }
+    }
+    
+    @objc func reloadData() {
+        self.actuallyReload(ui: true)
     }
     
     @IBAction func resetAll(_: Any?) {
@@ -57,7 +87,8 @@ extension AltIconsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AltIconListCell") ?? UITableViewCell(style: .value1, reuseIdentifier: "AltIconListCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AltIconListCell") ??
+            UITableViewCell(style: .value1, reuseIdentifier: "AltIconListCell")
         
         let iconAssignment = iconAssignments[indexPath.row]
         
@@ -68,5 +99,50 @@ extension AltIconsViewController {
         cell.textLabel?.text = appNames[bundleID]
         cell.detailTextLabel?.text = iconAssignment["theme"]
         return cell
+    }
+}
+
+extension AltIconsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let iconAssignment = iconAssignments[indexPath.row]
+        guard let bundleID = iconAssignment["bundleID"] else {
+            return
+        }
+        selectedBundleID = bundleID
+        
+        self.performSegue(withIdentifier: "altIconReplaceIcon", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let iconAssignment = iconAssignments[indexPath.row]
+            guard let bundleID = iconAssignment["bundleID"] else {
+                return
+            }
+            
+            var iconAssignments = (UserDefaults.standard.dictionary(forKey: "iconOverrides") as? [String: [String: String]]) ?? [:]
+            iconAssignments.removeValue(forKey: bundleID)
+            UserDefaults.standard.set(iconAssignments, forKey: "iconOverrides")
+            UserDefaults.standard.synchronize()
+            
+            NotificationCenter.default.post(name: IconHelper.shared.altIconsChangedNotification, object: nil)
+            self.actuallyReload(ui: false)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "altIconReplaceIcon" {
+            if let navController = segue.destination as? UINavigationController {
+                if let iconsController = navController.topViewController as? IconSelectionViewController {
+                    iconsController.bundleID = selectedBundleID
+                }
+            }
+        }
     }
 }

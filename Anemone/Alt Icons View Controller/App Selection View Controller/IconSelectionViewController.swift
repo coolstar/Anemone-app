@@ -12,17 +12,27 @@ class IconSelectionViewController: UICollectionViewController {
     public var bundleID: String = ""
     
     private var themeIcons: [[String: Any]] = []
+    private var selectedTheme: String = ""
     
     func getThemedIconForBundle(bundle: String, identifier: String) -> UIImage? {
+        var bundleIdentifier = bundle
         let themesDir = PackageListManager.shared.prefixDir().path
         
-        let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundle)
+        if bundleIdentifier == "com.anemoneteam.anemone" {
+            bundleIdentifier = "com.anemonetheming.anemone"
+        }
+
+        if bundleIdentifier == "org.coolstar.electra1141" {
+            bundleIdentifier = "org.coolstar.electra1131"
+        }
+        
+        let ibLargeThemePath = String(format: "%@/%@/IconBundles/%@-large.png", themesDir, identifier, bundleIdentifier)
         var icon = UIImage(contentsOfFile: ibLargeThemePath)
         if icon != nil {
             return icon
         }
         
-        let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundle)
+        let ibThemePath = String(format: "%@/%@/IconBundles/%@.png", themesDir, identifier, bundleIdentifier)
         icon = UIImage(contentsOfFile: ibThemePath)
         if icon != nil {
             return icon
@@ -60,8 +70,29 @@ class IconSelectionViewController: UICollectionViewController {
         }
     }
     
-    @objc func save(_: Any?){
+    @objc func save(_: Any?) {
+        if UserDefaults.standard.bool(forKey: "altIconPrompt") != true {
+            let alert = UIAlertController(title: String(localizationKey: "Alt Icon Saved"),
+                                          message: String(localizationKey: "Alt Icon Saved. To apply the new assignments, go to the main Anemone panel and tap Apply."),
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: String(localizationKey: "OK"), style: .default, handler: { _ in
+                self.actuallySave()
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.actuallySave()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func actuallySave() {
+        var iconAssignments = (UserDefaults.standard.dictionary(forKey: "iconOverrides") as? [String: [String: String]]) ?? [:]
+        iconAssignments[bundleID] = ["theme": selectedTheme]
+        UserDefaults.standard.set(iconAssignments, forKey: "iconOverrides")
+        UserDefaults.standard.synchronize()
         
+        NotificationCenter.default.post(name: IconHelper.shared.altIconsChangedNotification, object: nil)
     }
 }
 
@@ -96,6 +127,14 @@ extension IconSelectionViewController {
 
 extension IconSelectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(IconSelectionViewController.save(_:)))
+        let selectedTheme = themeIcons[indexPath.row]
+        guard let themeName = selectedTheme["theme"] as? String else {
+            return
+        }
+        self.selectedTheme = themeName
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                                 target: self,
+                                                                 action: #selector(IconSelectionViewController.save(_:)))
     }
 }

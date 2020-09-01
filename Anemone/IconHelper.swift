@@ -11,6 +11,7 @@ import Foundation
 class IconHelper {
     public static let shared = IconHelper()
     
+    public let altIconsChangedNotification = Notification.Name("SileoAltIconsChanged")
     public func getHomeScreenIconForApp(app: LSApplicationProxy, isiPad: Bool, getThemed: Bool) -> UIImage? {
         let iconsDictionary = app.iconsDictionary()
         let bundle = Bundle(url: app.bundleURL()!)

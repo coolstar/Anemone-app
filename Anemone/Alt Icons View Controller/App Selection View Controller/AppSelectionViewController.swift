@@ -87,7 +87,7 @@ extension AppSelectionViewController {
         
         selectedBundleID = apps[indexPath.row].anemIdentifier() ?? ""
         
-        self.performSegue(withIdentifier: "altIconSelectIcon", sender: self)
+        self.performSegue(withIdentifier: "altIconAddIcon", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

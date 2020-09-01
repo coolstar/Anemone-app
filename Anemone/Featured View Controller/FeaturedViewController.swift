@@ -13,7 +13,7 @@ class FeaturedViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func openSileo(_: Any?){
+    @IBAction func openSileo(_: Any?) {
         UIApplication.shared.open(URL(string: "sileo://")!, options: [:], completionHandler: nil)
     }
 }
