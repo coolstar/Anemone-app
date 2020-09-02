@@ -183,7 +183,13 @@
         <scene sceneID="tz4-Z7-2wO">
             <objects>
                 <viewController id="q1l-9l-CWH" customClass="IconSelectionViewController" customModule="Anemone" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="1VZ-i7-ETZ"/>
+                    <navigationItem key="navigationItem" id="1VZ-i7-ETZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="RbZ-a2-7Nj">
+                            <connections>
+                                <action selector="dismiss:" destination="q1l-9l-CWH" id="Bdz-3f-Hb7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4U-ta-WxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

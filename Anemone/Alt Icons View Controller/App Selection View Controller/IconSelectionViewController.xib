@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-Yy-H3g">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="847"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zlg-y7-d85">
                         <size key="itemSize" width="104" height="90"/>
@@ -38,12 +38,12 @@
                     </connections>
                 </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dc6-Rr-Cpk">
-                    <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                    <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                     <items>
                         <barButtonItem enabled="NO" title="Filter By" id="cHW-is-LMA"/>
                         <barButtonItem style="plain" id="f8V-YT-YdT">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="NhC-BM-YYN">
-                                <rect key="frame" x="93.5" y="10.5" width="131" height="33"/>
+                                <rect key="frame" x="93.5" y="5.5" width="131" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="App"/>
@@ -63,7 +63,7 @@
                     </items>
                 </toolbar>
                 <pickerView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6b-zH-HRi">
-                    <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                    <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="height" id="0R5-rN-g90"/>
                     </constraints>
@@ -81,7 +81,7 @@
                 <constraint firstItem="3hj-Yy-H3g" firstAttribute="trailing" secondItem="w3B-Yt-Kih" secondAttribute="trailing" id="FNY-cQ-NsD"/>
                 <constraint firstItem="3hj-Yy-H3g" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="MP3-yR-8fv"/>
                 <constraint firstItem="3hj-Yy-H3g" firstAttribute="top" secondItem="B6U-dC-dRR" secondAttribute="top" id="OIC-K9-hLk"/>
-                <constraint firstAttribute="bottom" secondItem="A6b-zH-HRi" secondAttribute="bottom" id="XXy-zD-YKw"/>
+                <constraint firstItem="w3B-Yt-Kih" firstAttribute="bottom" secondItem="A6b-zH-HRi" secondAttribute="bottom" id="XXy-zD-YKw"/>
                 <constraint firstItem="A6b-zH-HRi" firstAttribute="trailing" secondItem="w3B-Yt-Kih" secondAttribute="trailing" id="Xcd-5y-iR6"/>
                 <constraint firstItem="A6b-zH-HRi" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="hq5-Z9-W7t"/>
                 <constraint firstItem="Dc6-Rr-Cpk" firstAttribute="leading" secondItem="w3B-Yt-Kih" secondAttribute="leading" id="t4r-N7-e9B"/>

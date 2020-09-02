@@ -50,6 +50,15 @@ class AltIconsViewController: UITableViewController {
             }
         }
         
+        iconAssignments.sort { assignmentA, assignmentB -> Bool in
+            guard let bundleA = assignmentA["bundleID"],
+                let bundleB = assignmentB["bundleID"] else {
+                return false
+            }
+            
+            return (appNames[bundleA]?.compare(appNames[bundleB] ?? "") == .orderedAscending)
+        }
+        
         if reloadUI {
             tableView.reloadData()
         }
